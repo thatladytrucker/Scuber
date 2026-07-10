@@ -185,3 +185,18 @@ select {
     text-align: center;
 
 }
+#trip-screen {
+
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+
+}
+
+
+#trip-screen h2 {
+
+    color: #6a0dad;
+
+}
