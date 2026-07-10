@@ -11,8 +11,40 @@
 </head>
 
 <body>
+<div id="account-screen">
 
-<div class="app">
+    <header>
+        <h1>SCUBER</h1>
+        <p>Your Ride. Your Schedule. Your Community.</p>
+    </header>
+
+
+    <h2>Create Your Account</h2>
+
+
+    <input 
+    type="text" 
+    id="name" 
+    placeholder="Full Name">
+
+
+    <input 
+    type="email" 
+    id="email" 
+    placeholder="Email Address">
+
+
+    <button class="ride" onclick="createAccount('rider')">
+        🚗 Continue as Rider
+    </button>
+
+
+    <button class="schedule" onclick="createAccount('driver')">
+        🚘 Continue as Driver
+    </button>
+
+</div>
+<div class="app hidden" id="main-app">
 
     <header>
         <h1>SCUBER</h1>
