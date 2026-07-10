@@ -168,3 +168,20 @@ select {
 #driver-screen h2 {
     color: #008c95;
 }
+.ride-card {
+
+    background: #f7f7fb;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px 0;
+
+}
+
+
+.decline {
+
+    background: #777;
+
+    text-align: center;
+
+}
