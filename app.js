@@ -53,3 +53,31 @@ function confirmRecurring() {
     );
 
 }
+function createAccount(type) {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+
+    if(name === "" || email === "") {
+
+        alert("Please enter your name and email.");
+
+        return;
+    }
+
+
+    alert(
+        "Welcome to Scuber, " + name + "!\n\n" +
+        "Account Type: " + type
+    );
+
+
+    document.getElementById("account-screen")
+    .classList.add("hidden");
+
+
+    document.getElementById("main-app")
+    .classList.remove("hidden");
+
+}
