@@ -108,3 +108,28 @@ function saveAvailability() {
     );
 
 }
+function requestRide(){
+
+    document.getElementById("ride-request-screen")
+    .classList.remove("hidden");
+
+}
+
+
+function findDriver(){
+
+    let pickup = document.getElementById("now-pickup").value;
+    let destination = document.getElementById("now-destination").value;
+
+
+    let driverFound = "Alex";
+
+
+    alert(
+        "Driver Found!\n\n" +
+        "Driver: " + driverFound +
+        "\nPickup: " + pickup +
+        "\nDestination: " + destination
+    );
+
+}
