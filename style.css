@@ -141,3 +141,19 @@ select {
     border: 1px solid #ccc;
     background: white;
 }
+#account-screen {
+    max-width: 420px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+#account-screen h2 {
+    color: #6a0dad;
+}
+
+
+.hidden {
+    display: none;
+}
