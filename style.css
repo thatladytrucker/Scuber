@@ -120,3 +120,24 @@ input {
     background: #008c95;
     text-align: center;
 }
+#recurring-screen {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+
+#recurring-screen h2 {
+    color: #7048e8;
+}
+
+
+select {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: white;
+}
