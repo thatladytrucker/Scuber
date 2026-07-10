@@ -168,3 +168,35 @@ function declineRide(){
     );
 
 }
+function showTripScreen(){
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+
+    document.getElementById("trip-screen")
+    .classList.remove("hidden");
+
+}
+
+
+
+function startTrip(){
+
+    alert(
+        "Trip Started!\n\n" +
+        "Scuber navigation is active."
+    );
+
+}
+
+
+
+function completeTrip(){
+
+    alert(
+        "Trip Completed!\n\n" +
+        "Thank you for riding with Scuber."
+    );
+
+}
