@@ -137,6 +137,8 @@ showDriverRequest();
 }
 function showDriverRequest(){
 
+    alert("Driver Request Function Works");  
+    
     document.getElementById("main-app")
     .classList.add("hidden");
 
