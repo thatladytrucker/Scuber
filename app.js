@@ -81,3 +81,30 @@ function createAccount(type) {
     .classList.remove("hidden");
 
 }
+function showDriverScreen() {
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+
+    document.getElementById("driver-screen")
+    .classList.remove("hidden");
+
+}
+
+
+function saveAvailability() {
+
+    let day = document.getElementById("driver-day").value;
+    let start = document.getElementById("driver-start").value;
+    let end = document.getElementById("driver-end").value;
+
+
+    alert(
+        "Availability Saved!\n\n" +
+        "Day: " + day +
+        "\nTime: " + start +
+        " - " + end
+    );
+
+}
