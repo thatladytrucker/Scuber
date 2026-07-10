@@ -1,20 +1,28 @@
 // Scuber App - Version 1
 
-const rideButton = document.querySelector(".ride");
-const scheduleButton = document.querySelector(".schedule");
-const recurringButton = document.querySelector(".recurring");
+
+function openSchedule() {
+
+    document.getElementById("schedule-screen")
+    .classList.remove("hidden");
+
+}
 
 
-rideButton.addEventListener("click", function() {
-    alert("Finding available drivers near you...");
-});
+function confirmRide() {
+
+    let pickup = document.getElementById("pickup").value;
+    let destination = document.getElementById("destination").value;
+    let date = document.getElementById("ride-date").value;
+    let time = document.getElementById("ride-time").value;
 
 
-scheduleButton.addEventListener("click", function() {
-    alert("Let's schedule your ride.");
-});
+    alert(
+        "Ride Scheduled!\n\n" +
+        "Pickup: " + pickup +
+        "\nDestination: " + destination +
+        "\nDate: " + date +
+        "\nTime: " + time
+    );
 
-
-recurringButton.addEventListener("click", function() {
-    alert("Let's set up your recurring rides.");
-});
+}
