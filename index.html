@@ -69,10 +69,46 @@
     </button>
 
 
-    <button class="recurring">
-        🔁 Recurring Rides
-        <span>Set up rides that repeat automatically</span>
+    <button class="recurring" onclick="openRecurring()">
+    🔁 Recurring Rides
+    <span>Set up rides that repeat automatically</span>
+</button>
+
+
+<div id="recurring-screen" class="hidden">
+
+    <h2>Set Up Recurring Ride</h2>
+
+    <label>Pickup Location</label>
+    <input type="text" id="repeat-pickup" placeholder="Enter pickup location">
+
+
+    <label>Destination</label>
+    <input type="text" id="repeat-destination" placeholder="Where are you going?">
+
+
+    <label>Repeat On</label>
+
+    <select id="repeat-day">
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+    </select>
+
+
+    <label>Pickup Time</label>
+    <input type="time" id="repeat-time">
+
+
+    <button class="confirm" onclick="confirmRecurring()">
+        Save Recurring Ride
     </button>
+
+</div>
 
 
 </div>
