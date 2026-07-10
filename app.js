@@ -131,7 +131,9 @@ function findDriver(){
         "\nPickup: " + pickup +
         "\nDestination: " + destination
     );
-
+    
+showDriverRequest();
+    
 }
 function showDriverRequest(){
 
