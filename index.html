@@ -43,6 +43,24 @@
     <button class="schedule" onclick="createAccount('driver'); showDriverScreen();">
         🚘 Continue as Driver
     </button>
+    <div id="ride-request-screen" class="hidden">
+
+<h2>Request Ride</h2>
+
+<label>Pickup Location</label>
+<input type="text" id="now-pickup" placeholder="Where are you?" />
+
+
+<label>Destination</label>
+<input type="text" id="now-destination" placeholder="Where are you going?" />
+
+
+<button class="confirm" onclick="findDriver()">
+Find Available Driver
+</button>
+
+
+</div>
 
 </div>
 <div id="driver-screen" class="hidden">
