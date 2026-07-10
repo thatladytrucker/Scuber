@@ -88,3 +88,35 @@ button span {
 button:hover {
     opacity: 0.85;
 }
+.hidden {
+    display: none;
+}
+
+
+#schedule-screen {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+
+#schedule-screen h2 {
+    color: #6a0dad;
+}
+
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.confirm {
+    background: #008c95;
+    text-align: center;
+}
