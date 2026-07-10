@@ -133,3 +133,35 @@ function findDriver(){
     );
 
 }
+function showDriverRequest(){
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+
+    document.getElementById("driver-request-screen")
+    .classList.remove("hidden");
+
+}
+
+
+
+function acceptRide(){
+
+    alert(
+        "Ride Accepted!\n\n" +
+        "Navigation started."
+    );
+
+}
+
+
+
+function declineRide(){
+
+    alert(
+        "Ride Declined.\n\n" +
+        "Searching for another driver."
+    );
+
+}
