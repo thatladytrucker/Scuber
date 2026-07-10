@@ -142,6 +142,7 @@ function showDriverRequest(){
     document.getElementById("main-app")
     .classList.add("hidden");
 
+    alert("Main app is now hidden");
 
     document.getElementById("driver-request-screen")
     .classList.remove("hidden");
