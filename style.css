@@ -157,3 +157,14 @@ select {
 .hidden {
     display: none;
 }
+#driver-screen {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+
+#driver-screen h2 {
+    color: #008c95;
+}
