@@ -26,3 +26,30 @@ function confirmRide() {
     );
 
 }
+
+
+function openRecurring() {
+
+    document.getElementById("recurring-screen")
+    .classList.remove("hidden");
+
+}
+
+
+function confirmRecurring() {
+
+    let pickup = document.getElementById("repeat-pickup").value;
+    let destination = document.getElementById("repeat-destination").value;
+    let day = document.getElementById("repeat-day").value;
+    let time = document.getElementById("repeat-time").value;
+
+
+    alert(
+        "Recurring Ride Saved!\n\n" +
+        "Pickup: " + pickup +
+        "\nDestination: " + destination +
+        "\nEvery: " + day +
+        "\nTime: " + time
+    );
+
+}
