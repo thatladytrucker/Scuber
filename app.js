@@ -198,6 +198,14 @@ function showDriverRequest(){
 
 function acceptRide(){
 
+    if(window.currentRide){
+
+        currentRide.status = "Driver Accepted";
+        currentRide.driver = "Alex";
+
+    }
+
+
     alert(
         "Ride Accepted!\n\n" +
         "Navigation started."
