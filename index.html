@@ -91,7 +91,15 @@ Find Available Driver
     <button class="schedule">
         👤 Profile
     </button>
+<button class="schedule" onclick="openSchedule()">
+    📅 Schedule a Ride
+    <span>Book hours, days, or weeks in advance</span>
+</button>
 
+<button class="recurring" onclick="openRecurring()">
+    🔁 Recurring Rides
+    <span>Set up rides that repeat automatically</span>
+</button>
 </div>  
 <div id="driver-dashboard" class="hidden">
 
@@ -149,10 +157,7 @@ Find Available Driver
     </button>
 
 </div>
-
-</div>
-
-</div>
+    
 <div id="driver-screen" class="hidden">
 
     <h2>Driver Availability</h2>
@@ -296,7 +301,7 @@ Find Available Driver
 </div>
 </div>
 
-    <div id="rider-extra-options" class="hidden">
+    
     
     <button class="schedule">
         📅 Schedule a Ride
@@ -338,15 +343,6 @@ Find Available Driver
     <label>Pickup Time</label>
     <input type="time" id="repeat-time">
 
-
-    <button class="confirm" onclick="confirmRecurring()">
-        Save Recurring Ride
-    </button>
-
-</div>
-
-
-</div>
 
 
 <script src="app.js"></script>
