@@ -109,6 +109,14 @@ function showDriverDashboard() {
 
     document.getElementById("rider-dashboard").classList.add("hidden");
 
+    document.getElementById("schedule-screen").classList.add("hidden");
+
+    document.getElementById("trip-screen").classList.add("hidden");
+
+    document.getElementById("driver-screen").classList.add("hidden");
+
+    document.getElementById("driver-request-screen").classList.add("hidden");
+
     document.getElementById("driver-dashboard").classList.remove("hidden");
 
 }
