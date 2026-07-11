@@ -152,7 +152,15 @@ function findDriver(){
 
 
     let driverFound = "Alex";
+    let currentRide = {
+    rider: "Toya",
+    driver: driverFound,
+    pickup: pickup,
+    destination: destination,
+    status: "Waiting for driver acceptance"
+};
 
+window.currentRide = currentRide;
 
     alert(
         "Driver Found!\n\n" +
