@@ -118,6 +118,8 @@ function showDriverDashboard() {
 
     document.getElementById("driver-dashboard").classList.remove("hidden");
 
+    document.getElementById("rider-extra-options").classList.add("hidden");
+
 }
 function saveAvailability() {
 
