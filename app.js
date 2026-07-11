@@ -174,13 +174,23 @@ showDriverRequest();
 }
 function showDriverRequest(){
 
-        
     document.getElementById("main-app")
     .classList.add("hidden");
 
-    
+
     document.getElementById("driver-request-screen")
     .classList.remove("hidden");
+
+
+    if(window.currentRide){
+
+        document.getElementById("request-rider").textContent = currentRide.rider;
+
+        document.getElementById("request-pickup").textContent = currentRide.pickup;
+
+        document.getElementById("request-destination").textContent = currentRide.destination;
+
+    }
 
 }
 
