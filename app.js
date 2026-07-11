@@ -87,10 +87,6 @@ function showRiderDashboard() {
 
     document.getElementById("rider-dashboard").classList.remove("hidden");
 
-}
-
-    document.getElementById("rider-dashboard").classList.remove("hidden");
-
     document.getElementById("driver-screen").classList.add("hidden");
     document.getElementById("schedule-screen").classList.add("hidden");
     document.getElementById("trip-screen").classList.add("hidden");
