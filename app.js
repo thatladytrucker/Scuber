@@ -103,7 +103,15 @@ function showDriverScreen() {
 
 }
 
+function showDriverDashboard() {
 
+    document.getElementById("main-app").classList.add("hidden");
+
+    document.getElementById("rider-dashboard").classList.add("hidden");
+
+    document.getElementById("driver-dashboard").classList.remove("hidden");
+
+}
 function saveAvailability() {
 
     let day = document.getElementById("driver-day").value;
