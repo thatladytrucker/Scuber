@@ -77,8 +77,7 @@ function createAccount(type) {
     .classList.add("hidden");
 
 
-    document.getElementById("main-app")
-    .classList.remove("hidden");
+    // Dashboard opens after account selection
 
 }
 function showRiderDashboard() {
