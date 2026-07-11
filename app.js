@@ -83,7 +83,7 @@ function createAccount(type) {
 }
 function showRiderDashboard() {
 
-    alert("Rider Dashboard clicked");
+    console.log("Rider Dashboard function is running");
 
     document.getElementById("rider-dashboard").classList.remove("hidden");
 
