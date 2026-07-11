@@ -203,6 +203,10 @@ function acceptRide(){
         currentRide.status = "Driver Accepted";
         currentRide.driver = "Alex";
 
+        document.getElementById("rider-driver").textContent = currentRide.driver;
+
+        document.getElementById("rider-status").textContent = currentRide.status;
+
     }
 
 
@@ -212,7 +216,6 @@ function acceptRide(){
     );
 
 }
-
 
 
 function declineRide(){
