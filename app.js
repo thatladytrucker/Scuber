@@ -83,6 +83,12 @@ function createAccount(type) {
 }
 function showRiderDashboard() {
 
+    alert("Rider Dashboard clicked");
+
+    document.getElementById("rider-dashboard").classList.remove("hidden");
+
+}
+
     document.getElementById("rider-dashboard").classList.remove("hidden");
 
     document.getElementById("driver-screen").classList.add("hidden");
