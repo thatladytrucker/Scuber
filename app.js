@@ -248,6 +248,8 @@ function showTripScreen(){
 
 function showRiderTripScreen(){
 
+    alert("Rider Trip Screen function is working");
+
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
 
