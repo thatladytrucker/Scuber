@@ -208,7 +208,7 @@ function acceptRide(){
         document.getElementById("rider-status").textContent = currentRide.status;
 
     }
-
+showRiderTripScreen();
 
     alert(
         "Ride Accepted!\n\n" +
