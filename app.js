@@ -250,6 +250,9 @@ function showRiderTripScreen(){
 
     alert("Opening rider trip screen");
 
+    document.getElementById("main-app")
+    .classList.remove("hidden");
+
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
 
