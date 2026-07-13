@@ -152,6 +152,13 @@ function findDriver(){
 
 
     let driverFound = "Alex";
+    window.currentRide = {
+    rider: "Toya",
+    pickup: pickup,
+    destination: destination,
+    driver: driverFound,
+    status: "Driver Found"
+};
     let currentRide = {
     rider: "Toya",
     driver: driverFound,
