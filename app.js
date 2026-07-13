@@ -249,7 +249,7 @@ function showTripScreen(){
 function showRiderTripScreen(){
 
     document.getElementById("main-app")
-    .classList.add("hidden");
+    .classList.remove("hidden");
 
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
