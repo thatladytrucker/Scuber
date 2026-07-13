@@ -248,7 +248,20 @@ function showTripScreen(){
 
 function showRiderTripScreen(){
 
-    alert("Rider Trip Screen function is working");
+    document.getElementById("account-screen")
+    .classList.add("hidden");
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+    document.getElementById("rider-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("driver-request-screen")
+    .classList.add("hidden");
 
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
