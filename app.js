@@ -236,7 +236,22 @@ function showTripScreen(){
     .classList.remove("hidden");
 
 }
+function showTripScreen(){
 
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+    document.getElementById("trip-screen")
+    .classList.remove("hidden");
+
+}
+
+function showRiderTripScreen(){
+
+    document.getElementById("rider-trip-screen")
+    .classList.remove("hidden");
+
+}
 
 
 function startTrip(){
