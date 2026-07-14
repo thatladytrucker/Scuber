@@ -218,7 +218,7 @@ function showDriverRequest(){
     .classList.remove("hidden");
 
 
-    if(window.currentRide){
+    if(currentRide){
 
         document.getElementById("request-rider").textContent = currentRide.rider;
 
