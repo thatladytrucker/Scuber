@@ -9,7 +9,7 @@
 
 function openSchedule() {
 
-    document.getElementById("rider-dashboard")
+    document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
     document.getElementById("schedule-screen")
@@ -97,7 +97,7 @@ function createAccount(type) {
 // ===========================================
 function showRideHistory(){
 
-    document.getElementById("rider-dashboard")
+    document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
     document.getElementById("ride-history-screen")
@@ -170,7 +170,7 @@ function showRiderHome() {
     document.getElementById("account-screen")
     .classList.add("hidden");
 
-    document.getElementById("rider-dashboard")
+    document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
     document.getElementById("main-app")
@@ -183,7 +183,7 @@ function showRiderDashboard() {
 
     document.getElementById("main-app").classList.remove("hidden");
 
-    document.getElementById("rider-dashboard").classList.add("hidden");
+    document.getElementById("old-rider-dashboard").classList.add("hidden");
 
     document.getElementById("ride-request-screen").classList.add("hidden");
     document.getElementById("driver-screen").classList.add("hidden");
@@ -214,7 +214,7 @@ function showDriverDashboard() {
     document.getElementById("account-screen")
     .classList.add("hidden");
 
-    document.getElementById("rider-dashboard")
+    document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
     document.getElementById("driver-trip-screen")
