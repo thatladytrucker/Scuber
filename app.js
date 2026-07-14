@@ -92,6 +92,51 @@ function createAccount(type) {
 // ===========================================
 // RIDER FUNCTIONS
 // ===========================================
+function showRideHistory(){
+
+    document.getElementById("rider-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("ride-history-screen")
+    .classList.remove("hidden");
+
+
+    let historyList = document.getElementById("ride-history-list");
+
+    if(rideHistory.length === 0){
+
+        historyList.innerHTML = "<p>No completed rides yet.</p>";
+
+        return;
+    }
+
+
+    historyList.innerHTML = "";
+
+
+    rideHistory.forEach(function(ride){
+
+        historyList.innerHTML += `
+
+        <div class="ride-card">
+
+            <p><strong>Driver:</strong> ${ride.driver}</p>
+
+            <p><strong>Pickup:</strong> ${ride.pickup}</p>
+
+            <p><strong>Destination:</strong> ${ride.destination}</p>
+
+            <p><strong>Fare:</strong> $${ride.fare}</p>
+
+            <p><strong>Status:</strong> ${ride.status}</p>
+
+        </div>
+
+        `;
+
+    });
+
+}
 function showRiderDashboard() {
 
     console.log("Rider Dashboard function is running");
