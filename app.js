@@ -234,7 +234,7 @@ function showDriverRequest(){
 
 function acceptRide(){
 
-    if(window.currentRide){
+    if(currentRide){
 
         currentRide.status = "DRIVER_ACCEPTED";
         currentRide.driver = "Alex";
