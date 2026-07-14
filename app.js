@@ -306,7 +306,7 @@ function completeTrip(){
 
     alert(
         "Trip Completed!\n\n" +
-        "Thank you for riding with Scuber."
+        "Thank you for driving with Scuber."
     );
 
 }
