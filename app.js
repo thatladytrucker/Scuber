@@ -1,4 +1,6 @@
-// Scuber App - Version 1
+// ===========================================
+// DRIVER FUNCTIONS
+// ===========================================// Scuber App - Version 1
 
 
 // ===========================================
@@ -156,6 +158,9 @@ function saveAvailability() {
     );
 
 }
+// ===========================================
+// SHARED RIDE FUNCTIONS
+// ===========================================
 function requestRide(){
 
     document.getElementById("ride-request-screen")
