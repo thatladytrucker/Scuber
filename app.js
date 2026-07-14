@@ -1,6 +1,10 @@
 // Scuber App - Version 1
 
 
+// ===========================================
+// SCHEDULE FUNCTIONS
+// ===========================================
+
 function openSchedule() {
 
     document.getElementById("schedule-screen")
