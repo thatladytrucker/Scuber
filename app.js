@@ -301,9 +301,6 @@ function startTrip(){
 
 }
 
-
-
-function completeTrip(){
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
