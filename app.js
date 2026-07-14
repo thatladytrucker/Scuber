@@ -188,24 +188,15 @@ function findDriver(){
     let pickup = document.getElementById("now-pickup").value;
     let destination = document.getElementById("now-destination").value;
 
+let driverFound = "Alex";
 
-    let driverFound = "Alex";
-    window.currentRide = {
-    rider: "Toya",
-    pickup: pickup,
-    destination: destination,
-    driver: driverFound,
-    status: "Driver Found"
-};
-    let currentRide = {
-    rider: "Toya",
-    driver: driverFound,
-    pickup: pickup,
-    destination: destination,
-    status: "Waiting for driver acceptance"
-};
-
-window.currentRide = currentRide;
+currentRide.rider = "Toya";
+currentRide.driver = driverFound;
+currentRide.pickup = pickup;
+currentRide.destination = destination;
+currentRide.status = "WAITING_FOR_DRIVER_ACCEPTANCE";
+currentRide.eta = 8;
+currentRide.fare = 18.00;
 
     alert(
         "Driver Found!\n\n" +
