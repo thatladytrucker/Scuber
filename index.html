@@ -221,6 +221,55 @@ Find Available Driver
 
 
 </div>
+<div id="rider-trip-screen" class="hidden">
+
+
+
+    <h2>🚗 Your Scuber Ride</h2>
+
+
+
+    <div class="ride-card">
+
+
+
+        <p><strong>Driver:</strong> <span id="rider-driver">Waiting...</span></p>
+
+
+
+        <p><strong>Vehicle:</strong> Blue Toyota Camry</p>
+
+
+
+        <p><strong>Status:</strong> <span id="rider-status">Waiting...</span></p>
+
+
+
+        <p><strong>ETA:</strong> 8 minutes</p>
+
+    </div>
+
+    <div class="map-placeholder">
+
+        🗺️ Live Trip Map
+
+    </div>
+
+    <button class="confirm" onclick="startTrip()">
+
+        Start Ride
+
+    </button>
+
+    <button class="ride" onclick="completeTrip()">
+
+        Complete Ride
+
+    </button>
+
+
+
+</div>
 <div class="app hidden" id="main-app">
 
     <header>
@@ -271,38 +320,7 @@ Find Available Driver
 
 </div>
 
-<div id="rider-trip-screen" class="hidden">
 
-    <h2>🚗 Your Scuber Ride</h2>
-
-    <div class="ride-card">
-
-        <p><strong>Driver:</strong> <span id="rider-driver">Waiting...</span></p>
-
-        <p><strong>Vehicle:</strong> Blue Toyota Camry</p>
-
-        <p><strong>Status:</strong> <span id="rider-status">Waiting...</span></p>
-
-        <p><strong>ETA:</strong> 8 minutes</p>
-
-    </div>
-
-
-    <div class="map-placeholder">
-        🗺️ Live Trip Map
-    </div>
-
-
-    <button class="confirm" onclick="startTrip()">
-        Start Ride
-    </button>
-
-
-    <button class="ride" onclick="completeTrip()">
-        Complete Ride
-    </button>
-
-</div>
 </div>
 
  <div id="recurring-screen" class="hidden">
