@@ -300,6 +300,10 @@ function startTrip(){
 
 function completeTrip(){
 
+    currentRide.status = "TRIP_COMPLETED";
+
+    document.getElementById("rider-status").textContent = currentRide.status;
+
     alert(
         "Trip Completed!\n\n" +
         "Thank you for riding with Scuber."
