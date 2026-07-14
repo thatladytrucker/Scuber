@@ -57,6 +57,9 @@ function confirmRecurring() {
     );
 
 }
+// ===========================================
+// ACCOUNT FUNCTIONS
+// ===========================================
 function createAccount(type) {
 
     let name = document.getElementById("name").value;
