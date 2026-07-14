@@ -179,9 +179,11 @@ function showRiderHome() {
 }
 function showRiderDashboard() {
 
-    console.log("Rider Dashboard function is running");
+    console.log("Returning to Rider Home");
 
-    document.getElementById("rider-dashboard").classList.remove("hidden");
+    document.getElementById("main-app").classList.remove("hidden");
+
+    document.getElementById("rider-dashboard").classList.add("hidden");
 
     document.getElementById("ride-request-screen").classList.add("hidden");
     document.getElementById("driver-screen").classList.add("hidden");
