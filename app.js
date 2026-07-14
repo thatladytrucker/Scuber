@@ -87,6 +87,9 @@ function createAccount(type) {
     // Dashboard opens after account selection
 
 }
+// ===========================================
+// RIDER FUNCTIONS
+// ===========================================
 function showRiderDashboard() {
 
     console.log("Rider Dashboard function is running");
