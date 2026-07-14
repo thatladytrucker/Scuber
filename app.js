@@ -161,6 +161,20 @@ function saveAvailability() {
 // ===========================================
 // SHARED RIDE FUNCTIONS
 // ===========================================
+
+// ===========================================
+// CURRENT RIDE DATA
+// ===========================================
+
+let currentRide = {
+    rider: "",
+    driver: "",
+    pickup: "",
+    destination: "",
+    status: "NO_RIDE",
+    eta: 0,
+    fare: 0
+};
 function requestRide(){
 
     document.getElementById("ride-request-screen")
