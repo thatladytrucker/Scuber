@@ -236,7 +236,7 @@ function acceptRide(){
 
     if(window.currentRide){
 
-        currentRide.status = "Driver Accepted";
+        currentRide.status = "DRIVER_ACCEPTED";
         currentRide.driver = "Alex";
 
         document.getElementById("rider-driver").textContent = currentRide.driver;
