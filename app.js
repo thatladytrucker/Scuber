@@ -304,8 +304,18 @@ function startTrip(){
 
 
 function completeTrip(){
+function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
+
+    rideHistory.push({
+        rider: currentRide.rider,
+        driver: currentRide.driver,
+        pickup: currentRide.pickup,
+        destination: currentRide.destination,
+        fare: currentRide.fare,
+        status: currentRide.status
+    });
 
     document.getElementById("rider-status").textContent = currentRide.status;
 
