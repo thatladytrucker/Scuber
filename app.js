@@ -165,7 +165,18 @@ function createAccount(type) {
 
 }
 
+function showRiderHome() {
 
+    document.getElementById("account-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("main-app")
+    .classList.remove("hidden");
+
+}
 function showRiderDashboard() {
 
     console.log("Rider Dashboard function is running");
