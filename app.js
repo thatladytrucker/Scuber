@@ -102,6 +102,9 @@ function showRiderDashboard() {
     document.getElementById("rider-trip-screen").classList.add("hidden");
 
 }
+// ===========================================
+// DRIVER FUNCTIONS
+// ===========================================
 function showDriverScreen() {
 
     document.getElementById("main-app")
