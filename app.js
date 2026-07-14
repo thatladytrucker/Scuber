@@ -9,6 +9,9 @@
 
 function openSchedule() {
 
+    document.getElementById("rider-dashboard")
+    .classList.add("hidden");
+
     document.getElementById("schedule-screen")
     .classList.remove("hidden");
 
