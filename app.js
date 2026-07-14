@@ -283,8 +283,11 @@ function showRiderTripScreen(){
 
 }
 
-
 function startTrip(){
+
+    currentRide.status = "TRIP_STARTED";
+
+    document.getElementById("rider-status").textContent = currentRide.status;
 
     alert(
         "Trip Started!\n\n" +
