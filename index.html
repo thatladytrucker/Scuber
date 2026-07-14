@@ -188,11 +188,13 @@ Find Available Driver
     <label>End Time</label>
     <input type="time" id="driver-end">
 
-
     <button class="confirm" onclick="saveAvailability()">
         Save Availability
     </button>
-
+    
+    <button class="schedule" onclick="showDriverDashboard()">
+    ← Back to Driver Dashboard
+</button>
 </div>
 <div id="driver-trip-screen" class="hidden">
 
@@ -217,6 +219,9 @@ Find Available Driver
         ✅ Complete Trip
     </button>
     
+    <button class="schedule" onclick="showDriverDashboard()">
+    ← Back to Driver Dashboard
+</button>
 </div>
     <div id="ride-history-screen" class="hidden">
 
