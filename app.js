@@ -105,22 +105,27 @@ function showDriverScreen() {
 
 function showDriverDashboard() {
 
-    document.getElementById("main-app").classList.add("hidden");
+    document.getElementById("account-screen")
+    .classList.add("hidden");
 
-    document.getElementById("rider-dashboard").classList.add("hidden");
+    document.getElementById("rider-dashboard")
+    .classList.add("hidden");
 
-    document.getElementById("schedule-screen").classList.add("hidden");
+    document.getElementById("driver-trip-screen")
+    .classList.add("hidden");
 
-    document.getElementById("driver-trip-screen").classList.add("hidden");
-    document.getElementById("rider-trip-screen").classList.add("hidden");
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
 
-    document.getElementById("driver-screen").classList.add("hidden");
+    document.getElementById("driver-screen")
+    .classList.add("hidden");
 
-    document.getElementById("driver-request-screen").classList.add("hidden");
+    document.getElementById("driver-request-screen")
+    .classList.add("hidden");
 
-    document.getElementById("driver-dashboard").classList.remove("hidden");
+    document.getElementById("driver-dashboard")
+    .classList.remove("hidden");
 
-    
 }
 function saveAvailability() {
 
