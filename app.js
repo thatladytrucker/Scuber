@@ -175,6 +175,11 @@ let currentRide = {
     eta: 0,
     fare: 0
 };
+// ===========================================
+// RIDE HISTORY
+// ===========================================
+
+let rideHistory = [];
 function requestRide(){
 
     document.getElementById("ride-request-screen")
