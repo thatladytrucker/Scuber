@@ -105,8 +105,7 @@ function showDriverScreen() {
 
 function showDriverDashboard() {
     
-    alert("showDriverDashboard is running");
-
+    
     document.getElementById("account-screen")
     .classList.add("hidden");
 
