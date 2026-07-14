@@ -143,11 +143,13 @@ function showRiderDashboard() {
 
     document.getElementById("rider-dashboard").classList.remove("hidden");
 
+    document.getElementById("ride-request-screen").classList.add("hidden");
     document.getElementById("driver-screen").classList.add("hidden");
     document.getElementById("schedule-screen").classList.add("hidden");
     document.getElementById("driver-trip-screen").classList.add("hidden");
     document.getElementById("rider-trip-screen").classList.add("hidden");
-    document.getElementById("ride-request-screen").classList.add("hidden");
+    document.getElementById("ride-history-screen").classList.add("hidden");
+    document.getElementById("recurring-screen").classList.add("hidden");
 
 }
 // ===========================================
