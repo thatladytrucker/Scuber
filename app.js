@@ -425,6 +425,7 @@ function startTrip(){
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
+    console.log("Current Ride At Completion:", currentRide);
     console.log("Ride History Before Push:", rideHistory);
     rideHistory.push({
         rider: currentRide.rider,
