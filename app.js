@@ -301,11 +301,29 @@ currentRide.fare = 18.00;
 showDriverRequest();
     
 }
+
 function showDriverRequest(){
 
     document.getElementById("main-app")
     .classList.add("hidden");
 
+    document.getElementById("ride-request-screen")
+    .classList.add("hidden");
+
+    document.getElementById("schedule-screen")
+    .classList.add("hidden");
+
+    document.getElementById("ride-history-screen")
+    .classList.add("hidden");
+
+    document.getElementById("recurring-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
 
     document.getElementById("driver-request-screen")
     .classList.remove("hidden");
@@ -322,7 +340,6 @@ function showDriverRequest(){
     }
 
 }
-
 
 
 function acceptRide(){
