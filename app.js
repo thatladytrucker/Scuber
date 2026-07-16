@@ -409,6 +409,7 @@ function showRiderTripScreen(){
 }
 
 function startTrip(){
+    console.log("START TRIP CLICKED");
 
     currentRide.status = "TRIP_STARTED";
 
