@@ -192,7 +192,7 @@ function showRiderHome() {
     .classList.remove("hidden");
 
 }
-function showRiderDashboard() {
+function showRiderHome() {
 
     console.log("Returning to Rider Home");
 
