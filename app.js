@@ -185,11 +185,8 @@ function showRiderHome() {
     document.getElementById("rider-trip-screen")
     .classList.add("hidden");
 
-    let home = document.getElementById("main-app");
-
-home.classList.remove("hidden");
-
-console.log("Main app classes:", home.className);
+    document.getElementById("main-app")
+.classList.remove("hidden");
 
 }
 // ===========================================
