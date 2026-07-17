@@ -163,8 +163,7 @@ function createAccount(type) {
 }
 
 function showRiderHome() {
-    alert("showRiderHome is running");
-    
+        
     document.getElementById("account-screen")
     .classList.add("hidden");
 
