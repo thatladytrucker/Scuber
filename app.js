@@ -78,7 +78,26 @@ function createAccount(type) {
         return false;
     }
 
+function continueAsRider(){
 
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+
+    if(name === "" || email === ""){
+
+        alert("Please enter your name and email.");
+
+        return;
+    }
+
+
+    createAccount("rider");
+
+    showRiderHome();
+
+}
+    
     alert(
         "Welcome to Scuber, " + name + "!\n\n" +
         "Account Type: " + type
