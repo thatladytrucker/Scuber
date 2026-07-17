@@ -185,8 +185,8 @@ function showRiderHome() {
     document.getElementById("rider-trip-screen")
     .classList.add("hidden");
 
-    document.getElementById("main-app")
-.classList.remove("hidden");
+    document.getElementById("main-app").classList.remove("hidden");
+    document.getElementById("main-app").style.display = "block";
 
 }
 // ===========================================
