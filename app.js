@@ -163,11 +163,10 @@ function createAccount(type) {
 }
 
 function showRiderHome() {
-        
-    document.getElementById("account-screen")
-    .classList.add("hidden");
 
-    document.getElementById("old-rider-dashboard")
+    console.log("Opening Rider Home");
+
+    document.getElementById("account-screen")
     .classList.add("hidden");
 
     document.getElementById("ride-request-screen")
@@ -182,11 +181,21 @@ function showRiderHome() {
     document.getElementById("recurring-screen")
     .classList.add("hidden");
 
+    document.getElementById("driver-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-request-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-trip-screen")
+    .classList.add("hidden");
+
     document.getElementById("rider-trip-screen")
     .classList.add("hidden");
 
-    document.getElementById("main-app").classList.remove("hidden");
-    document.getElementById("main-app").style.display = "block";
+
+    document.getElementById("main-app")
+    .classList.remove("hidden");
 
 }
 // ===========================================
