@@ -75,7 +75,7 @@ function createAccount(type) {
 
         alert("Please enter your name and email.");
 
-        return;
+        return false;
     }
 
 
@@ -84,13 +84,10 @@ function createAccount(type) {
         "Account Type: " + type
     );
 
-
     document.getElementById("account-screen")
     .classList.add("hidden");
 
-
-    // Dashboard opens after account selection
-
+    return true;
 }
 // ===========================================
 // RIDER FUNCTIONS
