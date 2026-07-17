@@ -163,6 +163,14 @@ function createAccount(type) {
 }
 
 function showRiderHome() {
+    
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if(name === "" || email === ""){
+    alert("Please enter your name and email.");
+    return;
+}
 
     console.log("Opening Rider Home");
 
