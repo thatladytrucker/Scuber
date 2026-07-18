@@ -517,3 +517,8 @@ function completeTrip(){
     );
 
 }
+document.addEventListener("DOMContentLoaded", function(){
+
+    checkReturningUser();
+
+});
