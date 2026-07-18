@@ -479,18 +479,17 @@ function completeTrip(){
 
 window.onload = function(){
 
-    let userType = localStorage.getItem("scuberUserType");
-
-    if(userType === "rider"){
-
-        showRiderHome();
-
-    }
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
 
 
-    if(userType === "driver"){
+    if(name && email){
 
-        showDriverDashboard();
+        document.getElementById("account-screen")
+        .classList.add("hidden");
+
+        document.getElementById("mode-screen")
+        .classList.remove("hidden");
 
     }
 
