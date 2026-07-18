@@ -477,20 +477,6 @@ function completeTrip(){
 
 }
 
-window.onload = function(){
 
-    let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
-
-
-    if(name && email){
-
-        document.getElementById("account-screen")
-        .classList.add("hidden");
-
-        document.getElementById("mode-screen")
-        .classList.remove("hidden");
-
-    }
 
 };
