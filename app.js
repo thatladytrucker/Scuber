@@ -171,7 +171,11 @@ function showRiderHome() {
     alert("Please enter your name and email.");
     return;
 }
-
+        
+    localStorage.setItem("scuberUserName", name);
+    localStorage.setItem("scuberUserEmail", email);
+    localStorage.setItem("scuberUserType", "rider");
+    
     console.log("Opening Rider Home");
 
     document.getElementById("account-screen")
@@ -228,6 +232,9 @@ function showDriverDashboard() {
         alert("Please enter your name and email.");
         return;
 }
+localStorage.setItem("scuberUserName", name);
+localStorage.setItem("scuberUserEmail", email);
+localStorage.setItem("scuberUserType", "driver");
     
     document.getElementById("account-screen")
     .classList.add("hidden");
