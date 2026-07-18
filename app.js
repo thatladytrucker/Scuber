@@ -495,4 +495,22 @@ window.onload = function(){
     }
 
 };
+function chooseRiderMode(){
 
+    document.getElementById("mode-screen")
+    .classList.add("hidden");
+
+    document.getElementById("main-app")
+    .classList.remove("hidden");
+
+}
+
+
+function chooseDriverMode(){
+
+    document.getElementById("mode-screen")
+    .classList.add("hidden");
+
+    showDriverDashboard();
+
+}
