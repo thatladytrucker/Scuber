@@ -181,8 +181,7 @@ function showRiderHome() {
         
     localStorage.setItem("scuberUserName", name);
     localStorage.setItem("scuberUserEmail", email);
-    localStorage.setItem("scuberUserType", "rider");
-    
+        
     console.log("Opening Rider Home");
 
     document.getElementById("account-screen")
