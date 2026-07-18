@@ -90,7 +90,8 @@ function createAccount(type) {
     return true;
 }
 function showWelcomeScreen(){
-
+    console.log("Welcome screen function loaded");
+    
     document.getElementById("account-screen")
     .classList.add("hidden");
 
