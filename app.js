@@ -221,7 +221,13 @@ function showDriverScreen() {
 }
 
 function showDriverDashboard() {
-    
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if(name === "" || email === ""){
+        alert("Please enter your name and email.");
+        return;
+}
     
     document.getElementById("account-screen")
     .classList.add("hidden");
