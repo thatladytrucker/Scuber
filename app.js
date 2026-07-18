@@ -240,7 +240,6 @@ function showDriverDashboard() {
 }
 localStorage.setItem("scuberUserName", name);
 localStorage.setItem("scuberUserEmail", email);
-localStorage.setItem("scuberUserType", "driver");
     
     document.getElementById("account-screen")
     .classList.add("hidden");
