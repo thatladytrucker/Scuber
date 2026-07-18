@@ -163,20 +163,14 @@ function createAccount(type) {
 }
 
 function showRiderHome() {
-
+    
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
 
-
-    if(name !== "" && email !== ""){
-
-        localStorage.setItem("scuberUserName", name);
-        localStorage.setItem("scuberUserEmail", email);
-        localStorage.setItem("scuberUserType", "rider");
-
+    if(name === "" || email === ""){
+        alert("Please enter your name and email.");
+        return;
     }
-
-}
         
     localStorage.setItem("scuberUserName", name);
     localStorage.setItem("scuberUserEmail", email);
