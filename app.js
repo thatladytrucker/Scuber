@@ -89,6 +89,15 @@ function createAccount(type) {
 
     return true;
 }
+function showWelcomeScreen(){
+
+    document.getElementById("account-screen")
+    .classList.add("hidden");
+
+    document.getElementById("welcome-screen")
+    .classList.remove("hidden");
+
+}
 function showModeScreen(){
 
     document.getElementById("account-screen")
