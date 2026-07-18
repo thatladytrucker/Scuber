@@ -471,3 +471,23 @@ function completeTrip(){
     );
 
 }
+
+window.onload = function(){
+
+    let userType = localStorage.getItem("scuberUserType");
+
+    if(userType === "rider"){
+
+        showRiderHome();
+
+    }
+
+
+    if(userType === "driver"){
+
+        showDriverDashboard();
+
+    }
+
+};
+
