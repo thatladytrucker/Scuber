@@ -89,6 +89,15 @@ function createAccount(type) {
 
     return true;
 }
+function showModeScreen(){
+
+    document.getElementById("account-screen")
+    .classList.add("hidden");
+
+    document.getElementById("mode-screen")
+    .classList.remove("hidden");
+
+}
 // ===========================================
 // RIDER FUNCTIONS
 // ===========================================
