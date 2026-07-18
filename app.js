@@ -476,7 +476,3 @@ function completeTrip(){
     );
 
 }
-
-
-
-};
