@@ -168,9 +168,16 @@ function showRiderHome() {
     let email = document.getElementById("email").value;
 
     if(name === "" || email === ""){
+
+    name = localStorage.getItem("scuberUserName");
+    email = localStorage.getItem("scuberUserEmail");
+
+    if(name === null || email === null){
         alert("Please enter your name and email.");
         return;
     }
+
+}
         
     localStorage.setItem("scuberUserName", name);
     localStorage.setItem("scuberUserEmail", email);
