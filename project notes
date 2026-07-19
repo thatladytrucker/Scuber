@@ -73,3 +73,24 @@ DO NOT MODIFY:
 - createAccount()
 
 until next account-management step is planned.
+
+Milestone 6 — Multiple User Account System
+
+Task 6.1 — User Storage Upgrade
+
+Goal:
+Replace single-user localStorage with multiple-user storage.
+
+Current:
+✔ One saved user works
+⚠ New users overwrite previous user
+
+Planned:
+✔ Store multiple users
+✔ Add active user selection
+✔ Add switch user capability
+
+Starting checkpoint:
+Rider flow working
+Driver flow working
+Welcome Back working
