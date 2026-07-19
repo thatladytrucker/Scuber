@@ -94,3 +94,14 @@ Starting checkpoint:
 Rider flow working
 Driver flow working
 Welcome Back working
+Task 6.4 — User Selection Display
+
+✔ Added user-list section
+✔ Added loadUserList() function
+✔ Connected user list to Welcome Back screen
+✔ Displayed multiple saved users
+✔ Displayed user name and email
+✔ Confirmed 3 stored users appear
+
+Next:
+Task 6.5 — Select Active User
