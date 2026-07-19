@@ -321,6 +321,8 @@ function showRiderHome() {
 }
         
     saveUser(name, email);
+    document.getElementById("rider-user-name").textContent =
+"Welcome, " + name;
         
     console.log("Opening Rider Home");
 
