@@ -183,10 +183,11 @@ function selectUser(email){
         alert(
             "Welcome back, " + selectedUser.name + "!"
         );
-
+showWelcomeScreen();
     }
 
 }
+
 function showModeScreen(){
 
     document.getElementById("account-screen")
