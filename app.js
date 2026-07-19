@@ -115,12 +115,14 @@ function checkReturningUser(){
 
     if(name && email){
 
-        document.getElementById("welcome-name").textContent =
-        "Welcome back, " + name + "!";
+    document.getElementById("welcome-name").textContent =
+    "Welcome back!";
 
-        showWelcomeScreen();
+    loadUserList();
 
-    }
+    showWelcomeScreen();
+
+}
 
 }
 function loadUserList(){
