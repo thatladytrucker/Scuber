@@ -305,8 +305,8 @@ function createAccount(type) {
 
 function showRiderHome() {
     
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
 
     if(name === "" || email === ""){
 
