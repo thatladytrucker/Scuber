@@ -123,6 +123,39 @@ function showModeScreen(){
     .classList.remove("hidden");
 
 }
+function saveUser(name, email){
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let existingUser = users.find(function(user){
+
+        return user.email === email;
+
+    });
+
+
+    if(!existingUser){
+
+        users.push({
+            name: name,
+            email: email
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "scuberUsers",
+        JSON.stringify(users)
+    );
+
+
+    localStorage.setItem(
+        "scuberActiveUser",
+        email
+    );
+
+}
 // ===========================================
 // RIDER FUNCTIONS
 // ===========================================
