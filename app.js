@@ -123,6 +123,32 @@ function checkReturningUser(){
     }
 
 }
+function loadUserList(){
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let list = document.getElementById("user-list");
+
+    list.innerHTML = "";
+
+
+    users.forEach(function(user){
+
+        list.innerHTML += `
+
+        <button class="schedule"
+        onclick="selectUser('${user.email}')">
+
+            <strong>${user.name}</strong><br>
+            ${user.email}
+
+        </button>
+
+        `;
+
+    });
+
+}
 function showModeScreen(){
 
     document.getElementById("account-screen")
