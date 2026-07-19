@@ -1,0 +1,75 @@
+Milestone 5 — User Accounts & Welcome Back Flow
+
+Task 5.1 — Returning User Foundation
+
+✔ Created Welcome Back screen
+✔ Added welcome-screen HTML section
+✔ Added Welcome Back message display
+✔ Added Ride and Drive choices on Welcome Back screen
+✔ Added showWelcomeScreen() function
+✔ Added checkReturningUser() function
+✔ Added DOMContentLoaded check for returning users
+✔ Verified saved user name displays correctly
+✔ Verified returning user flow works after refresh
+
+
+Task 5.2 — Rider & Driver Stability Protection
+
+✔ Restored Rider flow after testing
+✔ Restored Driver flow after testing
+✔ Verified Continue as Rider opens Rider Menu
+✔ Verified Continue as Driver opens Driver Dashboard
+✔ Confirmed no white screen errors
+✔ Confirmed account validation still works
+✔ Confirmed name/email saving still works
+
+
+Task 5.3 — Testing Results
+
+✔ New account creation works
+✔ Rider testing passed
+✔ Driver testing passed
+✔ Welcome Back testing passed
+✔ User name retrieval passed
+
+Finding:
+⚠ localStorage currently stores only one user
+
+Example:
+✔ User A saves account
+✔ User B saves account
+✔ User B replaces User A
+
+Current limitation:
+- No multi-user account system yet
+- No logout/switch user system yet
+
+
+Next Development Decision:
+
+Task 5.4 — User Management Design
+
+Choose next direction:
+
+Option A:
+Multiple users on one device
+✔ Family members
+✔ Multiple profiles
+✔ Switch user capability
+
+Option B:
+Single user per device
+✔ Add logout
+✔ Add switch account
+✔ Add account reset
+
+
+Current Stable Version:
+Rider + Driver + Welcome Back working version
+
+DO NOT MODIFY:
+- showRiderHome()
+- showDriverDashboard()
+- createAccount()
+
+until next account-management step is planned.
