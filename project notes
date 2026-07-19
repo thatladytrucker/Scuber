@@ -104,4 +104,16 @@ Task 6.4 — User Selection Display
 ✔ Confirmed 3 stored users appear
 
 Next:
-Task 6.5 — Select Active User
+Task 6.5 — Select Active User.
+Task 6.5 — Active User Test
+
+✔ Selected users successfully
+✔ Welcome message displays selected user
+✔ Rider menu opens after selection
+✔ Driver menu remains working
+
+Finding:
+⚠ Active user not yet displayed inside Rider/Driver screens
+
+Next:
+Task 6.6 — Display Active User
