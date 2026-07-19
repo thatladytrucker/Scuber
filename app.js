@@ -151,6 +151,42 @@ function loadUserList(){
     });
 
 }
+function selectUser(email){
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let selectedUser = users.find(function(user){
+
+        return user.email === email;
+
+    });
+
+
+    if(selectedUser){
+
+        localStorage.setItem(
+            "scuberActiveUser",
+            selectedUser.email
+        );
+
+        localStorage.setItem(
+            "scuberUserName",
+            selectedUser.name
+        );
+
+        localStorage.setItem(
+            "scuberUserEmail",
+            selectedUser.email
+        );
+
+
+        alert(
+            "Welcome back, " + selectedUser.name + "!"
+        );
+
+    }
+
+}
 function showModeScreen(){
 
     document.getElementById("account-screen")
