@@ -65,6 +65,15 @@ function confirmRecurring() {
 // ===========================================
 // ACCOUNT FUNCTIONS
 // ===========================================
+function showAccountScreen(){
+
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+
+    document.getElementById("account-screen")
+    .classList.remove("hidden");
+
+}
 function createAccount(type) {
 
     let name = document.getElementById("name").value;
