@@ -450,6 +450,12 @@ let currentRide = {
 let rideHistory = [];
 function requestRide(){
 
+    let name = localStorage.getItem("scuberUserName");
+
+    document.getElementById("rider-user-name").textContent =
+    "Welcome, " + name;
+
+
     document.getElementById("ride-request-screen")
     .classList.remove("hidden");
 
