@@ -452,9 +452,10 @@ function requestRide(){
 
     let name = localStorage.getItem("scuberUserName");
 
+    alert("Current user is: " + name);
+
     document.getElementById("rider-user-name").textContent =
     "Welcome, " + name;
-
 
     document.getElementById("ride-request-screen")
     .classList.remove("hidden");
