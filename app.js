@@ -311,8 +311,7 @@ function showDriverDashboard() {
     }
 
 }
-localStorage.setItem("scuberUserName", name);
-localStorage.setItem("scuberUserEmail", email);
+saveUser(name, email);
     
     document.getElementById("account-screen")
     .classList.add("hidden");
