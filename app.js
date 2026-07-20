@@ -322,10 +322,14 @@ function createAccount(type) {
         "Account Type: " + type
     );
     
-    saveUser(name, email);
+saveUser(name, email);
 
-    document.getElementById("account-screen")
-    .classList.add("hidden");
+document.getElementById("account-screen")
+.classList.add("hidden");
+
+showWelcomeScreen();
+
+loadUserList();
 
 }
 
