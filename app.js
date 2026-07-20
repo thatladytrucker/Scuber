@@ -153,7 +153,7 @@ if(activeUser){
 
     list.innerHTML = "";
     
-let activeEmail = localStorage.getItem("scuberActiveUser");
+
 
     users.forEach(function(user){
 
