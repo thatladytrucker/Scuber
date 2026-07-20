@@ -445,6 +445,33 @@ function showProfile(){
     .classList.remove("hidden");
 
 }
+function editProfile(){
+
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
+
+
+    let newName = prompt("Enter your name:", name);
+
+    if(newName === null){
+        return;
+    }
+
+
+    let newEmail = prompt("Enter your email:", email);
+
+    if(newEmail === null){
+        return;
+    }
+
+
+    localStorage.setItem("scuberUserName", newName);
+    localStorage.setItem("scuberUserEmail", newEmail);
+
+
+    showProfile();
+
+}
 function saveAvailability() {
 
     let day = document.getElementById("driver-day").value;
