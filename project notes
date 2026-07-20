@@ -260,3 +260,16 @@ MULTI-USER SYSTEM
 ✔ Rider name displays
 ✔ Driver name displays
 ✔ Profile displays active user information
+
+Milestone 7 — User Profiles & Account Management
+
+Task 7.2 — Edit Profile Information
+
+✔ Added Edit Profile button
+✔ Connected editProfile() function
+✔ Loaded current user information
+✔ Prompted for updated name
+✔ Prompted for updated email
+✔ Saved updated information
+✔ Refreshed Profile screen after editing
+✔ Verified edit flow works
