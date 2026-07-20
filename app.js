@@ -211,7 +211,7 @@ function selectUser(email){
 
 loadUserList();
 
-showWelcomeScreen();
+showModeScreen();
     }
 
 }
