@@ -317,7 +317,8 @@ function createAccount(type) {
         "Welcome to Scuber, " + name + "!\n\n" +
         "Account Type: " + type
     );
-
+    
+    saveUser(name, email);
 
     document.getElementById("account-screen")
     .classList.add("hidden");
