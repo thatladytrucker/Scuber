@@ -208,7 +208,12 @@ function saveUser(name, email){
     });
 
 
-    if(!existingUser){
+    if(existingUser){
+
+        existingUser.name = name;
+        existingUser.email = email;
+
+    } else {
 
         users.push({
             name: name,
