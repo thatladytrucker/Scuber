@@ -146,8 +146,10 @@ let activeUser = users.find(function(user){
 
 if(activeUser){
 
-    document.getElementById("active-user-display").textContent =
-    "Active User: " + activeUser.name;
+    document.getElementById("active-user-display").innerHTML =
+    "Active User:<br>" +
+    "<strong>" + activeUser.name + "</strong><br>" +
+    activeUser.email;
 
 }
 
