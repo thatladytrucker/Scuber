@@ -230,3 +230,33 @@ Screen Notes:
 ✔ driver-dashboard = active Driver Home
 ⚠ old-rider-dashboard = unused legacy screen
 ⚠ driver-screen = availability screen, not main dashboard
+
+Milestone 7 — User Profiles & Account Management
+
+Task 7.1 — Profile Screen
+
+✔ Added Profile button connection
+✔ Identified active Rider Home screen (main-app)
+✔ Avoided unused legacy screen (old-rider-dashboard)
+✔ Created profile-screen
+✔ Added showProfile() function
+✔ Connected active user data to Profile
+✔ Verified profile displays:
+
+   Name: Hattie Josephine
+   Email: artsncrabs@gmail.com
+Screen Notes Update:
+
+✔ main-app = active Rider Home
+✔ driver-dashboard = active Driver Home
+✔ profile-screen = active user profile
+⚠ old-rider-dashboard = unused legacy screen
+
+MULTI-USER SYSTEM
+
+✔ Multiple users saved
+✔ User switching works
+✔ Active user remembered
+✔ Rider name displays
+✔ Driver name displays
+✔ Profile displays active user information
