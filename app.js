@@ -389,6 +389,9 @@ function showDriverDashboard() {
 }
 saveUser(name, email);
     
+    document.getElementById("driver-user-name").textContent =
+    "Welcome, " + name;
+    
     document.getElementById("account-screen")
     .classList.add("hidden");
 
