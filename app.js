@@ -93,6 +93,8 @@ function createAccount(type) {
         "Account Type: " + type
     );
 
+    saveUser(name, email);
+
     document.getElementById("account-screen")
 .classList.add("hidden");
 
