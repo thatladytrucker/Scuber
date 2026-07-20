@@ -440,6 +440,8 @@ function showDriverDashboard() {
     document.getElementById("driver-request-screen")
     .classList.add("hidden");
 
+   showDriverDashboard() 
+
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
 
