@@ -218,6 +218,9 @@ showModeScreen();
 
 function showModeScreen(){
 
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+
     document.getElementById("account-screen")
     .classList.add("hidden");
 
