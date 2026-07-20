@@ -291,3 +291,34 @@ Task 7.4 — User Selection Cleanup
 ✔ Function matches label:
    Add New User → opens account creation screen
    User list → switches existing users
+
+Milestone 7 — User Profiles & Account Management
+
+Task 7.5 — Active User Display
+
+✔ Added active-user display area
+✔ Connected loadUserList() to active user storage
+✔ Reads scuberActiveUser
+✔ Finds matching user in scuberUsers
+✔ Displays:
+
+   Active User: Hattie Josephine
+
+SCUBER
+Welcome back!
+
+User list:
+Hattie Josephine
+artsncrabs@gmail.com
+
+LaToya R Cramsey
+email@email.com
+
+Active User: Hattie Josephine
+
+➕ Add New User
+
+What would you like to do?
+
+🚗 Ride
+🚘 Drive
