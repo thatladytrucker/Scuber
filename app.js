@@ -414,6 +414,35 @@ saveUser(name, email);
     .classList.remove("hidden");
 
 }
+function showDriverDashboard() {
+
+    // existing code here
+
+}
+
+
+function showProfile(){
+
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
+
+
+    document.getElementById("profile-user-name").textContent =
+    "Name: " + name;
+
+
+    document.getElementById("profile-user-email").textContent =
+    "Email: " + email;
+
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+
+    document.getElementById("profile-screen")
+    .classList.remove("hidden");
+
+}
 function saveAvailability() {
 
     let day = document.getElementById("driver-day").value;
