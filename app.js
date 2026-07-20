@@ -157,17 +157,19 @@ let activeEmail = localStorage.getItem("scuberActiveUser");
 
     users.forEach(function(user){
 
-        list.innerHTML += `
+       list.innerHTML += `
 
-        <button class="schedule"
-        onclick="selectUser('${user.email}')">
+<button class="schedule"
+onclick="selectUser('${user.email}')">
 
-            <strong>${user.name}</strong><br>
-            ${user.email}
+    ${user.email === activeEmail ? "✓ Active<br>" : ""}
 
-        </button>
+    <strong>${user.name}</strong><br>
+    ${user.email}
 
-        `;
+</button>
+
+`;
 
     });
 
