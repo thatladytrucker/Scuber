@@ -473,6 +473,7 @@ function editProfile(){
     localStorage.setItem("scuberUserName", newName);
     localStorage.setItem("scuberUserEmail", newEmail);
 
+    saveUser(newName, newEmail);
 
     showProfile();
 
