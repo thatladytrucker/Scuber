@@ -191,3 +191,12 @@ Next step:
 4. Remove duplicate rider-user-name from ride-request-screen if needed
 5. Test:
 Select user → Ride → Rider Dashboard should show selected name
+Task 6.6 — Display Active User
+
+✔ Located correct Rider Home screen (main-app)
+✔ Removed misplaced rider-user-name display
+✔ Added rider-user-name to active Rider screen
+✔ Connected selected user to Rider Home
+✔ Verified selected user name displays:
+   Welcome, Hattie Josephine
+✔ Confirmed Welcome Back → Ride → Rider Home flow works
