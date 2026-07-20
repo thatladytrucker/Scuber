@@ -204,8 +204,11 @@ function selectUser(email){
 
 
         alert(
-            "Welcome back, " + selectedUser.name + "!"
-        );
+    "Welcome back, " + selectedUser.name + "!"
+);
+
+loadUserList();
+
 showWelcomeScreen();
     }
 
