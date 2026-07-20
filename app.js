@@ -94,9 +94,13 @@ function createAccount(type) {
     );
 
     document.getElementById("account-screen")
-    .classList.add("hidden");
+.classList.add("hidden");
 
-    return true;
+showWelcomeScreen();
+
+loadUserList();
+
+return true;
 }
 function showWelcomeScreen(){
     console.log("Welcome screen function loaded");
