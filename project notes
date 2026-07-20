@@ -279,3 +279,15 @@ Milestone 7.3 is complete:
 ✔ Editing profile updates Profile
 ✔ Editing profile updates the Welcome Back Screen user list
 ✔ Active user and saved user list are synchronized
+
+Milestone 7 — User Profiles & Account Management
+
+Task 7.4 — User Selection Cleanup
+
+✔ Welcome Back Screen identified
+✔ User list functions as Switch User
+✔ Add/Switch User button behavior reviewed
+✔ Button renamed to Add New User
+✔ Function matches label:
+   Add New User → opens account creation screen
+   User list → switches existing users
