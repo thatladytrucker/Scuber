@@ -411,6 +411,8 @@ function showDriverScreen() {
 }
 
 function showDriverDashboard() {
+    
+    alert("Driver button clicked");
 
     let name = localStorage.getItem("scuberUserName");
 
