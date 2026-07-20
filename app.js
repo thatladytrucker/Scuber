@@ -423,7 +423,7 @@ function showDriverDashboard() {
 
 function showProfile(){
 
-    alert("Profile button works");
+    
 
     let name = localStorage.getItem("scuberUserName");
     let email = localStorage.getItem("scuberUserEmail");
