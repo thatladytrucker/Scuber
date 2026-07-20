@@ -117,3 +117,77 @@ Finding:
 
 Next:
 Task 6.6 — Display Active User
+Milestone 6 — Multiple User Account System
+
+Task 6.1 — User Storage Upgrade
+✔ Added saveUser() function
+✔ Changed Rider saving to multi-user storage
+✔ Changed Driver saving to multi-user storage
+✔ Rider flow tested and passed
+✔ Driver flow tested and passed
+
+Task 6.2 — Add User Navigation
+✔ Added Add / Switch User button to Welcome Back screen
+✔ Added showAccountScreen() function
+✔ Confirmed account creation screen can be reopened
+
+Task 6.3 — Multiple User Storage Test
+✔ Confirmed multiple users save correctly
+✔ Verified scuberUsers contains multiple accounts
+
+Current stored users tested:
+✔ Hattie Josephine
+  artsncrabs@gmail.com
+
+✔ LaToya R Cramsey
+  toyamcpherson@yahoo.com
+
+✔ LaToya R Cramsey
+  toyatest@yahoo.com
+
+Task 6.4 — User Selection Display
+✔ Added user-list area to Welcome Back screen
+✔ Added loadUserList()
+✔ Welcome Back displays all saved users with name + email
+
+Task 6.5 — Select Active User
+✔ Added selectUser(email)
+✔ Clicking a user shows:
+  "Welcome back, [name]!"
+✔ Active user is saved
+✔ Switching users works
+
+Task 6.6 — Display Active User (IN PROGRESS)
+
+Current issue:
+✔ Welcome Back screen works
+✔ User list works
+✔ Ride/Driver buttons work
+
+Problem:
+⚠ Selected user's name is not displaying inside Rider dashboard.
+
+Important discovery:
+Welcome Back Ride button uses:
+
+<button class="ride" onclick="showRiderHome()">
+
+NOT:
+
+requestRide()
+
+Current plan:
+Move the rider-user-name display into:
+old-rider-dashboard
+
+Do not change JavaScript yet.
+
+Next step:
+1. Open index.html
+2. Find:
+<div id="old-rider-dashboard" class="hidden">
+3. Add directly underneath:
+<p id="rider-user-name"></p>
+4. Remove duplicate rider-user-name from ride-request-screen if needed
+5. Test:
+Select user → Ride → Rider Dashboard should show selected name
