@@ -200,3 +200,33 @@ Task 6.6 — Display Active User
 ✔ Verified selected user name displays:
    Welcome, Hattie Josephine
 ✔ Confirmed Welcome Back → Ride → Rider Home flow works
+Milestone 6 — Multiple User Account System
+
+Task 6.7 — Display Active Driver
+
+✔ Located active Driver dashboard
+✔ Confirmed driver-dashboard is the real Driver screen
+✔ Removed reliance on unused driver-screen
+✔ Added driver-user-name display
+✔ Connected selected user to Driver dashboard
+✔ Verified active driver displays:
+   Welcome, LaToya R Cramsey
+✔ Confirmed Driver menu continues working
+
+MULTI-USER SYSTEM
+
+✔ Multiple users saved
+✔ User list displays
+✔ User selection works
+✔ Active user saved
+✔ Rider Home displays active rider
+✔ Driver Dashboard displays active driver
+✔ Rider flow works
+✔ Driver flow works
+
+Screen Notes:
+
+✔ main-app = active Rider Home
+✔ driver-dashboard = active Driver Home
+⚠ old-rider-dashboard = unused legacy screen
+⚠ driver-screen = availability screen, not main dashboard
