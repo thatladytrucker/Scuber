@@ -448,6 +448,8 @@ function showDriverDashboard() {
     .classList.remove("hidden");
 
 }
+
+window.showDriverDashboard = showDriverDashboard;
 function showDriverDashboard() {
 
     // existing code here
