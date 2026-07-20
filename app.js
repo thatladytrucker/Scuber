@@ -411,21 +411,13 @@ function showDriverScreen() {
 }
 
 function showDriverDashboard() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
 
-    if(name === "" || email === ""){
+    let name = localStorage.getItem("scuberUserName");
 
-    name = localStorage.getItem("scuberUserName");
-    email = localStorage.getItem("scuberUserEmail");
-
-    if(name === null || email === null){
-        alert("Please enter your name and email.");
+    if(name === null){
+        alert("Please select a user first.");
         return;
     }
-
-}
-saveUser(name, email);
     
     document.getElementById("driver-user-name").textContent =
     "Welcome, " + name;
