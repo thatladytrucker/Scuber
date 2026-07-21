@@ -179,10 +179,6 @@ function selectUser(email){
             selectedUser.email
         );
 
-        document.getElementById("active-user-display").innerHTML =
-        "Active User:<br>" +
-        "<strong>" + selectedUser.name + "</strong><br>" +
-        selectedUser.email;
 
         alert(
             "Welcome back, " + selectedUser.name + "!"
@@ -193,7 +189,6 @@ function selectUser(email){
     }
 
 }
-
 function showModeScreen(){
 
     document.getElementById("account-screen")
