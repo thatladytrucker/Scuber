@@ -560,7 +560,7 @@ function acceptRide(){
         document.getElementById("rider-status").textContent = currentRide.status;
 
     }
-showRiderTripScreen();
+showTripScreen();
 
     alert(
         "Ride Accepted!\n\n" +
