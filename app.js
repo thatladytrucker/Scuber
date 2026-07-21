@@ -93,16 +93,10 @@ function createAccount(type) {
         "Account Type: " + type
     );
 
-    saveUser(name, email);
-
     document.getElementById("account-screen")
-.classList.add("hidden");
+    .classList.add("hidden");
 
-showWelcomeScreen();
-
-loadUserList();
-
-return true;
+    return true;
 }
 function showWelcomeScreen(){
     console.log("Welcome screen function loaded");
@@ -121,14 +115,12 @@ function checkReturningUser(){
 
     if(name && email){
 
-        document.getElementById("welcome-name").textContent =
-        "Welcome back!";
+    document.getElementById("welcome-name").textContent =
+    "Welcome back!";
 
-        loadUserList();
+    loadUserList();
 
-        showWelcomeScreen();
-
-    }
+    showWelcomeScreen();
 
 }
 
@@ -139,43 +131,22 @@ function loadUserList(){
 
     let list = document.getElementById("user-list");
 
-    let activeEmail = localStorage.getItem("scuberActiveUser");
-
-let activeUser = users.find(function(user){
-
-    return user.email === activeEmail;
-
-});
-
-
-if(activeUser){
-
-    document.getElementById("active-user-display").innerHTML =
-    "Active User:<br>" +
-    "<strong>" + activeUser.name + "</strong><br>" +
-    activeUser.email;
-
-}
-
     list.innerHTML = "";
-    
 
 
     users.forEach(function(user){
 
-       list.innerHTML += `
+        list.innerHTML += `
 
-<button class="schedule"
-onclick="selectUser('${user.email}')">
+        <button class="schedule"
+        onclick="selectUser('${user.email}')">
 
-    ${user.email === activeEmail ? "✓ Active<br>" : ""}
+            <strong>${user.name}</strong><br>
+            ${user.email}
 
-    <strong>${user.name}</strong><br>
-    ${user.email}
+        </button>
 
-</button>
-
-`;
+        `;
 
     });
 
@@ -210,20 +181,14 @@ function selectUser(email){
 
 
         alert(
-    "Welcome back, " + selectedUser.name + "!"
-);
-
-loadUserList();
-
-showModeScreen();
+            "Welcome back, " + selectedUser.name + "!"
+        );
+showWelcomeScreen();
     }
 
 }
 
 function showModeScreen(){
-
-    document.getElementById("welcome-screen")
-    .classList.add("hidden");
 
     document.getElementById("account-screen")
     .classList.add("hidden");
@@ -243,12 +208,7 @@ function saveUser(name, email){
     });
 
 
-    if(existingUser){
-
-        existingUser.name = name;
-        existingUser.email = email;
-
-    } else {
+    if(!existingUser){
 
         users.push({
             name: name,
@@ -316,6 +276,30 @@ function showRideHistory(){
         `;
 
     });
+
+}
+function createAccount(type) {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+
+    if(name === "" || email === "") {
+
+        alert("Please enter your name and email.");
+
+        return;
+    }
+
+
+    alert(
+        "Welcome to Scuber, " + name + "!\n\n" +
+        "Account Type: " + type
+    );
+
+
+    document.getElementById("account-screen")
+    .classList.add("hidden");
 
 }
 
@@ -389,103 +373,42 @@ function showDriverScreen() {
 }
 
 function showDriverDashboard() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
 
-    let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
+    if(name === "" || email === ""){
 
+    name = localStorage.getItem("scuberUserName");
+    email = localStorage.getItem("scuberUserEmail");
 
     if(name === null || email === null){
-
-        alert("Please select a user first.");
+        alert("Please enter your name and email.");
         return;
-
     }
 
-
-    document.getElementById("driver-user-name").textContent =
-    "Welcome, " + name;
-
-
+}
+saveUser(name, email);
+    
     document.getElementById("account-screen")
     .classList.add("hidden");
-
-
-    document.getElementById("welcome-screen")
-    .classList.add("hidden");
-
 
     document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
-
     document.getElementById("driver-trip-screen")
     .classList.add("hidden");
-
 
     document.getElementById("rider-trip-screen")
     .classList.add("hidden");
 
-
     document.getElementById("driver-screen")
     .classList.add("hidden");
-
 
     document.getElementById("driver-request-screen")
     .classList.add("hidden");
 
-
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
-
-}
-function showProfile(){
-
-     let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
-
-
-    document.getElementById("profile-user-name").textContent =
-    "Name: " + name;
-
-
-    document.getElementById("profile-user-email").textContent =
-    "Email: " + email;
-
-
-    document.getElementById("main-app")
-    .classList.add("hidden");
-
-
-    document.getElementById("profile-screen")
-    .classList.remove("hidden");
-
-}
-function editProfile(){
-
-    let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
-
-
-    let newName = prompt("Enter your name:", name);
-
-    if(newName === null){
-        return;
-    }
-
-
-    let newEmail = prompt("Enter your email:", email);
-
-    if(newEmail === null){
-        return;
-    }
-
-
-    localStorage.setItem("scuberUserName", newName);
-    localStorage.setItem("scuberUserEmail", newEmail);
-
-    saveUser(newName, newEmail);
-
-    showProfile();
 
 }
 function saveAvailability() {
