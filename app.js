@@ -419,37 +419,49 @@ function showDriverScreen() {
 
 function showDriverDashboard() {
 
-    alert("Driver function started");
-
     let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
 
-    if(name === null){
+
+    if(name === null || email === null){
+
         alert("Please select a user first.");
         return;
+
     }
-    
+
+
     document.getElementById("driver-user-name").textContent =
     "Welcome, " + name;
-    
+
+
     document.getElementById("account-screen")
     .classList.add("hidden");
+
+
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+
 
     document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
+
     document.getElementById("driver-trip-screen")
     .classList.add("hidden");
+
 
     document.getElementById("rider-trip-screen")
     .classList.add("hidden");
 
+
     document.getElementById("driver-screen")
     .classList.add("hidden");
+
 
     document.getElementById("driver-request-screen")
     .classList.add("hidden");
 
-   showDriverDashboard() 
 
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
