@@ -322,3 +322,293 @@ What would you like to do?
 
 🚗 Ride
 🚘 Drive
+Had to restore the working version from 07192026 because due to bugs that we were unable to fix. 
+SCUBER v1.0 Prototype Testing Notes
+Current Issues & Development Fix List
+RIDER SIDE TEST RESULTS
+✅ Working
+User Selection
+User list displays names and emails.
+Selecting a user works.
+Alert confirms selected user.
+Rider Menu
+Selecting Ride opens Rider menu.
+Request Ride
+Pickup field works.
+Destination field works.
+Find Available Driver button works.
+Driver Found alert appears with:
+Driver name
+Pickup
+Destination
+RIDER SIDE FIXES NEEDED
+Rider Fix #1 — Active User Display
+
+Problem:
+After selecting a user, the app does not clearly show which user is active.
+
+Expected:
+
+Active User:
+
+Name
+Email
+
+Example:
+
+Active User:
+Hattie Lewis
+hattie@email.com
+
+Rider Fix #2 — Replace Hard-Coded Rider Name
+
+Problem:
+Selected user was Hattie Lewis, but ride request showed:
+
+Rider:
+Toya
+
+Cause:
+Current ride data is using a fixed name.
+
+Expected:
+
+The ride should automatically use the active user's name.
+
+Example:
+
+Rider:
+Hattie Lewis
+
+Rider Fix #3 — Remove Driver Controls From Rider Screen
+
+Problem:
+Rider sees:
+
+Accept Ride
+Decline Ride
+Back to Driver Dashboard
+
+These are driver functions.
+
+Expected Rider Screen:
+
+New Ride Request
+
+Rider:
+Name
+
+Pickup:
+Location
+
+Destination:
+Location
+
+Estimated Fare:
+Amount
+
+Status:
+Waiting for Driver
+
+Rider Fix #4 — Rider Ride Status Screen Cleanup
+
+Current:
+
+Rider should see:
+
+Driver Name
+Vehicle
+ETA
+Trip Status
+Map
+
+This screen needs to remain rider-only.
+
+DRIVER SIDE TEST RESULTS
+✅ Working
+User Selection
+Driver can select a user.
+Alert confirmation works.
+Driver Menu
+Drive button opens Driver Dashboard.
+Ride Requests
+Ride Requests button opens New Ride Request screen.
+Accept Ride
+Accept Ride button works.
+Alert appears:
+Ride Accepted
+Navigation started
+DRIVER SIDE FIXES NEEDED
+Driver Fix #1 — Connect Rider Request Data To Driver Request
+
+Problem:
+
+Driver request screen shows:
+
+Rider:
+(blank)
+
+Pickup:
+(blank)
+
+Destination:
+(blank)
+
+Estimated Fare:
+$18.00
+
+Expected:
+
+Driver should receive the rider request information.
+
+Example:
+
+New Ride Request
+
+Rider:
+Hattie Lewis
+
+Pickup:
+123 Main Street
+
+Destination:
+Airport
+
+Estimated Fare:
+$18.00
+
+Driver Fix #2 — Remove Test Driver Request Button
+
+Problem:
+
+Test Driver Request button does nothing.
+
+Decision:
+
+Remove before production.
+
+Driver Fix #3 — Create Separate Driver Trip Screen
+
+Problem:
+
+After accepting a ride, driver is sent to the rider trip screen.
+
+Current screen shows:
+
+Driver: Alex
+Vehicle: Blue Toyota Camry
+ETA
+Live Trip Map
+
+This belongs to rider.
+
+Expected Driver Trip Screen:
+
+Current Trip
+
+Rider:
+Name
+
+Pickup:
+Location
+
+Destination:
+Location
+
+Status:
+Accepted
+
+Buttons:
+
+Start Trip
+Complete Trip
+Driver Fix #4 — Remove Rider Elements From Driver Screens
+
+Problem:
+
+Driver screens currently show:
+
+Welcome back screen
+User list
+Add New User button
+What would you like to do?
+
+These should not appear during an active driver trip.
+
+SHARED SYSTEM FIXES
+Shared Fix #1 — Screen Separation
+
+Problem:
+
+Multiple screens are appearing together.
+
+Example:
+
+Driver Trip Screen + Welcome Screen + User List
+
+Expected:
+
+Only one active screen should display at a time.
+
+Shared Fix #2 — User Role Separation
+
+The app needs clear separation:
+
+RIDER:
+
+Account
+↓
+Rider Menu
+↓
+Request Ride
+↓
+Wait for Driver
+↓
+Track Ride
+
+DRIVER:
+
+Account
+↓
+Driver Menu
+↓
+Ride Requests
+↓
+Accept/Decline
+↓
+Active Trip
+↓
+Complete Trip
+
+Recommended Repair Order
+Milestone 1 Cleanup
+Task 1.1
+
+Active User Display
+
+Task 1.2
+
+Replace hard-coded user names
+
+Task 1.3
+
+Separate Rider and Driver screens
+
+Task 1.4
+
+Remove incorrect buttons from each role
+
+Task 1.5
+
+Connect Rider request → Driver request
+
+Task 1.6
+
+Create proper Driver Trip screen
+
+Task 1.7
+
+Final Rider/Driver flow test
+
+Checkpoint Goal:
+SCUBER v1.1 — Clean Rider/Driver Separation
