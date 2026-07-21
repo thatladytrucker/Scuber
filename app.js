@@ -504,7 +504,7 @@ currentRide.fare = 18.00;
         "\nDestination: " + destination
     );
     
-showDriverRequest();
+showRiderTripScreen();
     
 }
 
