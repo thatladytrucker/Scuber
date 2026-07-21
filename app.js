@@ -455,20 +455,9 @@ function showDriverDashboard() {
     .classList.remove("hidden");
 
 }
-
-window.showDriverDashboard = showDriverDashboard;
-function showDriverDashboard() {
-
-    // existing code here
-
-}
-
-
 function showProfile(){
 
-    
-
-    let name = localStorage.getItem("scuberUserName");
+     let name = localStorage.getItem("scuberUserName");
     let email = localStorage.getItem("scuberUserEmail");
 
 
