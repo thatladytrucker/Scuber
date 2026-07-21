@@ -132,7 +132,23 @@ function loadUserList(){
     let list = document.getElementById("user-list");
 
     list.innerHTML = "";
+    let activeEmail = localStorage.getItem("scuberActiveUser");
 
+let activeUser = users.find(function(user){
+
+    return user.email === activeEmail;
+
+});
+
+
+if(activeUser){
+
+    document.getElementById("active-user-display").innerHTML =
+    "Active User:<br>" +
+    "<strong>" + activeUser.name + "</strong><br>" +
+    activeUser.email;
+
+}
 
     users.forEach(function(user){
 
