@@ -583,6 +583,14 @@ function showTripScreen(){
     document.getElementById("main-app")
     .classList.add("hidden");
 
+    document.getElementById("driver-request-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
 
     document.getElementById("driver-trip-screen")
     .classList.remove("hidden");
