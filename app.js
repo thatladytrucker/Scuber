@@ -489,7 +489,7 @@ function findDriver(){
 
 let driverFound = "Alex";
 
-currentRide.rider = "Toya";
+currentRide.rider = localStorage.getItem("scuberUserName");
 currentRide.driver = driverFound;
 currentRide.pickup = pickup;
 currentRide.destination = destination;
