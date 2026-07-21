@@ -104,17 +104,6 @@ function showWelcomeScreen(){
     document.getElementById("account-screen")
     .classList.add("hidden");
 
-
-    let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
-
-
-    document.getElementById("active-user-display").innerHTML =
-    "Active User:<br>" +
-    "<strong>" + name + "</strong><br>" +
-    email;
-
-
     document.getElementById("welcome-screen")
     .classList.remove("hidden");
 
