@@ -597,6 +597,9 @@ function showRiderTripScreen(){
     document.getElementById("main-app")
     .classList.add("hidden");
 
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+
     document.getElementById("ride-request-screen")
     .classList.add("hidden");
 
