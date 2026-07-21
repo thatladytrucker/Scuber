@@ -496,6 +496,11 @@ currentRide.destination = destination;
 currentRide.status = "WAITING_FOR_DRIVER_ACCEPTANCE";
 currentRide.eta = 8;
 currentRide.fare = 18.00;
+    
+localStorage.setItem(
+    "scuberCurrentRide",
+    JSON.stringify(currentRide)
+);
 
     alert(
         "Driver Found!\n\n" +
@@ -510,10 +515,18 @@ showRiderTripScreen();
 
 function showDriverRequest(){
 
+    let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
+
+if(savedRide){
+
+    currentRide = savedRide;
+
+}
+
     document.getElementById("main-app")
     .classList.add("hidden");
 
-        document.getElementById("welcome-screen")
+    document.getElementById("welcome-screen")
     .classList.add("hidden");    
 
     document.getElementById("ride-request-screen")
