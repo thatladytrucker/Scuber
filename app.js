@@ -571,11 +571,6 @@ function acceptRide(){
         currentRide.status = "DRIVER_ACCEPTED";
         currentRide.driver = "Alex";
 
-        localStorage.setItem(
-    "scuberCurrentRide",
-    JSON.stringify(currentRide)
-);
-
         document.getElementById("rider-driver").textContent = currentRide.driver;
 
         document.getElementById("rider-status").textContent = currentRide.status;
