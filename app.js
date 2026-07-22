@@ -658,6 +658,20 @@ function showRiderTripScreen(){
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
 
+        let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
+
+    if(savedRide){
+
+        currentRide = savedRide;
+
+    }
+
+    document.getElementById("rider-driver").textContent =
+    currentRide.driver;
+
+    document.getElementById("rider-status").textContent =
+    currentRide.status;
+
 }
 
 function startTrip(){
