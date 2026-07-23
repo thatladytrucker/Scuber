@@ -43,6 +43,14 @@ function showDriverEarnings(){
     document.getElementById("total-tips").textContent =
     "0.00";
 
+    let totalTips = 0;
+
+    let grandTotal = totalEarnings + totalTips;
+
+
+    document.getElementById("grand-total-earnings").textContent =
+    grandTotal.toFixed(2);
+
 
     document.getElementById("average-fare").textContent =
     averageFare.toFixed(2);
