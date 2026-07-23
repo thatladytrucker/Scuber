@@ -101,15 +101,13 @@ function createAccount(type) {
     return true;
 }
 function showWelcomeScreen(){
-
     console.log("Welcome screen function loaded");
-
-    hideAllScreens();
+    
+    document.getElementById("account-screen")
+    .classList.add("hidden");
 
     document.getElementById("welcome-screen")
     .classList.remove("hidden");
-
-}
 
 }
 function checkReturningUser(){
