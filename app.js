@@ -10,6 +10,43 @@ function showDriverEarnings(){
     document.getElementById("driver-earnings-screen")
     .classList.remove("hidden");
 
+
+    let totalTrips = rideHistory.length;
+
+    let totalEarnings = 0;
+
+
+    rideHistory.forEach(function(ride){
+
+        totalEarnings += Number(ride.fare);
+
+    });
+
+
+    let averageFare = 0;
+
+    if(totalTrips > 0){
+
+        averageFare = totalEarnings / totalTrips;
+
+    }
+
+
+    document.getElementById("total-trips").textContent =
+    totalTrips;
+
+
+    document.getElementById("total-earnings").textContent =
+    totalEarnings.toFixed(2);
+
+
+    document.getElementById("total-tips").textContent =
+    "0.00";
+
+
+    document.getElementById("average-fare").textContent =
+    averageFare.toFixed(2);
+
 }
 
 // ===========================================
