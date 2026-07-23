@@ -517,6 +517,7 @@ let currentRide = {
     status: "NO_RIDE",
     eta: 0,
     fare: 0
+    tip: 0
 };
 // ===========================================
 // RIDE HISTORY
