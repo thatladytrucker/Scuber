@@ -2,7 +2,6 @@ function hideAllScreens(){
 
     const screens = [
 
-        "account-screen",
         "welcome-screen",
         "main-app",
 
