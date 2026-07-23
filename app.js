@@ -777,6 +777,19 @@ function showRiderCompleteScreen(){
     currentRide.fare.toFixed(2);
 
 }
+function showRiderFeedbackScreen(){
+
+    document.getElementById("rider-complete-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-feedback-screen")
+    .classList.remove("hidden");
+
+
+    document.getElementById("feedback-driver").textContent =
+    currentRide.driver;
+
+}
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
