@@ -468,7 +468,9 @@ let currentRide = {
 // RIDE HISTORY
 // ===========================================
 
-let rideHistory = [];
+let rideHistory = JSON.parse(
+    localStorage.getItem("scuberRideHistory")
+) || [];
 function requestRide(){
 
     let name = localStorage.getItem("scuberUserName");
