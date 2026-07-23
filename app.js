@@ -749,7 +749,34 @@ function startTrip(){
     );
 
 }
+function showRiderCompleteScreen(){
 
+    document.getElementById("driver-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-complete-screen")
+    .classList.remove("hidden");
+
+
+    document.getElementById("complete-driver").textContent =
+    currentRide.driver;
+
+
+    document.getElementById("complete-pickup").textContent =
+    currentRide.pickup;
+
+
+    document.getElementById("complete-destination").textContent =
+    currentRide.destination;
+
+
+    document.getElementById("complete-fare").textContent =
+    currentRide.fare.toFixed(2);
+
+}
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
