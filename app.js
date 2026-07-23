@@ -816,9 +816,7 @@ function completeTrip(){
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
-
-    showRiderCompleteScreen();
-
+   
 }
 document.addEventListener("DOMContentLoaded", function(){
 
