@@ -816,7 +816,9 @@ function completeTrip(){
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
-   
+    
+ showDriverDashboard();  
+    
 }
 document.addEventListener("DOMContentLoaded", function(){
 
