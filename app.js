@@ -1,3 +1,38 @@
+function hideAllScreens(){
+
+    const screens = [
+
+        "account-screen",
+        "welcome-screen",
+        "main-app",
+
+        "ride-request-screen",
+        "schedule-screen",
+        "ride-history-screen",
+        "recurring-screen",
+
+        "driver-dashboard",
+        "driver-request-screen",
+        "driver-trip-screen",
+
+        "rider-trip-screen"
+
+    ];
+
+    screens.forEach(function(id){
+
+        let screen = document.getElementById(id);
+
+        if(screen){
+
+            screen.classList.add("hidden");
+
+        }
+
+    });
+
+}
+
 // ===========================================
 // DRIVER FUNCTIONS
 // ===========================================// Scuber App - Version 1
@@ -6,6 +41,8 @@
 // ===========================================
 // SCHEDULE FUNCTIONS
 // ===========================================
+
+
 
 function openSchedule() {
 
