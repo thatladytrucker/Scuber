@@ -708,7 +708,7 @@ function completeTrip(){
         status: currentRide.status
     });
     console.log("Ride History After Push:", rideHistory);
-    document.getElementById("rider-status").textContent = currentRide.status;
+    document.getElementById("driver-trip-status").textContent = currentRide.status;
 
     alert(
         "Trip Completed!\n\n" +
