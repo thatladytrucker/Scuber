@@ -612,3 +612,15 @@ Final Rider/Driver flow test
 
 Checkpoint Goal:
 SCUBER v1.1 — Clean Rider/Driver Separation
+Started a new milestone system and new way of building which brings the app full circle and saves the driver history: 
+Current Milestone 3 Status
+Driver Trip Lifecycle
+
+✅ Accept Ride
+✅ Start Trip
+✅ Complete Trip
+✅ Save Completed Ride
+✅ View Trip History
+✅ Persist Trip History after refresh
+
+SCUBER now has the beginning of a real data system.
