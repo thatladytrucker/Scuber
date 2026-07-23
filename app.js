@@ -685,7 +685,7 @@ function startTrip(){
 
     currentRide.status = "TRIP_STARTED";
 
-    document.getElementById("rider-status").textContent = currentRide.status;
+    document.getElementById("driver-trip-status").textContent = currentRide.status;
 
     alert(
         "Trip Started!\n\n" +
