@@ -136,13 +136,15 @@ function createAccount(type) {
     return true;
 }
 function showWelcomeScreen(){
+
     console.log("Welcome screen function loaded");
-    
-    document.getElementById("account-screen")
-    .classList.add("hidden");
+
+    hideAllScreens();
 
     document.getElementById("welcome-screen")
     .classList.remove("hidden");
+
+}
 
 }
 function checkReturningUser(){
