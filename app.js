@@ -2,6 +2,15 @@
 // DRIVER FUNCTIONS
 // ===========================================// Scuber App - Version 1
 
+function showDriverEarnings(){
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("driver-earnings-screen")
+    .classList.remove("hidden");
+
+}
 
 // ===========================================
 // SCHEDULE FUNCTIONS
