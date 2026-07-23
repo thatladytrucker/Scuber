@@ -803,6 +803,8 @@ function completeTrip(){
         "Thank you for driving with Scuber."
     );
 
+    showRiderCompleteScreen();
+
 }
 document.addEventListener("DOMContentLoaded", function(){
 
