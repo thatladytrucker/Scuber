@@ -709,6 +709,11 @@ function completeTrip(){
         fare: currentRide.fare,
         status: currentRide.status
     });
+
+    localStorage.setItem(
+    "scuberRideHistory",
+    JSON.stringify(rideHistory)
+);
     console.log("Ride History After Push:", rideHistory);
     document.getElementById("driver-trip-status").textContent = currentRide.status;
 
