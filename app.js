@@ -178,10 +178,6 @@ function checkReturningUser(){
 
         showWelcomeScreen();
 
-    } else {
-
-        showAccountScreen();
-
     }
 
 }
