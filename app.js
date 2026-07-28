@@ -171,14 +171,14 @@ function checkReturningUser(){
 
     if(name && email){
 
-        document.getElementById("welcome-name").textContent =
-        "Welcome back!";
+    document.getElementById("welcome-name").textContent =
+    "Welcome back!";
 
-        loadUserList();
+    loadUserList();
 
-        showWelcomeScreen();
+    showWelcomeScreen();
 
-    }
+}
 
 }
 function loadUserList(){
@@ -208,17 +208,17 @@ if(activeUser){
 
     users.forEach(function(user){
 
-list.innerHTML += `
+        list.innerHTML += `
 
-<button class="schedule"
-onclick="selectUser('${user.email}')">
+        <button class="schedule"
+        onclick="selectUser('${user.email}')">
 
-    <strong>${user.name}</strong><br>
-    ${user.email}
+            <strong>${user.name}</strong><br>
+            ${user.email}
 
-</button>
+        </button>
 
-`;   
+        `;
 
     });
 
@@ -259,78 +259,6 @@ function selectUser(email){
 loadUserList();
 
 showWelcomeScreen();
-
-    }
-
-}
-function deleteUser(){
-
-    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
-
-    let activeEmail = localStorage.getItem("scuberActiveUser");
-
-
-    if(!activeEmail){
-
-        alert("No active user selected.");
-
-        return;
-
-    }
-
-
-    let userToDelete = users.find(function(user){
-
-        return user.email === activeEmail;
-
-    });
-
-
-    if(!userToDelete){
-
-        alert("User not found.");
-
-        return;
-
-    }
-
-
-    let confirmDelete = confirm(
-        "Delete User?\n\n" +
-        userToDelete.name + "\n" +
-        userToDelete.email
-    );
-
-
-    if(confirmDelete){
-
-
-        users = users.filter(function(user){
-
-            return user.email !== activeEmail;
-
-        });
-
-
-        localStorage.setItem(
-            "scuberUsers",
-            JSON.stringify(users)
-        );
-
-
-        localStorage.removeItem("scuberActiveUser");
-        localStorage.removeItem("scuberUserName");
-        localStorage.removeItem("scuberUserEmail");
-
-
-        alert(
-            userToDelete.name + " has been deleted."
-        );
-
-
-        loadUserList();
-
-        showAccountScreen();
 
     }
 
