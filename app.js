@@ -208,28 +208,17 @@ if(activeUser){
 
     users.forEach(function(user){
 
-    list.innerHTML += `
+list.innerHTML += `
 
-<div class="ride-card">
+<button class="schedule"
+onclick="selectUser('${user.email}')">
 
-    <button class="schedule"
-    onclick="selectUser('${user.email}')">
+    <strong>${user.name}</strong><br>
+    ${user.email}
 
-        <strong>${user.name}</strong><br>
-        ${user.email}
+</button>
 
-    </button>
-
-    <button class="decline"
-    onclick="deleteUser('${user.email}')">
-
-        🗑️ Delete
-
-    </button>
-
-</div>
-
-`;    
+`;   
 
     });
 
