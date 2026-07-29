@@ -14,7 +14,7 @@
 <!-- ====================================================== -->
 <!-- ACCOUNT SCREEN -->
 <!-- ====================================================== -->
-<div id="account-screen">
+<div id="account-screen" class="hidden">
 
     <header>
         <h1>SCUBER</h1>
@@ -55,6 +55,7 @@
 <div id="ride-request-screen" class="hidden">    
     
 <h2>Request Ride</h2>
+<p id="rider-user-name"></p>
 
 <label>Pickup Location</label>
 <input type="text" id="now-pickup" placeholder="Where are you?" />
@@ -94,6 +95,7 @@ Find Available Driver
 <!-- ====================================================== -->
 <!-- RIDER SCREENS -->
 <!-- ====================================================== -->
+    
 <div id="old-rider-dashboard" class="hidden">
 
     <h2>Old Rider Dashboard (Unused)</h2>
@@ -142,8 +144,12 @@ Find Available Driver
         📅 Availability
     </button>
 
-    <button class="schedule">
-        💰 Earnings
+    <button class="schedule" onclick="showDriverEarnings()">
+    💰 Earnings
+    </button>
+
+    <button class="schedule" onclick="showRideHistory()">
+    📜 Trip History
     </button>
 
     <button class="schedule">
@@ -151,6 +157,40 @@ Find Available Driver
     </button>
 
 </div>
+
+
+<div id="driver-earnings-screen" class="hidden">
+
+    <h2>💰 Driver Earnings</h2>
+
+    <div class="ride-card">
+
+        <p><strong>Total Trips:</strong> 
+        <span id="total-trips">0</span></p>
+
+        <p><strong>Ride Earnings:</strong> $
+        <span id="total-earnings">0.00</span></p>
+
+        <p><strong>Tips:</strong> $
+        <span id="total-tips">0.00</span></p>
+
+        <p><strong>Total Earnings:</strong> $
+        <span id="grand-total-earnings">0.00</span></p>
+
+        <p><strong>Average Fare:</strong> $
+        <span id="average-fare">0.00</span></p>
+
+    </div>
+
+
+    <button class="schedule" onclick="showDriverDashboard()">
+        ← Back to Driver Dashboard
+    </button>
+
+</div>
+
+
+
 <div id="driver-request-screen" class="hidden">
 
     <h2>New Ride Request 🚗</h2>
@@ -226,11 +266,11 @@ Find Available Driver
 
     <div class="ride-card">
 
-        <p><strong>Pickup:</strong> Rider Location</p>
+        <p><strong>Pickup:</strong> <span id="driver-trip-pickup">Waiting...</span></p>
 
-        <p><strong>Destination:</strong> Rider Destination</p>
+        <p><strong>Destination:</strong> <span id="driver-trip-destination">Waiting...</span></p>
 
-        <p><strong>Status:</strong> En Route</p>
+        <p><strong>Status:</strong> <span id="driver-trip-status">En Route</span></p>
 
     </div>
 
@@ -246,6 +286,30 @@ Find Available Driver
     <button class="schedule" onclick="showDriverDashboard()">
     ← Back to Driver Dashboard
 </button>
+    
+</div>
+    <div id="driver-complete-screen" class="hidden">
+
+    <h2>✅ Trip Complete</h2>
+
+    <div class="ride-card">
+
+        <p><strong>Rider:</strong> <span id="complete-driver-rider">Waiting...</span></p>
+
+        <p><strong>Pickup:</strong> <span id="complete-driver-pickup">Waiting...</span></p>
+
+        <p><strong>Destination:</strong> <span id="complete-driver-destination">Waiting...</span></p>
+
+        <p><strong>Fare:</strong> $<span id="complete-driver-fare">0.00</span></p>
+
+        <p><strong>Status:</strong> Completed</p>
+
+    </div>
+
+    <button class="schedule" onclick="showDriverDashboard()">
+        ← Back to Driver Dashboard
+    </button>
+
 </div>
     <div id="ride-history-screen" class="hidden">
 
@@ -280,7 +344,97 @@ Find Available Driver
         🗺️ Live Trip Map
  </div>
 
- </div>
+</div>
+
+<div id="rider-complete-screen" class="hidden">
+
+    <h2>✅ Ride Complete</h2>
+
+    <div class="ride-card">
+
+        <p><strong>Driver:</strong> 
+        <span id="complete-driver">Waiting...</span></p>
+
+        <p><strong>Pickup:</strong> 
+        <span id="complete-pickup">Waiting...</span></p>
+
+        <p><strong>Destination:</strong> 
+        <span id="complete-destination">Waiting...</span></p>
+
+        <p><strong>Fare:</strong> $
+        <span id="complete-fare">0.00</span></p>
+
+    </div>
+
+    <button class="confirm" onclick="showRiderFeedbackScreen()">
+    Continue ⭐
+    </button>
+
+</div>
+    <div id="rider-feedback-screen" class="hidden">
+
+    <h2>⭐ Rate Your Scuber Ride</h2>
+
+    <div class="ride-card">
+
+        <p>How was your ride with 
+        <strong><span id="feedback-driver">Driver</span></strong>?</p>
+
+
+        <p><strong>Tip Your Driver</strong></p>
+
+<button class="schedule">
+    $2 Tip
+</button>
+
+<button class="schedule">
+    $5 Tip
+</button>
+
+<button class="schedule">
+    $10 Tip
+</button>
+
+<p><strong>Custom Tip:</strong></p>
+
+<input 
+    type="number" 
+    id="custom-tip"
+    placeholder="Enter tip amount"
+    min="0"
+    step="0.01">
+
+
+        <p><strong>Rate Your Ride</strong></p>
+
+        <button class="schedule">
+            ⭐ 1
+        </button>
+
+        <button class="schedule">
+            ⭐ 2
+        </button>
+
+        <button class="schedule">
+            ⭐ 3
+        </button>
+
+        <button class="schedule">
+            ⭐ 4
+        </button>
+
+        <button class="schedule">
+            ⭐ 5
+        </button>
+
+    </div>
+
+
+    <button class="confirm">
+        Done
+    </button>
+
+</div>
 <!-- ====================================================== -->
 <!-- MAIN APP -->
 <!-- ====================================================== -->
@@ -393,8 +547,18 @@ Find Available Driver
     <header>
         <h1>SCUBER</h1>
         <p>Welcome back!</p>
+    
     </header>
+    <p id="active-user-display"></p>
+<div id="user-list"></div>
 
+<button class="schedule" onclick="showAccountScreen()">
+    ➕ Add New User
+</button>
+    
+<button class="schedule" onclick="deleteSelectedUser()">
+    🗑️ Delete Selected User
+</button>
     <h2 id="welcome-name"></h2>
 
     <p>What would you like to do?</p>
@@ -406,6 +570,10 @@ Find Available Driver
     <button class="schedule" onclick="showDriverDashboard()">
         🚘 Drive
     </button>
+    
+    <button class="schedule" onclick="showAccountScreen()">
+    ➕ Add / Switch User
+</button>
 
 </div>
 
