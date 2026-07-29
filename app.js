@@ -294,15 +294,19 @@ function saveUser(name, email){
 
 
     localStorage.setItem(
-        "scuberUsers",
-        JSON.stringify(users)
-    );
+    "scuberActiveUser",
+    email
+);
 
+localStorage.setItem(
+    "scuberUserName",
+    name
+);
 
-    localStorage.setItem(
-        "scuberActiveUser",
-        email
-    );
+localStorage.setItem(
+    "scuberUserEmail",
+    email
+);
 
 }
 // ===========================================
@@ -535,7 +539,7 @@ function requestRide(){
     "Welcome, " + name;
 
     document.getElementById("ride-request-screen")
-    .classList.remove("hidden");
+    .classList.remodve("hidden");
 
 }
 
