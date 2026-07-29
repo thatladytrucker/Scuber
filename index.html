@@ -41,11 +41,11 @@
     <span>Get picked up when a driver is available</span>
 </button>
 
-    <button class="schedule" onclick="createAccount('Rider')">
+    <button class="schedule" onclick="showRiderHome()">
     🚗 Continue as Rider
 </button>
 
-<button class="schedule" onclick="createAccount('Driver')">
+<button class="schedule" onclick="showDriverDashboard()">
     🚘 Continue as Driver
 </button>
 
@@ -55,7 +55,6 @@
 <div id="ride-request-screen" class="hidden">    
     
 <h2>Request Ride</h2>
-
 
 <label>Pickup Location</label>
 <input type="text" id="now-pickup" placeholder="Where are you?" />
@@ -87,15 +86,14 @@ Find Available Driver
         🚗 Ride
     </button>
 
-    <button class="schedule" onclick="showDriverDashboard(); alert('after function')">
-    🚘 Drive
-</button>
+    <button class="schedule" onclick="showDriverDashboard()">
+        🚘 Drive
+    </button>
 
 </div>
 <!-- ====================================================== -->
 <!-- RIDER SCREENS -->
 <!-- ====================================================== -->
-    
 <div id="old-rider-dashboard" class="hidden">
 
     <h2>Old Rider Dashboard (Unused)</h2>
@@ -110,10 +108,9 @@ Find Available Driver
         🧾 Ride History
 </button>
 
-    <button class="schedule" onclick="showProfile()">
-    👤 Profile
-</button>
-    
+    <button class="schedule">
+        👤 Profile
+    </button>
 <button class="schedule" onclick="openSchedule()">
     📅 Schedule a Ride
     <span>Book hours, days, or weeks in advance</span>
@@ -130,8 +127,6 @@ Find Available Driver
 <div id="driver-dashboard" class="hidden">
 
     <h2>Driver Dashboard</h2>
-
-    <p id="driver-user-name"></p>
 
     <p>Welcome, Driver! 🚘</p>
 
@@ -192,11 +187,8 @@ Find Available Driver
     
 <div id="driver-screen" class="hidden">
 
-    <p id="driver-user-name"></p>
-
     <h2>Driver Availability</h2>
 
-    
     <p>Tell Scuber when you are available for rides.</p>
 
 
@@ -297,9 +289,6 @@ Find Available Driver
     <header>
         <h1>SCUBER</h1>
         <p>Your Ride. Your Schedule. Your Community.</p>
-        
-        <p id="rider-user-name"></p>
-       
     </header>
 
 
@@ -323,7 +312,7 @@ Find Available Driver
     🔁 Recurring Rides
 </button>
 
-<button class="schedule" onclick="showProfile()">
+<button class="schedule">
     👤 Profile
 </button>
 
@@ -405,13 +394,7 @@ Find Available Driver
         <h1>SCUBER</h1>
         <p>Welcome back!</p>
     </header>
-<div id="user-list"></div>
 
-    <p id="active-user-display"></p>
-
-<button class="schedule" onclick="showAccountScreen()">
-    ➕ Add New User
-</button>
     <h2 id="welcome-name"></h2>
 
     <p>What would you like to do?</p>
@@ -421,28 +404,7 @@ Find Available Driver
     </button>
 
     <button class="schedule" onclick="showDriverDashboard()">
-    🚘 Drive
-</button>
-    
-    <button class="schedule" onclick="showAccountScreen()">
-    ➕ Add New User
-</button>
-
-</div>
-<div id="profile-screen" class="hidden">
-
-    <h2>Profile</h2>
-
-    <p id="profile-user-name"></p>
-
-    <p id="profile-user-email"></p>
-
-    <button class="schedule" onclick="editProfile()">
-    ✏️ Edit Profile
-    </button>
-
-    <button class="schedule" onclick="showRiderHome()">
-        ← Back
+        🚘 Drive
     </button>
 
 </div>
