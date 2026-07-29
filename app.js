@@ -516,8 +516,7 @@ let currentRide = {
     destination: "",
     status: "NO_RIDE",
     eta: 0,
-    fare: 0,
-    tip: 0
+    fare: 0
 };
 // ===========================================
 // RIDE HISTORY
@@ -778,19 +777,6 @@ function showRiderCompleteScreen(){
     currentRide.fare.toFixed(2);
 
 }
-function showRiderFeedbackScreen(){
-
-    document.getElementById("rider-complete-screen")
-    .classList.add("hidden");
-
-    document.getElementById("rider-feedback-screen")
-    .classList.remove("hidden");
-
-
-    document.getElementById("feedback-driver").textContent =
-    currentRide.driver;
-
-}
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
@@ -816,26 +802,7 @@ function completeTrip(){
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
-    
-    document.getElementById("driver-trip-screen")
-    .classList.add("hidden");
 
-    document.getElementById("driver-complete-screen")
-    .classList.remove("hidden");
-
-
-    document.getElementById("complete-driver-rider").textContent =
-    currentRide.rider;
-
-    document.getElementById("complete-driver-pickup").textContent =
-    currentRide.pickup;
-
-    document.getElementById("complete-driver-destination").textContent =
-    currentRide.destination;
-
-    document.getElementById("complete-driver-fare").textContent =
-    currentRide.fare; 
-    
 }
 document.addEventListener("DOMContentLoaded", function(){
 
