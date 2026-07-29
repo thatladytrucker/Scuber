@@ -93,10 +93,16 @@ function createAccount(type) {
         "Account Type: " + type
     );
 
-    document.getElementById("account-screen")
-    .classList.add("hidden");
+    saveUser(name, email);
 
-    return true;
+    document.getElementById("account-screen")
+.classList.add("hidden");
+
+showWelcomeScreen();
+
+loadUserList();
+
+return true;
 }
 function showWelcomeScreen(){
     console.log("Welcome screen function loaded");
@@ -115,12 +121,14 @@ function checkReturningUser(){
 
     if(name && email){
 
-    document.getElementById("welcome-name").textContent =
-    "Welcome back!";
+        document.getElementById("welcome-name").textContent =
+        "Welcome back!";
 
-    loadUserList();
+        loadUserList();
 
-    showWelcomeScreen();
+        showWelcomeScreen();
+
+    }
 
 }
 
@@ -131,7 +139,6 @@ function loadUserList(){
 
     let list = document.getElementById("user-list");
 
-    list.innerHTML = "";
     let activeEmail = localStorage.getItem("scuberActiveUser");
 
 let activeUser = users.find(function(user){
@@ -150,19 +157,25 @@ if(activeUser){
 
 }
 
+    list.innerHTML = "";
+    
+
+
     users.forEach(function(user){
 
-        list.innerHTML += `
+       list.innerHTML += `
 
-        <button class="schedule"
-        onclick="selectUser('${user.email}')">
+<button class="schedule"
+onclick="selectUser('${user.email}')">
 
-            <strong>${user.name}</strong><br>
-            ${user.email}
+    ${user.email === activeEmail ? "✓ Active<br>" : ""}
 
-        </button>
+    <strong>${user.name}</strong><br>
+    ${user.email}
 
-        `;
+</button>
+
+`;
 
     });
 
@@ -202,12 +215,15 @@ function selectUser(email){
 
 loadUserList();
 
-showWelcomeScreen();
-
+showModeScreen();
     }
 
 }
+
 function showModeScreen(){
+
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
 
     document.getElementById("account-screen")
     .classList.add("hidden");
@@ -227,7 +243,12 @@ function saveUser(name, email){
     });
 
 
-    if(!existingUser){
+    if(existingUser){
+
+        existingUser.name = name;
+        existingUser.email = email;
+
+    } else {
 
         users.push({
             name: name,
@@ -315,10 +336,15 @@ function createAccount(type) {
         "Welcome to Scuber, " + name + "!\n\n" +
         "Account Type: " + type
     );
+    
+saveUser(name, email);
 
+document.getElementById("account-screen")
+.classList.add("hidden");
 
-    document.getElementById("account-screen")
-    .classList.add("hidden");
+showWelcomeScreen();
+
+loadUserList();
 
 }
 
@@ -392,21 +418,18 @@ function showDriverScreen() {
 }
 
 function showDriverDashboard() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
 
-    if(name === "" || email === ""){
+    alert("Driver function started");
 
-    name = localStorage.getItem("scuberUserName");
-    email = localStorage.getItem("scuberUserEmail");
+    let name = localStorage.getItem("scuberUserName");
 
-    if(name === null || email === null){
-        alert("Please enter your name and email.");
+    if(name === null){
+        alert("Please select a user first.");
         return;
     }
-
-}
-saveUser(name, email);
+    
+    document.getElementById("driver-user-name").textContent =
+    "Welcome, " + name;
     
     document.getElementById("account-screen")
     .classList.add("hidden");
@@ -426,8 +449,71 @@ saveUser(name, email);
     document.getElementById("driver-request-screen")
     .classList.add("hidden");
 
+   showDriverDashboard() 
+
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
+
+}
+
+window.showDriverDashboard = showDriverDashboard;
+function showDriverDashboard() {
+
+    // existing code here
+
+}
+
+
+function showProfile(){
+
+    
+
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
+
+
+    document.getElementById("profile-user-name").textContent =
+    "Name: " + name;
+
+
+    document.getElementById("profile-user-email").textContent =
+    "Email: " + email;
+
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
+
+    document.getElementById("profile-screen")
+    .classList.remove("hidden");
+
+}
+function editProfile(){
+
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
+
+
+    let newName = prompt("Enter your name:", name);
+
+    if(newName === null){
+        return;
+    }
+
+
+    let newEmail = prompt("Enter your email:", email);
+
+    if(newEmail === null){
+        return;
+    }
+
+
+    localStorage.setItem("scuberUserName", newName);
+    localStorage.setItem("scuberUserEmail", newEmail);
+
+    saveUser(newName, newEmail);
+
+    showProfile();
 
 }
 function saveAvailability() {
@@ -489,18 +575,13 @@ function findDriver(){
 
 let driverFound = "Alex";
 
-currentRide.rider = localStorage.getItem("scuberUserName");
+currentRide.rider = "Toya";
 currentRide.driver = driverFound;
 currentRide.pickup = pickup;
 currentRide.destination = destination;
 currentRide.status = "WAITING_FOR_DRIVER_ACCEPTANCE";
 currentRide.eta = 8;
 currentRide.fare = 18.00;
-    
-localStorage.setItem(
-    "scuberCurrentRide",
-    JSON.stringify(currentRide)
-);
 
     alert(
         "Driver Found!\n\n" +
@@ -509,25 +590,14 @@ localStorage.setItem(
         "\nDestination: " + destination
     );
     
-showRiderTripScreen();
+showDriverRequest();
     
 }
 
 function showDriverRequest(){
 
-    let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
-
-if(savedRide){
-
-    currentRide = savedRide;
-
-}
-
     document.getElementById("main-app")
     .classList.add("hidden");
-
-    document.getElementById("welcome-screen")
-    .classList.add("hidden");    
 
     document.getElementById("ride-request-screen")
     .classList.add("hidden");
@@ -576,7 +646,7 @@ function acceptRide(){
         document.getElementById("rider-status").textContent = currentRide.status;
 
     }
-showTripScreen();
+showRiderTripScreen();
 
     alert(
         "Ride Accepted!\n\n" +
@@ -599,36 +669,9 @@ function showTripScreen(){
     document.getElementById("main-app")
     .classList.add("hidden");
 
-    document.getElementById("welcome-screen")
-    .classList.add("hidden");
-
-    document.getElementById("driver-request-screen")
-    .classList.add("hidden");
-
-    document.getElementById("rider-trip-screen")
-    .classList.add("hidden");
-
-    document.getElementById("driver-dashboard")
-    .classList.add("hidden");
 
     document.getElementById("driver-trip-screen")
     .classList.remove("hidden");
-
-        let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
-
-    if(savedRide){
-
-        currentRide = savedRide;
-
-    }
-
-
-    document.getElementById("driver-trip-pickup").textContent =
-    currentRide.pickup;
-
-
-    document.getElementById("driver-trip-destination").textContent =
-    currentRide.destination;
 
 }
 
@@ -638,9 +681,6 @@ function showRiderTripScreen(){
     .classList.add("hidden");
 
     document.getElementById("main-app")
-    .classList.add("hidden");
-
-    document.getElementById("welcome-screen")
     .classList.add("hidden");
 
     document.getElementById("ride-request-screen")
