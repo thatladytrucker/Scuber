@@ -2,10 +2,66 @@
 // DRIVER FUNCTIONS
 // ===========================================// Scuber App - Version 1
 
+function showDriverEarnings(){
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("driver-earnings-screen")
+    .classList.remove("hidden");
+
+
+    let totalTrips = rideHistory.length;
+
+    let totalEarnings = 0;
+
+
+    rideHistory.forEach(function(ride){
+
+        totalEarnings += Number(ride.fare);
+
+    });
+
+
+    let averageFare = 0;
+
+    if(totalTrips > 0){
+
+        averageFare = totalEarnings / totalTrips;
+
+    }
+
+
+    document.getElementById("total-trips").textContent =
+    totalTrips;
+
+
+    document.getElementById("total-earnings").textContent =
+    totalEarnings.toFixed(2);
+
+
+    document.getElementById("total-tips").textContent =
+    "0.00";
+
+    let totalTips = 0;
+
+    let grandTotal = totalEarnings + totalTips;
+
+
+    document.getElementById("grand-total-earnings").textContent =
+    grandTotal.toFixed(2);
+
+
+    document.getElementById("average-fare").textContent =
+    averageFare.toFixed(2);
+
+}
 
 // ===========================================
 // SCHEDULE FUNCTIONS
 // ===========================================
+
+
 
 function openSchedule() {
 
@@ -65,6 +121,15 @@ function confirmRecurring() {
 // ===========================================
 // ACCOUNT FUNCTIONS
 // ===========================================
+function showAccountScreen(){
+
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+
+    document.getElementById("account-screen")
+    .classList.remove("hidden");
+
+}
 function createAccount(type) {
 
     let name = document.getElementById("name").value;
@@ -106,10 +171,105 @@ function checkReturningUser(){
 
     if(name && email){
 
-        document.getElementById("welcome-name").textContent =
-        "Welcome back, " + name + "!";
+    document.getElementById("welcome-name").textContent =
+    "Welcome back!";
 
-        showWelcomeScreen();
+    loadUserList();
+
+    showWelcomeScreen();
+
+}
+
+}
+function loadUserList(){
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let list = document.getElementById("user-list");
+
+    list.innerHTML = "";
+    let activeEmail = localStorage.getItem("scuberActiveUser");
+
+let activeUser = users.find(function(user){
+
+    return user.email === activeEmail;
+
+});
+
+
+if(activeUser){
+
+    document.getElementById("active-user-display").innerHTML =
+    "Active User:<br>" +
+    "<strong>" + activeUser.name + "</strong><br>" +
+    activeUser.email;
+
+}
+
+    users.forEach(function(user){
+
+    list.innerHTML += `
+
+<div class="ride-card">
+
+    <button class="schedule"
+    onclick="selectUser('${user.email}')">
+
+        <strong>${user.name}</strong><br>
+        ${user.email}
+
+    </button>
+
+    <button class="decline"
+    onclick="deleteUser('${user.email}')">
+
+        🗑️ Delete
+
+    </button>
+
+</div>
+
+`;    
+
+    });
+
+}
+function selectUser(email){
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let selectedUser = users.find(function(user){
+
+        return user.email === email;
+
+    });
+
+
+    if(selectedUser){
+
+        localStorage.setItem(
+            "scuberActiveUser",
+            selectedUser.email
+        );
+
+        localStorage.setItem(
+            "scuberUserName",
+            selectedUser.name
+        );
+
+        localStorage.setItem(
+            "scuberUserEmail",
+            selectedUser.email
+        );
+
+
+        alert(
+    "Welcome back, " + selectedUser.name + "!"
+);
+
+loadUserList();
+
+showWelcomeScreen();
 
     }
 
@@ -121,6 +281,39 @@ function showModeScreen(){
 
     document.getElementById("mode-screen")
     .classList.remove("hidden");
+
+}
+function saveUser(name, email){
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let existingUser = users.find(function(user){
+
+        return user.email === email;
+
+    });
+
+
+    if(!existingUser){
+
+        users.push({
+            name: name,
+            email: email
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "scuberUsers",
+        JSON.stringify(users)
+    );
+
+
+    localStorage.setItem(
+        "scuberActiveUser",
+        email
+    );
 
 }
 // ===========================================
@@ -198,8 +391,8 @@ function createAccount(type) {
 
 function showRiderHome() {
     
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
 
     if(name === "" || email === ""){
 
@@ -213,8 +406,9 @@ function showRiderHome() {
 
 }
         
-    localStorage.setItem("scuberUserName", name);
-    localStorage.setItem("scuberUserEmail", email);
+    saveUser(name, email);
+    document.getElementById("rider-user-name").textContent =
+"Welcome, " + name;
         
     console.log("Opening Rider Home");
 
@@ -279,8 +473,7 @@ function showDriverDashboard() {
     }
 
 }
-localStorage.setItem("scuberUserName", name);
-localStorage.setItem("scuberUserEmail", email);
+saveUser(name, email);
     
     document.getElementById("account-screen")
     .classList.add("hidden");
@@ -334,14 +527,24 @@ let currentRide = {
     destination: "",
     status: "NO_RIDE",
     eta: 0,
-    fare: 0
+    fare: 0,
+    tip: 0
 };
 // ===========================================
 // RIDE HISTORY
 // ===========================================
 
-let rideHistory = [];
+let rideHistory = JSON.parse(
+    localStorage.getItem("scuberRideHistory")
+) || [];
 function requestRide(){
+
+    let name = localStorage.getItem("scuberUserName");
+
+    alert("Current user is: " + name);
+
+    document.getElementById("rider-user-name").textContent =
+    "Welcome, " + name;
 
     document.getElementById("ride-request-screen")
     .classList.remove("hidden");
@@ -356,13 +559,18 @@ function findDriver(){
 
 let driverFound = "Alex";
 
-currentRide.rider = "Toya";
+currentRide.rider = localStorage.getItem("scuberUserName");
 currentRide.driver = driverFound;
 currentRide.pickup = pickup;
 currentRide.destination = destination;
 currentRide.status = "WAITING_FOR_DRIVER_ACCEPTANCE";
 currentRide.eta = 8;
 currentRide.fare = 18.00;
+    
+localStorage.setItem(
+    "scuberCurrentRide",
+    JSON.stringify(currentRide)
+);
 
     alert(
         "Driver Found!\n\n" +
@@ -371,14 +579,25 @@ currentRide.fare = 18.00;
         "\nDestination: " + destination
     );
     
-showDriverRequest();
+showRiderTripScreen();
     
 }
 
 function showDriverRequest(){
 
+    let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
+
+if(savedRide){
+
+    currentRide = savedRide;
+
+}
+
     document.getElementById("main-app")
     .classList.add("hidden");
+
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");    
 
     document.getElementById("ride-request-screen")
     .classList.add("hidden");
@@ -422,12 +641,16 @@ function acceptRide(){
         currentRide.status = "DRIVER_ACCEPTED";
         currentRide.driver = "Alex";
 
+        localStorage.setItem(
+    "scuberCurrentRide",
+    JSON.stringify(currentRide)
+);
         document.getElementById("rider-driver").textContent = currentRide.driver;
 
         document.getElementById("rider-status").textContent = currentRide.status;
 
     }
-showRiderTripScreen();
+showTripScreen();
 
     alert(
         "Ride Accepted!\n\n" +
@@ -450,9 +673,36 @@ function showTripScreen(){
     document.getElementById("main-app")
     .classList.add("hidden");
 
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-request-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
 
     document.getElementById("driver-trip-screen")
     .classList.remove("hidden");
+
+        let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
+
+    if(savedRide){
+
+        currentRide = savedRide;
+
+    }
+
+
+    document.getElementById("driver-trip-pickup").textContent =
+    currentRide.pickup;
+
+
+    document.getElementById("driver-trip-destination").textContent =
+    currentRide.destination;
 
 }
 
@@ -462,6 +712,9 @@ function showRiderTripScreen(){
     .classList.add("hidden");
 
     document.getElementById("main-app")
+    .classList.add("hidden");
+
+    document.getElementById("welcome-screen")
     .classList.add("hidden");
 
     document.getElementById("ride-request-screen")
@@ -479,6 +732,20 @@ function showRiderTripScreen(){
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
 
+        let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
+
+    if(savedRide){
+
+        currentRide = savedRide;
+
+    }
+
+    document.getElementById("rider-driver").textContent =
+    currentRide.driver;
+
+    document.getElementById("rider-status").textContent =
+    currentRide.status;
+
 }
 
 function startTrip(){
@@ -486,7 +753,7 @@ function startTrip(){
 
     currentRide.status = "TRIP_STARTED";
 
-    document.getElementById("rider-status").textContent = currentRide.status;
+    document.getElementById("driver-trip-status").textContent = currentRide.status;
 
     alert(
         "Trip Started!\n\n" +
@@ -494,7 +761,47 @@ function startTrip(){
     );
 
 }
+function showRiderCompleteScreen(){
 
+    document.getElementById("driver-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-complete-screen")
+    .classList.remove("hidden");
+
+
+    document.getElementById("complete-driver").textContent =
+    currentRide.driver;
+
+
+    document.getElementById("complete-pickup").textContent =
+    currentRide.pickup;
+
+
+    document.getElementById("complete-destination").textContent =
+    currentRide.destination;
+
+
+    document.getElementById("complete-fare").textContent =
+    currentRide.fare.toFixed(2);
+
+}
+function showRiderFeedbackScreen(){
+
+    document.getElementById("rider-complete-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-feedback-screen")
+    .classList.remove("hidden");
+
+
+    document.getElementById("feedback-driver").textContent =
+    currentRide.driver;
+
+}
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
@@ -508,14 +815,38 @@ function completeTrip(){
         fare: currentRide.fare,
         status: currentRide.status
     });
+
+    localStorage.setItem(
+    "scuberRideHistory",
+    JSON.stringify(rideHistory)
+);
     console.log("Ride History After Push:", rideHistory);
-    document.getElementById("rider-status").textContent = currentRide.status;
+    document.getElementById("driver-trip-status").textContent = currentRide.status;
 
     alert(
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
+    
+    document.getElementById("driver-trip-screen")
+    .classList.add("hidden");
 
+    document.getElementById("driver-complete-screen")
+    .classList.remove("hidden");
+
+
+    document.getElementById("complete-driver-rider").textContent =
+    currentRide.rider;
+
+    document.getElementById("complete-driver-pickup").textContent =
+    currentRide.pickup;
+
+    document.getElementById("complete-driver-destination").textContent =
+    currentRide.destination;
+
+    document.getElementById("complete-driver-fare").textContent =
+    currentRide.fare; 
+    
 }
 document.addEventListener("DOMContentLoaded", function(){
 
