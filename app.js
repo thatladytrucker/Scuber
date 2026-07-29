@@ -539,7 +539,7 @@ function requestRide(){
     "Welcome, " + name;
 
     document.getElementById("ride-request-screen")
-    .classList.remodve("hidden");
+    .classList.remove("hidden");
 
 }
 
