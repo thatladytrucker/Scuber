@@ -2,66 +2,10 @@
 // DRIVER FUNCTIONS
 // ===========================================// Scuber App - Version 1
 
-function showDriverEarnings(){
-
-    document.getElementById("driver-dashboard")
-    .classList.add("hidden");
-
-    document.getElementById("driver-earnings-screen")
-    .classList.remove("hidden");
-
-
-    let totalTrips = rideHistory.length;
-
-    let totalEarnings = 0;
-
-
-    rideHistory.forEach(function(ride){
-
-        totalEarnings += Number(ride.fare);
-
-    });
-
-
-    let averageFare = 0;
-
-    if(totalTrips > 0){
-
-        averageFare = totalEarnings / totalTrips;
-
-    }
-
-
-    document.getElementById("total-trips").textContent =
-    totalTrips;
-
-
-    document.getElementById("total-earnings").textContent =
-    totalEarnings.toFixed(2);
-
-
-    document.getElementById("total-tips").textContent =
-    "0.00";
-
-    let totalTips = 0;
-
-    let grandTotal = totalEarnings + totalTips;
-
-
-    document.getElementById("grand-total-earnings").textContent =
-    grandTotal.toFixed(2);
-
-
-    document.getElementById("average-fare").textContent =
-    averageFare.toFixed(2);
-
-}
 
 // ===========================================
 // SCHEDULE FUNCTIONS
 // ===========================================
-
-
 
 function openSchedule() {
 
@@ -208,28 +152,17 @@ if(activeUser){
 
     users.forEach(function(user){
 
-    list.innerHTML += `
+        list.innerHTML += `
 
-<div class="ride-card">
+        <button class="schedule"
+        onclick="selectUser('${user.email}')">
 
-    <button class="schedule"
-    onclick="selectUser('${user.email}')">
+            <strong>${user.name}</strong><br>
+            ${user.email}
 
-        <strong>${user.name}</strong><br>
-        ${user.email}
+        </button>
 
-    </button>
-
-    <button class="decline"
-    onclick="deleteUser('${user.email}')">
-
-        🗑️ Delete
-
-    </button>
-
-</div>
-
-`;    
+        `;
 
     });
 
@@ -527,16 +460,13 @@ let currentRide = {
     destination: "",
     status: "NO_RIDE",
     eta: 0,
-    fare: 0,
-    tip: 0
+    fare: 0
 };
 // ===========================================
 // RIDE HISTORY
 // ===========================================
 
-let rideHistory = JSON.parse(
-    localStorage.getItem("scuberRideHistory")
-) || [];
+let rideHistory = [];
 function requestRide(){
 
     let name = localStorage.getItem("scuberUserName");
@@ -641,10 +571,6 @@ function acceptRide(){
         currentRide.status = "DRIVER_ACCEPTED";
         currentRide.driver = "Alex";
 
-        localStorage.setItem(
-    "scuberCurrentRide",
-    JSON.stringify(currentRide)
-);
         document.getElementById("rider-driver").textContent = currentRide.driver;
 
         document.getElementById("rider-status").textContent = currentRide.status;
@@ -732,20 +658,6 @@ function showRiderTripScreen(){
     document.getElementById("rider-trip-screen")
     .classList.remove("hidden");
 
-        let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
-
-    if(savedRide){
-
-        currentRide = savedRide;
-
-    }
-
-    document.getElementById("rider-driver").textContent =
-    currentRide.driver;
-
-    document.getElementById("rider-status").textContent =
-    currentRide.status;
-
 }
 
 function startTrip(){
@@ -753,7 +665,7 @@ function startTrip(){
 
     currentRide.status = "TRIP_STARTED";
 
-    document.getElementById("driver-trip-status").textContent = currentRide.status;
+    document.getElementById("rider-status").textContent = currentRide.status;
 
     alert(
         "Trip Started!\n\n" +
@@ -761,47 +673,7 @@ function startTrip(){
     );
 
 }
-function showRiderCompleteScreen(){
 
-    document.getElementById("driver-trip-screen")
-    .classList.add("hidden");
-
-    document.getElementById("rider-trip-screen")
-    .classList.add("hidden");
-
-    document.getElementById("rider-complete-screen")
-    .classList.remove("hidden");
-
-
-    document.getElementById("complete-driver").textContent =
-    currentRide.driver;
-
-
-    document.getElementById("complete-pickup").textContent =
-    currentRide.pickup;
-
-
-    document.getElementById("complete-destination").textContent =
-    currentRide.destination;
-
-
-    document.getElementById("complete-fare").textContent =
-    currentRide.fare.toFixed(2);
-
-}
-function showRiderFeedbackScreen(){
-
-    document.getElementById("rider-complete-screen")
-    .classList.add("hidden");
-
-    document.getElementById("rider-feedback-screen")
-    .classList.remove("hidden");
-
-
-    document.getElementById("feedback-driver").textContent =
-    currentRide.driver;
-
-}
 function completeTrip(){
 
     currentRide.status = "TRIP_COMPLETED";
@@ -815,38 +687,14 @@ function completeTrip(){
         fare: currentRide.fare,
         status: currentRide.status
     });
-
-    localStorage.setItem(
-    "scuberRideHistory",
-    JSON.stringify(rideHistory)
-);
     console.log("Ride History After Push:", rideHistory);
-    document.getElementById("driver-trip-status").textContent = currentRide.status;
+    document.getElementById("rider-status").textContent = currentRide.status;
 
     alert(
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
-    
-    document.getElementById("driver-trip-screen")
-    .classList.add("hidden");
 
-    document.getElementById("driver-complete-screen")
-    .classList.remove("hidden");
-
-
-    document.getElementById("complete-driver-rider").textContent =
-    currentRide.rider;
-
-    document.getElementById("complete-driver-pickup").textContent =
-    currentRide.pickup;
-
-    document.getElementById("complete-driver-destination").textContent =
-    currentRide.destination;
-
-    document.getElementById("complete-driver-fare").textContent =
-    currentRide.fare; 
-    
 }
 document.addEventListener("DOMContentLoaded", function(){
 
