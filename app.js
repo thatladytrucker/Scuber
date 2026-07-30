@@ -354,6 +354,20 @@ localStorage.setItem(
 );
 
 }
+function createRiderAccount(){
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if(!name || !email){
+        alert("Please enter your name and email.");
+        return;
+    }
+
+    saveUser(name, email);
+
+    showRiderHome();
+}
 // ===========================================
 // RIDER FUNCTIONS
 // ===========================================
