@@ -327,7 +327,6 @@ function saveUser(name, email){
 
     });
 
-console.log("Saving user:", name, email);
     if(!existingUser){
 
         users.push({
@@ -337,21 +336,26 @@ console.log("Saving user:", name, email);
 
     }
 
+    localStorage.setItem(
+        "scuberUsers",
+        JSON.stringify(users)
+    );
+
 
     localStorage.setItem(
-    "scuberActiveUser",
-    email
-);
+        "scuberActiveUser",
+        email
+    );
 
-localStorage.setItem(
-    "scuberUserName",
-    name
-);
+    localStorage.setItem(
+        "scuberUserName",
+        name
+    );
 
-localStorage.setItem(
-    "scuberUserEmail",
-    email
-);
+    localStorage.setItem(
+        "scuberUserEmail",
+        email
+    );
 
 }
 function createRiderAccount(){
