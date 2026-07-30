@@ -454,8 +454,11 @@ function showRiderHome() {
 }
         
     saveUser(name, email);
-    document.getElementById("rider-user-name").textContent =
-"Welcome, " + name;
+
+let activeName = localStorage.getItem("scuberUserName");
+
+document.getElementById("rider-user-name").textContent =
+"Welcome, " + activeName;
         
     console.log("Opening Rider Home");
 
