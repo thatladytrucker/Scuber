@@ -352,6 +352,15 @@ localStorage.setItem(
     "scuberUserEmail",
     email
 );
+    localStorage.setItem(
+    "scuberUserName",
+    name
+);
+
+localStorage.setItem(
+    "scuberUserEmail",
+    email
+);
 
 }
 // ===========================================
