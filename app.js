@@ -327,7 +327,7 @@ function saveUser(name, email){
 
     });
 
-
+console.log("Saving user:", name, email);
     if(!existingUser){
 
         users.push({
