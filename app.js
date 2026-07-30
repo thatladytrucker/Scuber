@@ -263,6 +263,51 @@ showWelcomeScreen();
     }
 
 }
+function deleteCurrentUser(){
+
+    let activeEmail = localStorage.getItem("scuberActiveUser");
+
+    if(!activeEmail){
+        alert("No user is currently selected.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+
+    let currentUser = users.find(function(user){
+        return user.email === activeEmail;
+    });
+
+    if(!currentUser){
+        alert("Current user not found.");
+        return;
+    }
+
+    let confirmDelete = confirm(
+        'Delete "' + currentUser.name + '"?\n\nThis action cannot be undone.'
+    );
+
+    if(!confirmDelete){
+        return;
+    }
+
+    users = users.filter(function(user){
+        return user.email !== activeEmail;
+    });
+
+    localStorage.setItem(
+        "scuberUsers",
+        JSON.stringify(users)
+    );
+
+    localStorage.removeItem("scuberActiveUser");
+    localStorage.removeItem("scuberUserName");
+    localStorage.removeItem("scuberUserEmail");
+
+    loadUserList();
+
+    showWelcomeScreen();
+}
 function showModeScreen(){
 
     document.getElementById("account-screen")
