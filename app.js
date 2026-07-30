@@ -444,8 +444,7 @@ function showRiderHome() {
 
 }
         
-    saveUser(name, email);
-
+   
 let activeName = localStorage.getItem("scuberUserName");
 
 document.getElementById("rider-user-name").textContent =
