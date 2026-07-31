@@ -450,6 +450,18 @@ function createAccount(type) {
 }
 
 function showRiderHome() {
+
+    document.getElementById("driver-dashboard")
+.classList.add("hidden");
+
+document.getElementById("driver-screen")
+.classList.add("hidden");
+
+document.getElementById("driver-request-screen")
+.classList.add("hidden");
+
+document.getElementById("driver-trip-screen")
+.classList.add("hidden");
     
     let name = localStorage.getItem("scuberUserName");
     let email = localStorage.getItem("scuberUserEmail");
