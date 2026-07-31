@@ -371,6 +371,10 @@ function createRiderAccount(){
     saveUser(name, email);
 
     showRiderHome();
+    
+    document.getElementById("driver-dashboard")
+.classList.add("hidden");
+    
 }
 // ===========================================
 // RIDER FUNCTIONS
@@ -566,6 +570,9 @@ saveUser(name, email);
     .classList.add("hidden");
 
     document.getElementById("old-rider-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("main-app")
     .classList.add("hidden");
 
     document.getElementById("driver-trip-screen")
