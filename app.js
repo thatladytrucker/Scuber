@@ -568,6 +568,8 @@ function goOffline(){
 
 function showDriverDashboard() {
 
+    console.log("SHOW DRIVER DASHBOARD FIRED");
+
     document.getElementById("mode-screen")
     .classList.add("hidden");
 
