@@ -587,6 +587,9 @@ saveUser(name, email);
     document.getElementById("account-screen")
     .classList.add("hidden");
 
+    document.getElementById("mode-screen")
+    .classList.add("hidden");
+
     document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
 
