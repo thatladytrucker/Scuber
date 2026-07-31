@@ -613,6 +613,12 @@ saveUser(name, email);
     document.getElementById("driver-request-screen")
     .classList.add("hidden");
 
+    document.getElementById("mode-screen")
+    .classList.add("hidden");
+
+    document.getElementById("main-app")
+    .classList.add("hidden");
+
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
 
