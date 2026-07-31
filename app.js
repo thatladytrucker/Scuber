@@ -896,6 +896,9 @@ function startTrip(){
     document.getElementById("rider-status").textContent =
     "✅ Trip Complete — Thank you for riding with Scuber!";
 
+    document.getElementById("rider-status").textContent =
+    "✅ Trip Complete — Thank you for riding with Scuber!";
+
     alert(
         "Trip Started!\n\n" +
         "Scuber navigation is active."
