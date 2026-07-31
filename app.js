@@ -568,9 +568,7 @@ function goOffline(){
 
 function showDriverDashboard() {
 
-    console.log("SHOW DRIVER DASHBOARD FIRED");
-
-    document.getElementById("mode-screen")
+     document.getElementById("mode-screen")
     .classList.add("hidden");
 
     let name = document.getElementById("name").value;
@@ -621,6 +619,16 @@ saveUser(name, email);
 
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
+
+    console.log(
+    "Mode screen:",
+    document.getElementById("mode-screen").className
+);
+
+console.log(
+    "Driver dashboard:",
+    document.getElementById("driver-dashboard").className
+);
 
 }
 function saveAvailability() {
