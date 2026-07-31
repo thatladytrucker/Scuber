@@ -567,6 +567,10 @@ function goOffline(){
 }
 
 function showDriverDashboard() {
+
+    document.getElementById("mode-screen")
+    .classList.add("hidden");
+
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
 
