@@ -523,6 +523,12 @@ document.getElementById("rider-user-name").textContent =
 // ===========================================
 function showDriverScreen() {
 
+    document.getElementById("mode-screen")
+    .classList.add("hidden");
+
+    document.getElementById("driver-dashboard")
+    .classList.add("hidden");
+
     document.getElementById("main-app")
     .classList.add("hidden");
 
