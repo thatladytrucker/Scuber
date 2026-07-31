@@ -516,6 +516,35 @@ function showDriverScreen() {
 
 }
 
+function goOnline(){
+
+    localStorage.setItem(
+        "scuberDriverStatus",
+        "ONLINE"
+    );
+
+    document.getElementById("driver-status").textContent =
+    "Online";
+
+    alert("You are now available for rides.");
+
+}
+
+
+function goOffline(){
+
+    localStorage.setItem(
+        "scuberDriverStatus",
+        "OFFLINE"
+    );
+
+    document.getElementById("driver-status").textContent =
+    "Offline";
+
+    alert("You are now offline.");
+
+}
+
 function showDriverDashboard() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
