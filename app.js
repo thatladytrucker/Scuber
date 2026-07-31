@@ -871,7 +871,12 @@ function completeTrip(){
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
+currentRide = null;
 
+localStorage.removeItem("scuberCurrentRide");
+
+showDriverDashboard();
+    
 }
 document.addEventListener("DOMContentLoaded", function(){
 
