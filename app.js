@@ -630,6 +630,16 @@ console.log(
     document.getElementById("driver-dashboard").className
 );
 
+    console.log(
+    "Driver Dashboard display:",
+    document.getElementById("driver-dashboard").style.display
+);
+
+console.log(
+    "Mode screen display:",
+    document.getElementById("mode-screen").style.display
+);
+
 }
 function saveAvailability() {
 
