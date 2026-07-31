@@ -532,7 +532,6 @@ function showDriverScreen() {
     document.getElementById("main-app")
     .classList.add("hidden");
 
-
     document.getElementById("driver-screen")
     .classList.remove("hidden");
 
