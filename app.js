@@ -643,6 +643,18 @@ function findDriver(){
     let pickup = document.getElementById("now-pickup").value;
     let destination = document.getElementById("now-destination").value;
 
+let driverStatus = localStorage.getItem("scuberDriverStatus");
+
+if(driverStatus !== "ONLINE"){
+
+    alert(
+        "No drivers are available right now.\n\nPlease try again later."
+    );
+
+    return;
+
+}
+
 let driverFound = "Alex";
 
 currentRide.rider = localStorage.getItem("scuberUserName");
