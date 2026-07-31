@@ -622,27 +622,7 @@ saveUser(name, email);
 
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
-
-    console.log(
-    "Mode screen:",
-    document.getElementById("mode-screen").className
-);
-
-console.log(
-    "Driver dashboard:",
-    document.getElementById("driver-dashboard").className
-);
-
-    console.log(
-    "Driver Dashboard display:",
-    document.getElementById("driver-dashboard").style.display
-);
-
-console.log(
-    "Mode screen display:",
-    document.getElementById("mode-screen").style.display
-);
-
+   
 }
 function saveAvailability() {
 
