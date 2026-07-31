@@ -568,6 +568,9 @@ function goOffline(){
 
 function showDriverDashboard() {
 
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+    
      document.getElementById("mode-screen")
     .classList.add("hidden");
 
