@@ -972,3 +972,6 @@ document.addEventListener("DOMContentLoaded", function(){
     checkReturningUser();
 
 });
+window.showAccountScreen = showAccountScreen;
+window.createRiderAccount = createRiderAccount;
+window.showDriverDashboard = showDriverDashboard;
