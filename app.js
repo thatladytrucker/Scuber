@@ -381,6 +381,12 @@ async function createRiderAccount(){
         password
     );
 
+    await createUserProfile(
+    user,
+    name,
+    "rider"
+        
+    );
 
     if(!user){
 
