@@ -4,6 +4,7 @@ import {
     getFirestore,
     doc,
     setDoc,
+    updateDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
@@ -43,6 +44,40 @@ async function createUserProfile(user, name, role){
     }
 
 }
+async function createDriverApplication(user){
+
+    try {
+
+        await updateDoc(
+            doc(db, "users", user.uid),
+            {
+                role: "driver_applicant",
+                driverStatus: "pending"
+            }
+        );
 
 
-export { createUserProfile };
+        console.log(
+            "Driver application submitted:",
+            user.uid
+        );
+
+
+    } catch(error){
+
+        console.error(
+            "Driver application error:",
+            error
+        );
+
+    }
+
+}
+
+
+export { 
+    createUserProfile,
+    createDriverApplication
+};
+
+
