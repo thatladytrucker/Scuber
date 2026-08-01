@@ -1,4 +1,5 @@
 import { createFirebaseUser } from "./firebase-auth.js";
+import { createUserProfile } from "./firebase-firestore.js";
 
 // ===========================================
 // DRIVER FUNCTIONS
