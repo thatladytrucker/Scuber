@@ -624,3 +624,13 @@ Driver Trip Lifecycle
 ✅ Persist Trip History after refresh
 
 SCUBER now has the beginning of a real data system.
+8/1/2026
+F2 — User Accounts
+✅ Firebase Authentication connected
+✅ Email/password accounts working
+✅ Users appear in Firebase Authentication
+
+F3 — Firestore User Profiles
+✅ F3.1 Firestore Database created
+✅ F3.2 Users collection created
+✅ F3.3 Automatic profile creation complete
