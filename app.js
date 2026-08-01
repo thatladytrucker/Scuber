@@ -377,21 +377,22 @@ async function createRiderAccount(){
 
 
     let user = await createFirebaseUser(
-        email,
-        password
-    );
+    email,
+    password
+);
 
-    await createUserProfile(
+
+if(!user){
+
+    return;
+}
+
+
+await createUserProfile(
     user,
     name,
     "rider"
-        
-    );
-
-    if(!user){
-
-        return;
-    }
+);
 
 
     saveUser(name, email);
