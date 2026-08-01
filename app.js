@@ -1,3 +1,5 @@
+import { createFirebaseUser } from "./firebase-auth.js";
+
 // ===========================================
 // DRIVER FUNCTIONS
 // ===========================================// Scuber App - Version 1
