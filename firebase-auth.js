@@ -37,3 +37,5 @@ async function createFirebaseUser(email, password) {
     }
 
 }
+
+export { createFirebaseUser };
