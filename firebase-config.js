@@ -17,5 +17,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
 console.log("SCUBER Firebase Connected:", app.name);
+
+export { app };
