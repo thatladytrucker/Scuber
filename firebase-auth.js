@@ -1,9 +1,12 @@
+import { app } from "./firebase-config.js";
+
 import {
   getAuth,
   createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
-const auth = getAuth();
+
+const auth = getAuth(app);
 
 async function createFirebaseUser(email, password) {
 
