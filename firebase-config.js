@@ -5,12 +5,12 @@ import { initializeApp } from
 
 
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAo7QXAbprArDyASlJPplOvJ2dh7DhXzdQ",
+  authDomain: "scuber-35076.firebaseapp.com",
+  projectId: "scuber-35076",
+  storageBucket: "scuber-35076.firebasestorage.app",
+  messagingSenderId: "770085527375",
+  appId: "1:770085527375:web:8d270ee88e7d68b8a8af3a"
 };
 
 
