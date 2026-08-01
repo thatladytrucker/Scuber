@@ -358,23 +358,47 @@ function saveUser(name, email){
     );
 
 }
-function createRiderAccount(){
+async function createRiderAccount(){
 
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
 
-    if(!name || !email){
-        alert("Please enter your name and email.");
+
+    if(!name || !email || !password){
+
+        alert("Please enter your name, email, and password.");
+
         return;
     }
 
+
+    let user = await createFirebaseUser(
+        email,
+        password
+    );
+
+
+    if(!user){
+
+        return;
+    }
+
+
     saveUser(name, email);
 
+
+    alert(
+        "SCUBER account created!"
+    );
+
+
     showRiderHome();
-    
+
+
     document.getElementById("driver-dashboard")
-.classList.add("hidden");
-    
+    .classList.add("hidden");
+
 }
 // ===========================================
 // RIDER FUNCTIONS
