@@ -493,7 +493,7 @@ function showRideHistory(){
 
 function showRiderHome() {
 
-    document.getElementById("driver-dashboard")
+document.getElementById("driver-dashboard")
 .classList.add("hidden");
 
 document.getElementById("driver-screen")
@@ -566,6 +566,7 @@ document.getElementById("rider-user-name").textContent =
     
 
 }
+window.showRiderHome = showRiderHome;
 // ===========================================
 // DRIVER FUNCTIONS
 // ===========================================
