@@ -222,7 +222,7 @@ function loadUserList(){
 
     let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
 
-    let list = document.getElementById("user-list");
+    let list = document.getElementById("account-user-list");
 
     list.innerHTML = "";
     let activeEmail = localStorage.getItem("scuberActiveUser");
