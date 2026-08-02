@@ -734,7 +734,7 @@ function requestRide(){
     .classList.remove("hidden");
 
 }
-
+window.requestRide = requestRide;
 
 function findDriver(){
 
