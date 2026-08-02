@@ -583,6 +583,22 @@ function goOffline(){
 
 }
 
+async function startDriverApplication() {
+
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+        alert("Please sign in before applying to become a driver.");
+        return;
+    }
+
+    await createDriverApplication(user);
+
+    alert(
+        "Driver application submitted!\n\nYour account is now waiting for approval."
+    );
+
+}
 function showDriverDashboard() {
 
     document.getElementById("welcome-screen")
