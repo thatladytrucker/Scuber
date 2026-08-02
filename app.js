@@ -1,5 +1,12 @@
-import { createFirebaseUser } from "./firebase-auth.js";
-import { createUserProfile } from "./firebase-firestore.js";
+import {
+    createFirebaseUser,
+    getCurrentFirebaseUser
+} from "./firebase-auth.js";
+
+import {
+    createUserProfile,
+    createDriverApplication
+} from "./firebase-firestore.js";
 
 // ===========================================
 // DRIVER FUNCTIONS
