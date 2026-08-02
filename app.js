@@ -1048,3 +1048,5 @@ window.requestRide = requestRide;
 window.startDriverApplication = startDriverApplication;
 window.completeTrip = completeTrip;
 window.showDriverScreen = showDriverScreen;
+window.goOnline = goOnline;
+window.goOffline = goOffline;
