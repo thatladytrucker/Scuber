@@ -178,19 +178,7 @@ function showWelcomeScreen(){
 }
 function checkReturningUser(){
 
-    let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
-
-    if(name && email){
-
-    document.getElementById("welcome-name").textContent =
-    "Welcome back!";
-
-    loadUserList();
-
     showWelcomeScreen();
-
-}
 
 }
 async function loadFirebaseWelcome(){
