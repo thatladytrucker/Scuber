@@ -195,7 +195,7 @@ function checkReturningUser(){
 }
 async function loadFirebaseWelcome(){
 
-    let user = getCurrentFirebaseUser();
+    let user = await waitForFirebaseUser();
 
 
     if(!user){
@@ -218,6 +218,7 @@ async function loadFirebaseWelcome(){
 
         document.getElementById("welcome-name").textContent =
         "Welcome back, " + profile.name;
+
 
         console.log(
             "Firebase welcome loaded:",
