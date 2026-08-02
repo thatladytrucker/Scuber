@@ -113,7 +113,7 @@ async function getUserProfile(uid){
 
 export { 
     createUserProfile,
-    createDriverApplication
+    createDriverApplication,
     getUserProfile
 };
 
