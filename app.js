@@ -787,6 +787,7 @@ localStorage.setItem(
 showRiderTripScreen();
     
 }
+window.findDriver = findDriver;
 
 function showDriverRequest(){
 
