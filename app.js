@@ -838,7 +838,7 @@ if(savedRide){
     }
 
 }
-
+window.showDriverRequest = showDriverRequest;
 
 function acceptRide(){
 
