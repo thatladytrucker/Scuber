@@ -562,6 +562,9 @@ document.getElementById("rider-user-name").textContent =
     document.getElementById("main-app")
     .classList.remove("hidden");
 
+    console.log("main-app classes:", document.getElementById("main-app").className);
+    
+
 }
 // ===========================================
 // DRIVER FUNCTIONS
