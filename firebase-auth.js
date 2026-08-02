@@ -9,6 +9,30 @@ import {
 
 const auth = getAuth(app);
 
+let currentFirebaseUser = null;
+
+
+onAuthStateChanged(auth, (user) => {
+
+    currentFirebaseUser = user;
+
+    if(user){
+
+        console.log(
+            "SCUBER Auth User:",
+            user.uid
+        );
+
+    } else {
+
+        console.log(
+            "SCUBER No User Signed In"
+        );
+
+    }
+
+});
+
 async function createFirebaseUser(email, password) {
 
     try {
@@ -43,7 +67,7 @@ async function createFirebaseUser(email, password) {
 }
 function getCurrentFirebaseUser(){
 
-    return auth.currentUser;
+    return currentFirebaseUser;
 
 }
 
