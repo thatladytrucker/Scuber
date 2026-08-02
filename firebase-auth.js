@@ -86,5 +86,5 @@ function getCurrentFirebaseUser(){
 export {
     createFirebaseUser,
     getCurrentFirebaseUser,
-    aitForFirebaseUser
+    waitForFirebaseUser
 };
