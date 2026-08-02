@@ -1053,3 +1053,4 @@ window.showDriverScreen = showDriverScreen;
 window.goOnline = goOnline;
 window.goOffline = goOffline;
 window.showDriverEarnings = showDriverEarnings;
+window.selectUser = selectUser;
