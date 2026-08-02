@@ -40,5 +40,13 @@ async function createFirebaseUser(email, password) {
     }
 
 }
+function getCurrentFirebaseUser(){
 
-export { createFirebaseUser };
+    return auth.currentUser;
+
+}
+
+export {
+    createFirebaseUser,
+    getCurrentFirebaseUser
+};
