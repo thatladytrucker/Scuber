@@ -1046,3 +1046,4 @@ window.createRiderAccount = createRiderAccount;
 window.showDriverDashboard = showDriverDashboard;
 window.requestRide = requestRide;
 window.startDriverApplication = startDriverApplication;
+window.completeTrip = completeTrip;
