@@ -141,6 +141,8 @@ function showAccountScreen(){
     document.getElementById("account-screen")
     .classList.remove("hidden");
 
+    loadUserList();
+
 }
 function createAccount(type) {
 
