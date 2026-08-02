@@ -74,7 +74,42 @@ async function createDriverApplication(user){
     }
 
 }
+async function getUserProfile(uid){
 
+    try {
+
+        const userDoc = await getDoc(
+            doc(db, "users", uid)
+        );
+
+
+        if(userDoc.exists()){
+
+            return userDoc.data();
+
+        } else {
+
+            console.log(
+                "No user profile found"
+            );
+
+            return null;
+
+        }
+
+
+    } catch(error){
+
+        console.error(
+            "Get user profile error:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
 
 export { 
     createUserProfile,
