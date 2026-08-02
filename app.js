@@ -192,6 +192,40 @@ function checkReturningUser(){
 }
 
 }
+async function loadFirebaseWelcome(){
+
+    let user = getCurrentFirebaseUser();
+
+
+    if(!user){
+
+        console.log(
+            "No Firebase user found"
+        );
+
+        return;
+
+    }
+
+
+    let profile = await getUserProfile(
+        user.uid
+    );
+
+
+    if(profile){
+
+        document.getElementById("welcome-name").textContent =
+        "Welcome back, " + profile.name;
+
+        console.log(
+            "Firebase welcome loaded:",
+            profile.name
+        );
+
+    }
+
+}
 function loadUserList(){
 
     let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
