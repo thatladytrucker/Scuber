@@ -744,7 +744,9 @@ function requestRide(){
 window.requestRide = requestRide;
 
 function findDriver(){
-
+    
+    console.log("findDriver clicked");
+    
     let pickup = document.getElementById("now-pickup").value;
     let destination = document.getElementById("now-destination").value;
 
