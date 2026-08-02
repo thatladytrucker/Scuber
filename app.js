@@ -5,7 +5,8 @@ import {
 
 import {
     createUserProfile,
-    createDriverApplication
+    createDriverApplication,
+    getUserProfile
 } from "./firebase-firestore.js";
 
 // ===========================================
