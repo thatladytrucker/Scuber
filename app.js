@@ -1037,6 +1037,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     checkReturningUser();
 
+    loadFirebaseWelcome();
+
 });
 window.showAccountScreen = showAccountScreen;
 window.createRiderAccount = createRiderAccount;
