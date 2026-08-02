@@ -32,7 +32,19 @@ onAuthStateChanged(auth, (user) => {
     }
 
 });
+function waitForFirebaseUser(){
 
+    return new Promise((resolve)=>{
+
+        onAuthStateChanged(auth, (user)=>{
+
+            resolve(user);
+
+        });
+
+    });
+
+}
 async function createFirebaseUser(email, password) {
 
     try {
@@ -73,5 +85,6 @@ function getCurrentFirebaseUser(){
 
 export {
     createFirebaseUser,
-    getCurrentFirebaseUser
+    getCurrentFirebaseUser,
+    aitForFirebaseUser
 };
