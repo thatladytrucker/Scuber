@@ -1,6 +1,7 @@
 import {
     createFirebaseUser,
-    getCurrentFirebaseUser
+    getCurrentFirebaseUser,
+    waitForFirebaseUser
 } from "./firebase-auth.js";
 
 import {
