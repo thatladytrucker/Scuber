@@ -973,6 +973,7 @@ function startTrip(){
     );
 
 }
+window.startTrip = startTrip;
 function showRiderCompleteScreen(){
 
     document.getElementById("driver-trip-screen")
