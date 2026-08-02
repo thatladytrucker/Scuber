@@ -531,6 +531,9 @@ document.getElementById("rider-user-name").textContent =
     document.getElementById("account-screen")
     .classList.add("hidden");
 
+    document.getElementById("welcome-screen")
+    .classList.add("hidden");
+    
     document.getElementById("ride-request-screen")
     .classList.add("hidden");
 
