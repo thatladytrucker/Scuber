@@ -864,7 +864,7 @@ showTripScreen();
     );
 
 }
-
+window.acceptRide = acceptRide;
 
 function declineRide(){
 
