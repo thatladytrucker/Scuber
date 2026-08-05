@@ -1070,3 +1070,4 @@ window.openSchedule = openSchedule;
 window.confirmRide = confirmRide;
 window.showRiderHome = showRiderHome;
 window.showWelcomeScreen = showWelcomeScreen;
+window.openRecurring = openRecurring;
