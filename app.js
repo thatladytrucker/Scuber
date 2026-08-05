@@ -1068,3 +1068,4 @@ window.selectUser = selectUser;
 window.deleteCurrentUser = deleteCurrentUser;
 window.openSchedule = openSchedule;
 window.confirmRide = confirmRide;
+window.showRiderHome = showRiderHome;
