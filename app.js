@@ -206,8 +206,19 @@ async function loadFirebaseWelcome(){
 
     if(profile){
 
-        document.getElementById("welcome-name").textContent =
-        "Welcome back, " + profile.name;
+        let activeName = localStorage.getItem("scuberUserName");
+
+if (activeName) {
+
+    document.getElementById("welcome-name").textContent =
+    "Welcome back, " + activeName;
+
+} else {
+
+    document.getElementById("welcome-name").textContent =
+    "Welcome back, " + profile.name;
+
+}
 
 
         console.log(
