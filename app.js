@@ -121,6 +121,40 @@ function confirmRecurring() {
     let time = document.getElementById("repeat-time").value;
 
 
+    if(!pickup || !destination || !day || !time){
+
+        alert("Please complete all recurring ride information.");
+        return;
+
+    }
+
+
+    let recurringRides = JSON.parse(
+        localStorage.getItem("scuberRecurringRides")
+    ) || [];
+
+
+    let recurringRide = {
+
+        rider: localStorage.getItem("scuberUserName"),
+        pickup: pickup,
+        destination: destination,
+        day: day,
+        time: time,
+        status: "ACTIVE"
+
+    };
+
+
+    recurringRides.push(recurringRide);
+
+
+    localStorage.setItem(
+        "scuberRecurringRides",
+        JSON.stringify(recurringRides)
+    );
+
+
     alert(
         "Recurring Ride Saved!\n\n" +
         "Pickup: " + pickup +
