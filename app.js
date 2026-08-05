@@ -222,9 +222,9 @@ if (activeName) {
 
 
         console.log(
-            "Firebase welcome loaded:",
-            profile.name
-        );
+    "Active SCUBER user:",
+    activeName || profile.name
+);
 
     }
 
