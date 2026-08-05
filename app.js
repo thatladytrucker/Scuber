@@ -1102,3 +1102,4 @@ window.confirmRide = confirmRide;
 window.showRiderHome = showRiderHome;
 window.showWelcomeScreen = showWelcomeScreen;
 window.openRecurring = openRecurring;
+window.confirmRecurring = confirmRecurring;
