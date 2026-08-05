@@ -1066,3 +1066,4 @@ window.goOffline = goOffline;
 window.showDriverEarnings = showDriverEarnings;
 window.selectUser = selectUser;
 window.deleteCurrentUser = deleteCurrentUser;
+window.openSchedule = openSchedule;
