@@ -104,7 +104,76 @@ function confirmRide() {
 
 }
 
+function confirmRecurring(){
 
+    let pickup = document.getElementById("repeat-pickup").value;
+    let destination = document.getElementById("repeat-destination").value;
+    let time = document.getElementById("repeat-time").value;
+
+
+    let days = [];
+
+    document.querySelectorAll(".repeat-day:checked")
+    .forEach(function(day){
+
+        days.push(day.value);
+
+    });
+
+
+    if(!pickup || !destination || days.length === 0 || !time){
+
+        alert("Please complete all recurring ride information.");
+        return;
+
+    }
+
+
+    let recurringRides = JSON.parse(
+        localStorage.getItem("scuberRecurringRides")
+    ) || [];
+
+
+    let recurringRide = {
+
+        rider: localStorage.getItem("scuberUserName"),
+        pickup: pickup,
+        destination: destination,
+        days: days,
+        time: time,
+        status: "ACTIVE"
+
+    };
+
+
+    recurringRides.push(recurringRide);
+
+
+    localStorage.setItem(
+        "scuberRecurringRides",
+        JSON.stringify(recurringRides)
+    );
+
+
+    alert(
+        "Recurring Ride Saved!\n\n" +
+        "Pickup: " + pickup +
+        "\nDestination: " + destination +
+        "\nEvery: " + days.join(", ") +
+        "\nTime: " + time
+    );
+
+}
+
+
+// exports below this line
+
+window.showAccountScreen = showAccountScreen;
+window.createRiderAccount = createRiderAccount;
+window.showDriverDashboard = showDriverDashboard;
+window.requestRide = requestRide;
+window.startDriverApplication = startDriverApplication;
+window.confirmRecurring = confirmRecurring;
 function openRecurring() {
 
     document.getElementById("recurring-screen")
@@ -1120,66 +1189,7 @@ document.addEventListener("DOMContentLoaded", function(){
     loadFirebaseWelcome();
 
 });
-function confirmRecurring(){
 
-    let pickup = document.getElementById("repeat-pickup").value;
-    let destination = document.getElementById("repeat-destination").value;
-    let time = document.getElementById("repeat-time").value;
-
-
-    let days = [];
-
-    document.querySelectorAll(".repeat-day:checked")
-    .forEach(function(day){
-
-        days.push(day.value);
-
-    });
-
-
-    if(!pickup || !destination || days.length === 0 || !time){
-
-        alert("Please complete all recurring ride information.");
-        return;
-
-    }
-
-
-    let recurringRides = JSON.parse(
-        localStorage.getItem("scuberRecurringRides")
-    ) || [];
-
-
-    let recurringRide = {
-
-        rider: localStorage.getItem("scuberUserName"),
-        pickup: pickup,
-        destination: destination,
-        days: days,
-        time: time,
-        status: "ACTIVE"
-
-    };
-
-
-    recurringRides.push(recurringRide);
-
-
-    localStorage.setItem(
-        "scuberRecurringRides",
-        JSON.stringify(recurringRides)
-    );
-
-
-    alert(
-        "Recurring Ride Saved!\n\n" +
-        "Pickup: " + pickup +
-        "\nDestination: " + destination +
-        "\nEvery: " + days.join(", ") +
-        "\nTime: " + time
-    );
-
-}
 window.showAccountScreen = showAccountScreen;
 window.createRiderAccount = createRiderAccount;
 window.showDriverDashboard = showDriverDashboard;
@@ -1198,4 +1208,4 @@ window.showRiderHome = showRiderHome;
 window.showWelcomeScreen = showWelcomeScreen;
 window.openRecurring = openRecurring;
 window.confirmRecurring = confirmRecurring;
-window.confirmRecurring = confirmRecurring;
+
