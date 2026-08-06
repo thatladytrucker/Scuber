@@ -114,14 +114,8 @@ function openRecurring() {
 
 function showMyRecurringRides(){
 
-    document.getElementById("schedule-screen")
+    document.getElementById("rider-dashboard")
     .classList.add("hidden");
-
-    document.getElementById("recurring-screen")
-    .classList.add("hidden");
-
-    document.getElementById("my-recurring-screen")
-    .classList.remove("hidden");
 
 }
 
