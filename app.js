@@ -114,11 +114,6 @@ function openRecurring() {
 
 function showMyRecurringRides(){
 
-    alert("My Recurring Rides button works");
-
-}
-function showMyRecurringRides(){
-
     document.getElementById("rider-dashboard")
     .classList.add("hidden");
 
