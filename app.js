@@ -111,11 +111,7 @@ function openRecurring() {
     .classList.remove("hidden");
 
 }
-function showMyRecurringRides(){
 
-    alert("My Recurring Rides button works");
-
-}
 function showMyRecurringRides(){
 
     alert("My Recurring Rides button works");
@@ -1194,5 +1190,5 @@ window.showRiderHome = showRiderHome;
 window.showWelcomeScreen = showWelcomeScreen;
 window.openRecurring = openRecurring;
 window.confirmRecurring = confirmRecurring;
-window.showMyRecurringRides = showMyRecurringRides;
+
 
