@@ -117,11 +117,18 @@ function confirmRecurring() {
 
     let pickup = document.getElementById("repeat-pickup").value;
     let destination = document.getElementById("repeat-destination").value;
-    let day = document.getElementById("repeat-day").value;
+    let days = [];
+
+document.querySelectorAll(".repeat-day:checked")
+.forEach(function(day){
+
+    days.push(day.value);
+
+});
     let time = document.getElementById("repeat-time").value;
 
 
-    if(!pickup || !destination || !day || !time){
+    if(!pickup || !destination || days.length === 0 || !time){
 
         alert("Please complete all recurring ride information.");
         return;
@@ -139,7 +146,7 @@ function confirmRecurring() {
         rider: localStorage.getItem("scuberUserName"),
         pickup: pickup,
         destination: destination,
-        day: day,
+        days: days,
         time: time,
         status: "ACTIVE"
 
