@@ -113,6 +113,11 @@ function openRecurring() {
 }
 function showMyRecurringRides(){
 
+    alert("My Recurring Rides button works");
+
+}
+function showMyRecurringRides(){
+
     document.getElementById("rider-dashboard")
     .classList.add("hidden");
 
@@ -1184,5 +1189,5 @@ window.showRiderHome = showRiderHome;
 window.showWelcomeScreen = showWelcomeScreen;
 window.openRecurring = openRecurring;
 window.confirmRecurring = confirmRecurring;
-
+window.showMyRecurringRides = showMyRecurringRides;
 
