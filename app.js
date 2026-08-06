@@ -125,8 +125,6 @@ function showMyRecurringRides(){
 
 }
 
-}
-
     let recurringRides = JSON.parse(
         localStorage.getItem("scuberRecurringRides")
     ) || [];
