@@ -150,6 +150,45 @@ function showMyRecurringRides(){
     });
 
 }
+function showMyRecurringRides(){
+
+    document.getElementById("rider-dashboard")
+    .classList.add("hidden");
+
+    document.getElementById("my-recurring-screen")
+    .classList.remove("hidden");
+
+
+    let recurringRides = JSON.parse(
+        localStorage.getItem("scuberRecurringRides")
+    ) || [];
+
+
+    let list = document.getElementById("my-recurring-list");
+
+    list.innerHTML = "";
+
+
+    recurringRides.forEach(function(ride){
+
+        let item = document.createElement("div");
+
+        item.innerHTML =
+        `
+        <p>
+        🔁 ${ride.pickup} → ${ride.destination}<br>
+        Days: ${ride.days ? ride.days.join(", ") : ride.day}<br>
+        Time: ${ride.time}<br>
+        Status: ${ride.status}
+        </p>
+        <hr>
+        `;
+
+        list.appendChild(item);
+
+    });
+
+}
 
 function confirmRecurring() {
 
