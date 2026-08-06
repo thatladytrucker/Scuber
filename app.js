@@ -166,7 +166,7 @@ document.querySelectorAll(".repeat-day:checked")
         "Recurring Ride Saved!\n\n" +
         "Pickup: " + pickup +
         "\nDestination: " + destination +
-        "\nEvery: " + day +
+        "\nEvery: " + days.join(", ") +
         "\nTime: " + time
     );
 
