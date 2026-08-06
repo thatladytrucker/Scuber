@@ -114,12 +114,14 @@ function openRecurring() {
 
 function showMyRecurringRides(){
 
-    document.getElementById("rider-dashboard")
+    document.getElementById("schedule-screen")
+    .classList.add("hidden");
+
+    document.getElementById("recurring-screen")
     .classList.add("hidden");
 
     document.getElementById("my-recurring-screen")
     .classList.remove("hidden");
-
 
     let recurringRides = JSON.parse(
         localStorage.getItem("scuberRecurringRides")
