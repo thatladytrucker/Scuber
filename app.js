@@ -114,9 +114,6 @@ function openRecurring() {
 
 function showMyRecurringRides(){
 
-    document.getElementById("main-app")
-    .classList.add("hidden");
-
     document.getElementById("schedule-screen")
     .classList.add("hidden");
 
@@ -125,6 +122,8 @@ function showMyRecurringRides(){
 
     document.getElementById("my-recurring-screen")
     .classList.remove("hidden");
+
+}
 
 }
 
