@@ -114,10 +114,16 @@ function openRecurring() {
 
 function showMyRecurringRides(){
 
-    document.getElementById("rider-dashboard")
-    .classList.add("hidden");
+document.getElementById("rider-dashboard")
+.classList.add("hidden");
 
-}
+let recurringRides = JSON.parse(
+    localStorage.getItem("scuberRecurringRides")
+) || [];
+
+let list = document.getElementById("my-recurring-list");
+
+list.innerHTML = "";
 
     let recurringRides = JSON.parse(
         localStorage.getItem("scuberRecurringRides")
