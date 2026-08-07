@@ -125,16 +125,7 @@ let list = document.getElementById("my-recurring-list");
 
 list.innerHTML = "";
 
-    let recurringRides = JSON.parse(
-        localStorage.getItem("scuberRecurringRides")
-    ) || [];
-
-
-    let list = document.getElementById("my-recurring-list");
-
-    list.innerHTML = "";
-
-
+    
     recurringRides.forEach(function(ride){
 
         let item = document.createElement("div");
