@@ -12,7 +12,7 @@ import {
     getRecurringRides
 } from "./firebase-firestore.js";
 
-// ==========================================
+// ===========================================
 // DRIVER FUNCTIONS
 // ===========================================// Scuber App - Version 1
 
