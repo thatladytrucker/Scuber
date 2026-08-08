@@ -110,11 +110,53 @@ async function getUserProfile(uid){
     }
 
 }
+async function createRecurringRide(user, recurringRide){
 
-export { 
-    createUserProfile,
-    createDriverApplication,
-    getUserProfile
+    try {
+
+        const rideId = Date.now().toString();
+
+        await setDoc(
+            doc(
+                db,
+                "users",
+                user.uid,
+                "recurringRides",
+                rideId
+            ),
+            {
+                rider: recurringRide.rider,
+                pickup: recurringRide.pickup,
+                destination: recurringRide.destination,
+                days: recurringRide.days,
+                time: recurringRide.time,
+                status: recurringRide.status,
+                createdAt: serverTimestamp()
+            }
+        );
+
+        console.log(
+            "Recurring ride saved to Firebase:",
+            rideId
+        );
+
+        return true;
+
+    } catch(error){
+
+        console.error(
+            "Recurring ride Firebase error:",
+            error
+        );
+
+        return false;
+    }
+}
+export {
+createUserProfile,
+createDriverApplication,
+getUserProfile,
+createRecurringRide
 };
 
 
