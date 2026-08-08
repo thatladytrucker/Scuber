@@ -153,6 +153,48 @@ async function createRecurringRide(user, recurringRide){
         return false;
     }
 }
+async function getRecurringRides(user){
+
+    try {
+
+        const recurringRef = collection(
+            db,
+            "users",
+            user.uid,
+            "recurringRides"
+        );
+
+        const snapshot = await getDocs(recurringRef);
+
+        let rides = [];
+
+        snapshot.forEach(function(doc){
+
+            rides.push({
+                id: doc.id,
+                ...doc.data()
+            });
+
+        });
+
+        console.log(
+            "Recurring rides loaded from Firebase:",
+            rides
+        );
+
+        return rides;
+
+    } catch(error){
+
+        console.error(
+            "Get recurring rides error:",
+            error
+        );
+
+        return [];
+
+    }
+}
 export {
 createUserProfile,
 createDriverApplication,
