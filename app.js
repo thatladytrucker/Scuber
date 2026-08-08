@@ -1308,7 +1308,23 @@ async function checkRecurringRidesDue(){
         "Recurring rides active today:",
         activeRides
     );
+    console.log(
+    "Today is:",
+    dayName
+);
 
+rides.forEach(function(ride){
+
+    console.log(
+        "Saved recurring ride:",
+        ride.days,
+        "| Time:",
+        ride.time,
+        "| Status:",
+        ride.status
+    );
+
+});
     activeRides.forEach(function(ride){
 
         console.log(
