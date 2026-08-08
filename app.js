@@ -1322,8 +1322,13 @@ let currentTime = "06:00";
     return false;
 }
 
+let dateKey =
+    today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
+
 let occurrenceId =
-    dayName + "_" + ride.time;
+    dateKey + "_" + ride.time;
 
 console.log(
     "Recurring occurrence ID:",
