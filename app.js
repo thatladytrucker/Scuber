@@ -1328,12 +1328,9 @@ async function checkRecurringRidesDue(){
 
     let today = new Date();
 
-let dayName = today.toLocaleDateString("en-US", {
-    weekday: "long"
-});
+let dayName = "Friday";
 
-let currentTime =
-    today.toTimeString().slice(0, 5);
+let currentTime = "06:00";
 
     let activeRides = rides.filter(function(ride){
 
