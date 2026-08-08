@@ -1396,7 +1396,8 @@ let recurringRide = {
 
     recurring: true,
 
-    recurringOccurrenceId: occurrenceId,
+    recurringOccurrenceId:
+    dateKey + "_" + ride.time,
 
     time: ride.time
 
