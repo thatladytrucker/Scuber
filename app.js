@@ -1417,6 +1417,15 @@ console.log(
     "TEST — Recurring ride object created:",
     recurringRide
 );
+ localStorage.setItem(
+    "scuberCurrentRide",
+    JSON.stringify(recurringRide)
+);
+
+console.log(
+    "TEST — Recurring ride saved as current ride:",
+    recurringRide
+);       
     });
 
     return activeRides;
