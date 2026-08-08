@@ -1276,3 +1276,55 @@ async function testRecurringFirebase(){
 }
 
 window.testRecurringFirebase = testRecurringFirebase;
+async function checkRecurringRidesDue(){
+
+    let firebaseUser = getCurrentFirebaseUser();
+
+    if(!firebaseUser){
+        console.log("No Firebase user for recurring ride check.");
+        return;
+    }
+
+    let rides = await getRecurringRides(firebaseUser);
+
+    let today = new Date();
+
+    let dayName = today.toLocaleDateString("en-US", {
+        weekday: "long"
+    });
+
+    let currentTime =
+        today.toTimeString().slice(0, 5);
+
+    let activeRides = rides.filter(function(ride){
+
+        return ride.status === "ACTIVE" &&
+               ride.days &&
+               ride.days.includes(dayName);
+
+    });
+
+    console.log(
+        "Recurring rides active today:",
+        activeRides
+    );
+
+    activeRides.forEach(function(ride){
+
+        console.log(
+            "Recurring ride:",
+            ride.pickup,
+            "→",
+            ride.destination,
+            "at",
+            ride.time,
+            "| Current time:",
+            currentTime
+        );
+
+    });
+
+    return activeRides;
+}
+
+window.checkRecurringRidesDue = checkRecurringRidesDue;
