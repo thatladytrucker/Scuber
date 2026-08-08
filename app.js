@@ -1454,10 +1454,7 @@ let recurringRide = {
         
 currentRide = recurringRide;
         
-console.log(
-    "TEST — Recurring ride object created:",
-    recurringRide
-);
+
  localStorage.setItem(
     "scuberCurrentRide",
     JSON.stringify(recurringRide)
