@@ -141,7 +141,12 @@ function showMyRecurringRides(){
         onclick="toggleRecurringRide(${recurringRides.indexOf(ride)})">
         ${ride.status === "ACTIVE" ? "⏸ Pause" : "▶ Resume"}
     </button>
-
+    
+    <button class="schedule"
+    onclick="deleteRecurringRide(${recurringRides.indexOf(ride)})">
+    🗑 Delete
+    </button>
+    
     <hr>
 `;
 
