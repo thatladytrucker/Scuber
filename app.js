@@ -208,7 +208,7 @@ function deleteRecurringRide(index){
 
     showMyRecurringRides();
 }
-function confirmRecurring() {
+async function confirmRecurring() {
 
     let pickup = document.getElementById("repeat-pickup").value;
     let destination = document.getElementById("repeat-destination").value;
@@ -246,7 +246,16 @@ document.querySelectorAll(".repeat-day:checked")
         status: "ACTIVE"
 
     };
+let firebaseUser = getCurrentFirebaseUser();
 
+if(firebaseUser){
+
+    await createRecurringRide(
+        firebaseUser,
+        recurringRide
+    );
+
+}
 
     recurringRides.push(recurringRide);
 
