@@ -1298,11 +1298,12 @@ async function checkRecurringRidesDue(){
 
     let activeRides = rides.filter(function(ride){
 
-        return ride.status === "ACTIVE" &&
-               ride.days &&
-               ride.days.includes(dayName);
+    return ride.status === "ACTIVE" &&
+           ride.days &&
+           ride.days.includes(dayName) &&
+           ride.time === currentTime;
 
-    });
+});
 
     console.log(
         "Recurring rides active today:",
