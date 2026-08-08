@@ -1289,8 +1289,6 @@ async function checkRecurringRidesDue(){
 
     let today = new Date();
 
-    let today = new Date();
-
 let dayName = today.toLocaleDateString("en-US", {
     weekday: "long"
 });
