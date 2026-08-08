@@ -1451,7 +1451,9 @@ let recurringRide = {
     time: ride.time
 
 };
-
+        
+currentRide = recurringRide;
+        
 console.log(
     "TEST — Recurring ride object created:",
     recurringRide
