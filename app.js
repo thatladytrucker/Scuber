@@ -775,7 +775,46 @@ function showDriverScreen() {
     .classList.remove("hidden");
 
 }
+function assignAvailableDriver(){
 
+    let driverStatus =
+        localStorage.getItem("scuberDriverStatus");
+
+    if(driverStatus !== "ONLINE"){
+
+        console.log(
+            "No drivers are available."
+        );
+
+        return false;
+    }
+
+    let driverFound = "Alex";
+
+    currentRide.driver = driverFound;
+
+    currentRide.eta = 8;
+
+    currentRide.fare = 18.00;
+
+    currentRide.status =
+        "WAITING_FOR_DRIVER_ACCEPTANCE";
+
+    localStorage.setItem(
+        "scuberCurrentRide",
+        JSON.stringify(currentRide)
+    );
+
+    console.log(
+        "Driver assigned:",
+        driverFound
+    );
+
+    return true;
+}
+
+window.assignAvailableDriver =
+    assignAvailableDriver;
 function goOnline(){
 
     localStorage.setItem(
