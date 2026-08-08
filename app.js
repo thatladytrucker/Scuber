@@ -7,7 +7,8 @@ import {
 import {
     createUserProfile,
     createDriverApplication,
-    getUserProfile
+    getUserProfile,
+    createRecurringRide
 } from "./firebase-firestore.js";
 
 // ===========================================
