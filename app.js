@@ -1242,4 +1242,4 @@ window.openRecurring = openRecurring;
 window.confirmRecurring = confirmRecurring;
 window.showMyRecurringRides = showMyRecurringRides;
 window.toggleRecurringRide = toggleRecurringRide;
-
+window.deleteRecurringRide = deleteRecurringRide;
