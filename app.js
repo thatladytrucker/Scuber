@@ -1254,3 +1254,25 @@ window.confirmRecurring = confirmRecurring;
 window.showMyRecurringRides = showMyRecurringRides;
 window.toggleRecurringRide = toggleRecurringRide;
 window.deleteRecurringRide = deleteRecurringRide;
+async function testRecurringFirebase(){
+
+    let firebaseUser = getCurrentFirebaseUser();
+
+    if(!firebaseUser){
+
+        console.log(
+            "No Firebase user available for recurring ride test."
+        );
+
+        return;
+    }
+
+    let rides = await getRecurringRides(firebaseUser);
+
+    console.log(
+        "TEST — Firebase recurring rides:",
+        rides
+    );
+}
+
+window.testRecurringFirebase = testRecurringFirebase;
