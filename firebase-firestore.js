@@ -196,10 +196,11 @@ async function getRecurringRides(user){
     }
 }
 export {
-createUserProfile,
-createDriverApplication,
-getUserProfile,
-createRecurringRide
+    createUserProfile,
+    createDriverApplication,
+    getUserProfile,
+    createRecurringRide,
+    getRecurringRides
 };
 
 
