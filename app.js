@@ -180,6 +180,33 @@ function toggleRecurringRide(index){
 
     showMyRecurringRides();
 }
+function deleteRecurringRide(index){
+
+    let recurringRides = JSON.parse(
+        localStorage.getItem("scuberRecurringRides")
+    ) || [];
+
+    if(!recurringRides[index]){
+        return;
+    }
+
+    let confirmed = confirm(
+        "Are you sure you want to delete this recurring ride?"
+    );
+
+    if(!confirmed){
+        return;
+    }
+
+    recurringRides.splice(index, 1);
+
+    localStorage.setItem(
+        "scuberRecurringRides",
+        JSON.stringify(recurringRides)
+    );
+
+    showMyRecurringRides();
+}
 function confirmRecurring() {
 
     let pickup = document.getElementById("repeat-pickup").value;
