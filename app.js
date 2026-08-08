@@ -1384,6 +1384,13 @@ rides.forEach(function(ride){
             "| Current time:",
             currentTime
         );
+let recurringDateKey =
+    today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
+
+let recurringOccurrenceId =
+    recurringDateKey + "_" + ride.time;        
 let recurringRide = {
 
     rider: ride.rider,
