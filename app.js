@@ -1334,7 +1334,19 @@ console.log(
     "Recurring occurrence ID:",
     occurrenceId
 );
+let createdOccurrences = JSON.parse(
+    localStorage.getItem("scuberRecurringOccurrences")
+) || [];
 
+if(createdOccurrences.includes(occurrenceId)){
+
+    console.log(
+        "Recurring ride already created:",
+        occurrenceId
+    );
+
+    return false;
+}
 return true;
 
 });
