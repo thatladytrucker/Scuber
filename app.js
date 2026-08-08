@@ -1318,7 +1318,19 @@ let currentTime = "06:00";
     let difference =
         currentMinutes - scheduledMinutes;
 
-    return difference >= 0 && difference <= 15;
+    if(difference < 0 || difference > 15){
+    return false;
+}
+
+let occurrenceId =
+    dayName + "_" + ride.time;
+
+console.log(
+    "Recurring occurrence ID:",
+    occurrenceId
+);
+
+return true;
 
 });
 
