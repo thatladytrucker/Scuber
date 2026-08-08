@@ -152,6 +152,29 @@ function showMyRecurringRides(){
     document.getElementById("my-recurring-screen")
     .classList.remove("hidden");
 }
+function toggleRecurringRide(index){
+
+    let recurringRides = JSON.parse(
+        localStorage.getItem("scuberRecurringRides")
+    ) || [];
+
+    if(!recurringRides[index]){
+        return;
+    }
+
+    if(recurringRides[index].status === "ACTIVE"){
+        recurringRides[index].status = "PAUSED";
+    } else {
+        recurringRides[index].status = "ACTIVE";
+    }
+
+    localStorage.setItem(
+        "scuberRecurringRides",
+        JSON.stringify(recurringRides)
+    );
+
+    showMyRecurringRides();
+}
 function confirmRecurring() {
 
     let pickup = document.getElementById("repeat-pickup").value;
