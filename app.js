@@ -1463,7 +1463,14 @@ console.log(
 console.log(
     "TEST — Recurring ride saved as current ride:",
     recurringRide
-);       
+); 
+        let driverAssigned =
+    assignAvailableDriver();
+
+console.log(
+    "TEST — Recurring driver assignment:",
+    driverAssigned
+);
     });
 
     return activeRides;
