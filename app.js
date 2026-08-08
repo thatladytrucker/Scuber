@@ -1293,14 +1293,14 @@ window.confirmRecurring = confirmRecurring;
 window.showMyRecurringRides = showMyRecurringRides;
 window.toggleRecurringRide = toggleRecurringRide;
 window.deleteRecurringRide = deleteRecurringRide;
-async function testRecurringFirebase(){
+async function RecurringFirebase(){
 
     let firebaseUser = getCurrentFirebaseUser();
 
     if(!firebaseUser){
 
         console.log(
-            "No Firebase user available for recurring ride test."
+            "No Firebase user available for recurring ride ."
         );
 
         return;
@@ -1309,12 +1309,12 @@ async function testRecurringFirebase(){
     let rides = await getRecurringRides(firebaseUser);
 
     console.log(
-        "TEST — Firebase recurring rides:",
+        " — Firebase recurring rides:",
         rides
     );
 }
 
-window.testRecurringFirebase = testRecurringFirebase;
+window.RecurringFirebase = RecurringFirebase;
 async function checkRecurringRidesDue(){
 
     let firebaseUser = getCurrentFirebaseUser();
@@ -1328,7 +1328,7 @@ async function checkRecurringRidesDue(){
 
     let today = new Date();
 
-let dayName = today.toLocaleDateString("en-US", {
+let dayName = today.toLocaleDaring("en-US", {
     weekday: "long"
 });
 
@@ -1464,10 +1464,7 @@ currentRide = recurringRide;
         let driverAssigned =
     assignAvailableDriver();
 
-console.log(
-    "TEST — Recurring driver assignment:",
-    driverAssigned
-);
+
     });
 
     return activeRides;
