@@ -130,14 +130,20 @@ function showMyRecurringRides(){
         let item = document.createElement("div");
 
         item.innerHTML = `
-            <p>
-            🔁 ${ride.pickup} → ${ride.destination}<br>
-            Days: ${ride.days ? ride.days.join(", ") : ride.day}<br>
-            Time: ${ride.time}<br>
-            Status: ${ride.status}
-            </p>
-            <hr>
-        `;
+    <p>
+    🔁 ${ride.pickup} → ${ride.destination}<br>
+    Days: ${ride.days ? ride.days.join(", ") : ride.day}<br>
+    Time: ${ride.time}<br>
+    Status: <strong>${ride.status}</strong>
+    </p>
+
+    <button class="schedule"
+        onclick="toggleRecurringRide(${recurringRides.indexOf(ride)})">
+        ${ride.status === "ACTIVE" ? "⏸ Pause" : "▶ Resume"}
+    </button>
+
+    <hr>
+`;
 
         list.appendChild(item);
 
