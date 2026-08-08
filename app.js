@@ -1209,5 +1209,5 @@ window.showWelcomeScreen = showWelcomeScreen;
 window.openRecurring = openRecurring;
 window.confirmRecurring = confirmRecurring;
 window.showMyRecurringRides = showMyRecurringRides;
-
+window.toggleRecurringRide = toggleRecurringRide;
 
