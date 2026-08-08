@@ -1295,10 +1295,30 @@ let currentTime = "06:00";
 
     let activeRides = rides.filter(function(ride){
 
-    return ride.status === "ACTIVE" &&
-           ride.days &&
-           ride.days.includes(dayName) &&
-           ride.time === currentTime;
+    if(ride.status !== "ACTIVE"){
+        return false;
+    }
+
+    if(!ride.days || !ride.days.includes(dayName)){
+        return false;
+    }
+
+    if(!ride.time){
+        return false;
+    }
+
+    let scheduledMinutes =
+        parseInt(ride.time.split(":")[0]) * 60 +
+        parseInt(ride.time.split(":")[1]);
+
+    let currentMinutes =
+        parseInt(currentTime.split(":")[0]) * 60 +
+        parseInt(currentTime.split(":")[1]);
+
+    let difference =
+        currentMinutes - scheduledMinutes;
+
+    return difference >= 0 && difference <= 15;
 
 });
 
