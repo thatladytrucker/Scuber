@@ -1387,7 +1387,28 @@ rides.forEach(function(ride){
             "| Current time:",
             currentTime
         );
+let recurringRide = {
 
+    rider: ride.rider,
+
+    pickup: ride.pickup,
+
+    destination: ride.destination,
+
+    status: "WAITING_FOR_DRIVER_ACCEPTANCE",
+
+    recurring: true,
+
+    recurringOccurrenceId: occurrenceId,
+
+    time: ride.time
+
+};
+
+console.log(
+    "TEST — Recurring ride object created:",
+    recurringRide
+);
     });
 
     return activeRides;
