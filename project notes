@@ -662,3 +662,18 @@ recurring: true remains attached to the completed ride ✅
 Temporary test clock restored ✅
 Temporary test logs removed ✅
 No errors after cleanup ✅
+So our working roadmap is now:
+
+8/9/26
+
+F1 Firebase Setup — ✅
+F2 User Accounts — ✅
+F3a Live Driver Availability — ✅
+F3b Driver Application — 🟡 Started
+F3c Driver Availability Schedule — ⬜
+F3d Driver Approval — ⬜
+F4 Ride Requests — ⬜
+F5 Live Trip Status — ⬜
+F6 History — ⬜
+F7 Earnings — ⬜
+F8 Security — ⬜
