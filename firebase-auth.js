@@ -117,7 +117,8 @@ function getCurrentFirebaseUser(){
 }
 
 export {
-    createFirebaseUser,
-    getCurrentFirebaseUser,
-    waitForFirebaseUser
+createFirebaseUser,
+signInFirebaseUser,
+getCurrentFirebaseUser,
+waitForFirebaseUser
 };
