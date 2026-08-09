@@ -855,6 +855,18 @@ window.assignAvailableDriver =
     assignAvailableDriver;
 function goOnline(){
 
+    localStorage.setItem(
+        "scuberDriverStatus",
+        "ONLINE"
+    );
+
+    document.getElementById("driver-status").textContent =
+    "Online";
+
+    alert("You are now online.");
+}
+
+
 function goOffline(){
 
     localStorage.setItem(
@@ -866,7 +878,6 @@ function goOffline(){
     "Offline";
 
     alert("You are now offline.");
-
 }
 async function startDriverApplication() {
 
