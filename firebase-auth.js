@@ -1,9 +1,10 @@
 import { app } from "./firebase-config.js";
 
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
 
