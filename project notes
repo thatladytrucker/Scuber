@@ -668,11 +668,30 @@ So our working roadmap is now:
 
 F1 Firebase Setup — ✅
 F2 User Accounts — ✅
-F3a Live Driver Availability — ✅
-F3b Driver Application — 🟡 Started
-F3c Driver Availability Schedule — ⬜
-F3d Driver Approval — ⬜
-F4 Ride Requests — ⬜
+F3 — Driver Identity & Access
+
+F3.1 — Rider/Driver entry choice
+Who is entering SCUBER and why?
+
+F3.2 — Driver authentication
+Driver signs into their Firebase account.
+
+F3.3 — Driver application
+Unapproved person is sent to the application.
+
+F3.4 — Driver approval
+Application changes from pending → approved.
+
+F3.5 — Driver access control
+Only approved drivers reach the Driver Dashboard.
+
+F3.6 — Driver availability schedule ✅
+We just completed this part.
+
+F3.7 — Driver Online/Offline
+Eventually move the temporary localStorage status into Firebase.
+
+Then F4 — Ride Requests.
 F5 Live Trip Status — ⬜
 F6 History — ⬜
 F7 Earnings — ⬜
