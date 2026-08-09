@@ -12,7 +12,8 @@ import {
     createRecurringRide,
     getRecurringRides,
     saveDriverAvailability,
-    findAvailableDriver
+    findAvailableDriver,
+    setDriverOnlineStatus
 } from "./firebase-firestore.js";
 
 
