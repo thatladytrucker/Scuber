@@ -1055,51 +1055,112 @@ function requestRide(){
 }
 window.requestRide = requestRide;
 
-function findDriver(){
-    
+async function findDriver(){
+
     console.log("findDriver clicked");
-    
-    let pickup = document.getElementById("now-pickup").value;
-    let destination = document.getElementById("now-destination").value;
 
-let driverStatus = localStorage.getItem("scuberDriverStatus");
+    let pickup =
+        document.getElementById("now-pickup").value;
 
-if(driverStatus !== "ONLINE"){
+    let destination =
+        document.getElementById("now-destination").value;
 
-    alert(
-        "No drivers are available right now.\n\nPlease try again later."
+
+    if(!pickup || !destination){
+
+        alert(
+            "Please enter both your pickup location and destination."
+        );
+
+        return;
+    }
+
+
+    const now = new Date();
+
+    const dayNames = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
+
+    const day =
+        dayNames[now.getDay()];
+
+
+    const currentTime =
+        now.toTimeString().slice(0,5);
+
+
+    console.log(
+        "Checking driver availability:",
+        day,
+        currentTime
     );
 
-    return;
 
-}
+    const driverFound =
+        await findAvailableDriver(
+            day,
+            currentTime
+        );
 
-let driverFound = "Alex";
 
-currentRide.rider = localStorage.getItem("scuberUserName");
-currentRide.driver = driverFound;
-currentRide.pickup = pickup;
-currentRide.destination = destination;
-currentRide.status = "WAITING_FOR_DRIVER_ACCEPTANCE";
-currentRide.eta = 8;
-currentRide.fare = 18.00;
-    
-localStorage.setItem(
-    "scuberCurrentRide",
-    JSON.stringify(currentRide)
-);
+    if(!driverFound){
+
+        alert(
+            "No drivers are available right now.\n\n" +
+            "Please try again later."
+        );
+
+        return;
+    }
+
+
+    currentRide.rider =
+        localStorage.getItem("scuberUserName");
+
+    currentRide.driver =
+        driverFound.name;
+
+    currentRide.driverUid =
+        driverFound.uid;
+
+    currentRide.pickup =
+        pickup;
+
+    currentRide.destination =
+        destination;
+
+    currentRide.status =
+        "WAITING_FOR_DRIVER_ACCEPTANCE";
+
+    currentRide.eta = 8;
+
+    currentRide.fare = 18.00;
+
+
+    localStorage.setItem(
+        "scuberCurrentRide",
+        JSON.stringify(currentRide)
+    );
+
 
     alert(
         "Driver Found!\n\n" +
-        "Driver: " + driverFound +
+        "Driver: " + driverFound.name +
         "\nPickup: " + pickup +
         "\nDestination: " + destination
     );
-    
-showRiderTripScreen();
-    
+
+
+    showRiderTripScreen();
+
 }
-window.findDriver = findDriver;
 
 function showDriverRequest(){
 
