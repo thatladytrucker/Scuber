@@ -919,11 +919,56 @@ saveUser(name, email);
     .classList.remove("hidden");
    
 }
-function saveAvailability() {
+async function saveAvailability() {
 
-    let day = document.getElementById("driver-day").value;
-    let start = document.getElementById("driver-start").value;
-    let end = document.getElementById("driver-end").value;
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+
+        alert(
+            "Please sign in before saving your availability."
+        );
+
+        return;
+    }
+
+    let day =
+        document.getElementById("driver-day").value;
+
+    let start =
+        document.getElementById("driver-start").value;
+
+    let end =
+        document.getElementById("driver-end").value;
+
+
+    if (!start || !end) {
+
+        alert(
+            "Please select both a start time and an end time."
+        );
+
+        return;
+    }
+
+
+    const saved =
+        await saveDriverAvailability(
+            user.uid,
+            day,
+            start,
+            end
+        );
+
+
+    if (!saved) {
+
+        alert(
+            "There was a problem saving your availability."
+        );
+
+        return;
+    }
 
 
     alert(
