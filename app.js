@@ -1409,6 +1409,8 @@ async function handleDriveSelection() {
 
 }
 window.startDriverApplication = startDriverApplication;
+window.handleDriveSelection =
+    handleDriveSelection;
 window.completeTrip = completeTrip;
 window.showDriverScreen = showDriverScreen;
 window.goOnline = goOnline;
