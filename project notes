@@ -677,3 +677,197 @@ F5 Live Trip Status — ⬜
 F6 History — ⬜
 F7 Earnings — ⬜
 F8 Security — ⬜
+
+SCUBER — Firebase & Feature Roadmap
+
+Current position:
+
+F1 — Firebase Setup: ✅ Complete
+F2 — Firebase User Accounts: ✅ Complete
+F3a — Live Driver Availability: ✅ Complete
+Recurring Rides: ✅ Complete and tested end-to-end
+F3b — Driver Application
+
+Goal: Allow an existing SCUBER user to choose Become a Driver and enter the driver application process.
+
+Planned flow:
+
+User
+ ↓
+Driver Menu
+ ↓
+Become a Driver
+ ↓
+Driver Application
+ ↓
+Submit Application
+ ↓
+Application Pending
+ ↓
+Admin Review
+ ↓
+Approved / Denied
+
+Status: 🟡 Started in prototype
+
+F3c — Driver Availability Schedule
+
+Goal: Let approved drivers tell SCUBER when they plan to be available.
+
+Features:
+
+Availability calendar
+Select days
+Select start/end times
+Save schedule to Firebase
+Edit schedule
+Turn individual availability periods on/off
+
+Status: ⬜ Not started
+
+F3d — Driver Approval
+
+Goal: Prevent someone from becoming an active driver without approval.
+
+Driver states:
+
+APPLICATION_PENDING
+APPROVED
+DENIED
+SUSPENDED
+
+Only approved drivers can use driver availability and accept rides.
+
+Status: ⬜ Not started
+
+F4 — Firebase Ride Requests
+
+Goal: Move the actual ride request from localStorage to Firestore.
+
+Replace:
+
+scuberCurrentRide
+
+with:
+
+rides
+ └── rideID
+      ├── riderID
+      ├── driverID
+      ├── pickup
+      ├── destination
+      ├── fare
+      ├── status
+      └── timestamps
+
+Test:
+
+Phone 1: Rider requests ride
+Phone 2: Driver receives ride request
+
+Status: ⬜ Not started
+
+F5 — Live Trip Status
+
+Statuses:
+
+REQUESTED
+DRIVER_ACCEPTED
+DRIVER_ARRIVING
+TRIP_STARTED
+TRIP_COMPLETED
+
+Both rider and driver should see status changes automatically through Firebase.
+
+Status: ⬜ Not started
+
+F6 — Ride History
+
+Replace:
+
+scuberRideHistory
+
+with Firestore:
+
+rideHistory
+
+Completed rides should remain associated with the rider and driver.
+
+Recurring rides should retain their recurring designation.
+
+Status: ⬜ Not started
+
+F7 — Driver Earnings
+
+Calculate earnings from completed rides.
+
+Driver profile can eventually contain:
+
+totalTrips
+totalEarnings
+
+Later possibilities:
+
+Daily earnings
+Weekly earnings
+Monthly earnings
+Earnings per ride
+
+Status: ⬜ Not started
+
+F8 — Security & Launch Preparation
+
+Before public launch:
+
+Firestore security rules
+Firebase Authentication rules
+Rider data protection
+Driver data protection
+Driver application protection
+Prevent unauthorized ride modification
+Prevent unauthorized access to other users' information
+Test permissions with multiple accounts
+
+Status: ⬜ Not started
+
+Separate Completed Feature
+Recurring Rides
+
+Status: ✅ COMPLETE — Prototype
+
+Tested successfully through:
+
+Firebase recurring ride
+ ↓
+Eligibility check
+ ↓
+Recurring ride created
+ ↓
+Driver availability
+ ↓
+Driver assigned
+ ↓
+New Ride Request
+ ↓
+Accept Ride
+ ↓
+Start Trip
+ ↓
+Complete Trip
+ ↓
+Ride History
+
+This feature should not be rebuilt during the Firebase migration unless a later milestone requires connecting its data to Firestore.
+
+Development Rule
+
+Do not modify working features unnecessarily.
+
+For each milestone:
+
+Inspect existing code.
+Identify what already works.
+Change one system at a time.
+Test immediately.
+Create a stable checkpoint.
+Only then move to the next piece.
