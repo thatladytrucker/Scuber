@@ -979,6 +979,7 @@ async function saveAvailability() {
     );
 
 }
+window.saveAvailability = saveAvailability;
 // ===========================================
 // SHARED RIDE FUNCTIONS
 // ===========================================
