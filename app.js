@@ -11,8 +11,10 @@ import {
     getUserProfile,
     createRecurringRide,
     getRecurringRides,
-    saveDriverAvailability
+    saveDriverAvailability,
+    findAvailableDriver
 } from "./firebase-firestore.js";
+
 
 // ===========================================
 // DRIVER FUNCTIONS
