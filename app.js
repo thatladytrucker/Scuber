@@ -384,10 +384,7 @@ async function loadFirebaseWelcome(){
 
 
     if(profile){
-console.log(
-    "CURRENT FIREBASE PROFILE:",
-    profile
-);
+
         let activeName = localStorage.getItem("scuberUserName");
 
 if (activeName) {
