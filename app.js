@@ -1360,6 +1360,54 @@ window.showAccountScreen = showAccountScreen;
 window.createRiderAccount = createRiderAccount;
 window.showDriverDashboard = showDriverDashboard;
 window.requestRide = requestRide;
+async function handleDriveSelection() {
+
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+
+        alert(
+            "Please sign in before choosing Drive."
+        );
+
+        return;
+    }
+
+    const profile = await getUserProfile(
+        user.uid
+    );
+
+    if (!profile) {
+
+        alert(
+            "We could not find your SCUBER profile."
+        );
+
+        return;
+    }
+
+    const driverStatus =
+        profile.driverStatus;
+
+    if (driverStatus === "approved") {
+
+        showDriverDashboard();
+
+        return;
+    }
+
+    if (driverStatus === "pending") {
+
+        alert(
+            "Your driver application is currently under review."
+        );
+
+        return;
+    }
+
+    startDriverApplication();
+
+}
 window.startDriverApplication = startDriverApplication;
 window.completeTrip = completeTrip;
 window.showDriverScreen = showDriverScreen;
