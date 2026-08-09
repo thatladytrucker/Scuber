@@ -229,14 +229,66 @@ async function saveDriverAvailability(uid, day, start, end){
         return false;
     }
 }
+async function findAvailableDriver(day, currentTime) {
 
+    try {
+
+        const snapshot = await getDocs(
+            collection(db, "users")
+        );
+
+        for (const docSnap of snapshot.docs) {
+
+            const user = docSnap.data();
+
+            if (user.driverStatus !== "approved") {
+                continue;
+            }
+
+            if (!user.availability) {
+                continue;
+            }
+
+            const schedule =
+                user.availability[day];
+
+            if (!schedule) {
+                continue;
+            }
+
+            if (
+                currentTime >= schedule.start &&
+                currentTime <= schedule.end
+            ) {
+
+                return {
+                    uid: docSnap.id,
+                    name: user.name
+                };
+
+            }
+        }
+
+        return null;
+
+    } catch (error) {
+
+        console.error(
+            "Find available driver error:",
+            error
+        );
+
+        return null;
+    }
+}
 export {
-    createUserProfile,
-    createDriverApplication,
-    getUserProfile,
-    createRecurringRide,
-    getRecurringRides,
-    saveDriverAvailability
+createUserProfile,
+createDriverApplication,
+getUserProfile,
+createRecurringRide,
+getRecurringRides,
+saveDriverAvailability,
+findAvailableDriver
 };
 
 
