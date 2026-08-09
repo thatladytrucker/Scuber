@@ -195,12 +195,48 @@ async function getRecurringRides(user){
 
     }
 }
+
+async function saveDriverAvailability(uid, day, start, end){
+
+    try {
+
+        await updateDoc(
+            doc(db, "users", uid),
+            {
+                [`availability.${day}`]: {
+                    start: start,
+                    end: end
+                }
+            }
+        );
+
+        console.log(
+            "Driver availability saved:",
+            day,
+            start,
+            end
+        );
+
+        return true;
+
+    } catch(error){
+
+        console.error(
+            "Driver availability error:",
+            error
+        );
+
+        return false;
+    }
+}
+
 export {
     createUserProfile,
     createDriverApplication,
     getUserProfile,
     createRecurringRide,
-    getRecurringRides
+    getRecurringRides,
+    saveDriverAvailability
 };
 
 
