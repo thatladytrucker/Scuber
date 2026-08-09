@@ -9,7 +9,8 @@ import {
     createDriverApplication,
     getUserProfile,
     createRecurringRide,
-    getRecurringRides
+    getRecurringRides,
+    saveDriverAvailability
 } from "./firebase-firestore.js";
 
 // ===========================================
