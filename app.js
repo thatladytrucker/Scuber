@@ -761,7 +761,7 @@ window.showRiderHome = showRiderHome;
 // ===========================================
 // DRIVER FUNCTIONS
 // ===========================================
-function showDriverScreen() {
+async function showDriverScreen() {
 
     document.getElementById("mode-screen")
     .classList.add("hidden");
@@ -774,6 +774,39 @@ function showDriverScreen() {
 
     document.getElementById("driver-screen")
     .classList.remove("hidden");
+
+
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+        return;
+    }
+
+
+    const profile =
+        await getUserProfile(user.uid);
+
+    if (!profile || !profile.availability) {
+        return;
+    }
+
+
+    const day =
+        document.getElementById("driver-day").value;
+
+    const saved =
+        profile.availability[day];
+
+    if (!saved) {
+        return;
+    }
+
+
+    document.getElementById("driver-start").value =
+        saved.start || "";
+
+    document.getElementById("driver-end").value =
+        saved.end || "";
 
 }
 function assignAvailableDriver(){
