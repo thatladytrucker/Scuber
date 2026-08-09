@@ -53,7 +53,7 @@ async function createDriverApplication(user){
         await updateDoc(
             doc(db, "users", user.uid),
             {
-                role: "driver_applicant",
+                
                 driverStatus: "pending"
             }
         );
