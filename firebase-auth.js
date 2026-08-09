@@ -78,6 +78,38 @@ async function createFirebaseUser(email, password) {
     }
 
 }
+async function signInFirebaseUser(email, password) {
+
+    try {
+
+        const userCredential =
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        console.log(
+            "Firebase User Signed In:",
+            userCredential.user.uid
+        );
+
+        return userCredential.user;
+
+    } catch (error) {
+
+        console.error(
+            "Firebase Sign In Error:",
+            error.code,
+            error.message
+        );
+
+        alert(error.message);
+
+        return null;
+    }
+
+}
 function getCurrentFirebaseUser(){
 
     return currentFirebaseUser;
