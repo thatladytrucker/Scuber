@@ -853,35 +853,80 @@ function assignAvailableDriver(){
 
 window.assignAvailableDriver =
     assignAvailableDriver;
-function goOnline(){
+async function goOnline(){
+
+    const user = getCurrentFirebaseUser();
+
+    if(!user){
+
+        alert(
+            "Please sign in before going online."
+        );
+
+        return;
+    }
+
+    const saved =
+        await setDriverOnlineStatus(
+            user.uid,
+            "ONLINE"
+        );
+
+    if(!saved){
+        return;
+    }
 
     localStorage.setItem(
         "scuberDriverStatus",
         "ONLINE"
     );
 
-    document.getElementById("driver-status").textContent =
-    "Online";
+    document.getElementById(
+        "driver-status"
+    ).textContent = "Online";
 
-    alert("You are now available for rides.");
-
+    alert(
+        "You are now available for rides."
+    );
 }
 
 
-function goOffline(){
+async function goOffline(){
+
+    const user = getCurrentFirebaseUser();
+
+    if(!user){
+
+        alert(
+            "Please sign in before going offline."
+        );
+
+        return;
+    }
+
+    const saved =
+        await setDriverOnlineStatus(
+            user.uid,
+            "OFFLINE"
+        );
+
+    if(!saved){
+        return;
+    }
 
     localStorage.setItem(
         "scuberDriverStatus",
         "OFFLINE"
     );
 
-    document.getElementById("driver-status").textContent =
-    "Offline";
+    document.getElementById(
+        "driver-status"
+    ).textContent = "Offline";
 
-    alert("You are now offline.");
-
+    alert(
+        "You are now offline."
+    );
 }
-
 async function startDriverApplication() {
 
     const user = getCurrentFirebaseUser();
