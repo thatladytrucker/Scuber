@@ -1161,7 +1161,7 @@ async function findDriver(){
     showRiderTripScreen();
 
 }
-
+window.findDriver = findDriver;
 function showDriverRequest(){
 
     let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
