@@ -281,6 +281,34 @@ async function findAvailableDriver(day, currentTime) {
         return null;
     }
 }
+async function setDriverOnlineStatus(uid, status){
+
+    try {
+
+        await updateDoc(
+            doc(db, "users", uid),
+            {
+                onlineStatus: status
+            }
+        );
+
+        console.log(
+            "Driver online status saved:",
+            status
+        );
+
+        return true;
+
+    } catch(error){
+
+        console.error(
+            "Driver online status error:",
+            error
+        );
+
+        return false;
+    }
+}
 export {
 createUserProfile,
 createDriverApplication,
