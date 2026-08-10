@@ -1439,6 +1439,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
     loadFirebaseWelcome();
 
+    const rideHistoryButton =
+        document.getElementById("ride-history-button");
+
+    if (rideHistoryButton) {
+
+        rideHistoryButton.addEventListener(
+            "click",
+            showRideHistory
+        );
+
+    }
+
 });
 
 window.showAccountScreen = showAccountScreen;
