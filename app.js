@@ -37,9 +37,15 @@ function showDriverEarnings(){
 
     rideHistory.forEach(function(ride){
 
-        totalEarnings += Number(ride.fare);
+    const fare = Number(ride.fare);
 
-    });
+    if (Number.isFinite(fare)) {
+
+        totalEarnings += fare;
+
+    }
+
+});
 
 
     let averageFare = 0;
