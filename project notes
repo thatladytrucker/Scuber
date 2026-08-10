@@ -890,3 +890,30 @@ Change one system at a time.
 Test immediately.
 Create a stable checkpoint.
 Only then move to the next piece.
+
+SCUBER_STABLE_CHECKPOINT — 2026-08-10 — FULL RIDE + HISTORY
+
+We have now verified:
+
+Ride system
+
+✅ Driver approval
+✅ Online/offline status
+✅ Driver availability schedule
+✅ Find Driver
+✅ Driver receives request
+✅ Accept
+✅ Navigation
+✅ Start Trip
+✅ Complete Ride
+✅ Rider Ride History
+
+History system
+
+✅ Completed rides are saved
+✅ Older rides correctly show "Not recorded"
+✅ New rides record date/time
+✅ Date/time displays in readable local format
+One cleanup remains
+
+We added two temporary diagnostic messages while fixing the Ride History button:
