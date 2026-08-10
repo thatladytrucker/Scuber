@@ -852,8 +852,20 @@ function assignAvailableDriver(){
 
 window.assignAvailableDriver =
     assignAvailableDriver;
-function goOnline(){
+async function goOnline(){
+const user = getCurrentFirebaseUser();
 
+if(!user){
+
+    alert("Please sign in before going online.");
+
+    return;
+}
+
+await setDriverOnlineStatus(
+    user.uid,
+    "ONLINE"
+);
     localStorage.setItem(
         "scuberDriverStatus",
         "ONLINE"
