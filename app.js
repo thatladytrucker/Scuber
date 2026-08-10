@@ -1407,13 +1407,14 @@ function completeTrip(){
     console.log("Current Ride At Completion:", currentRide);
     console.log("Ride History Before Push:", rideHistory);
     rideHistory.push({
-        rider: currentRide.rider,
-        driver: currentRide.driver,
-        pickup: currentRide.pickup,
-        destination: currentRide.destination,
-        fare: currentRide.fare,
-        status: currentRide.status
-    });
+    rider: currentRide.rider,
+    driver: currentRide.driver,
+    pickup: currentRide.pickup,
+    destination: currentRide.destination,
+    fare: currentRide.fare,
+    status: currentRide.status,
+    completedAt: new Date().toISOString()
+});
 
     localStorage.setItem(
     "scuberRideHistory",
