@@ -921,6 +921,7 @@ async function startDriverApplication() {
         "Your account is now waiting for approval."
     );
 }
+console.log("START DRIVER FUNCTION LOADED");
 function showDriverDashboard() {
 
     document.getElementById("welcome-screen")
