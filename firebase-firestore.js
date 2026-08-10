@@ -310,13 +310,14 @@ async function setDriverOnlineStatus(uid, status){
     }
 }
 export {
-createUserProfile,
-createDriverApplication,
-getUserProfile,
-createRecurringRide,
-getRecurringRides,
-saveDriverAvailability,
-findAvailableDriver
+    createUserProfile,
+    createDriverApplication,
+    getUserProfile,
+    createRecurringRide,
+    getRecurringRides,
+    saveDriverAvailability,
+    findAvailableDriver,
+    setDriverOnlineStatus
 };
 
 
