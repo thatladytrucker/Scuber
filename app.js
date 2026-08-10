@@ -700,7 +700,7 @@ function showRideHistory(){
     });
 
 }
-console.log("SHOW RIDE HISTORY FUNCTION LOADED");
+
 function showRiderHome() {
 
 document.getElementById("driver-dashboard")
@@ -1529,10 +1529,6 @@ window.showDriverScreen = showDriverScreen;
 window.goOnline = goOnline;
 window.goOffline = goOffline;
 window.showRideHistory = showRideHistory;
-console.log(
-    "WINDOW SHOW RIDE HISTORY:",
-    typeof window.showRideHistory
-);
 window.showDriverEarnings = showDriverEarnings;
 window.selectUser = selectUser;
 window.deleteCurrentUser = deleteCurrentUser;
