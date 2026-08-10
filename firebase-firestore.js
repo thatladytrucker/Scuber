@@ -250,7 +250,7 @@ async function findAvailableDriver(day, currentTime) {
     user.onlineStatus
 );
             
-            if (user.onlineStatus !== "OFFLINE") {
+            if (user.onlineStatus !== "ONLINE") {
     continue;
 }
 
