@@ -1535,6 +1535,7 @@ window.showDriverScreen = showDriverScreen;
 window.goOnline = goOnline;
 window.goOffline = goOffline;
 window.showRideHistory = showRideHistory;
+window.showTripScreen = showTripScreen;
 window.showDriverEarnings = showDriverEarnings;
 window.selectUser = selectUser;
 window.deleteCurrentUser = deleteCurrentUser;
