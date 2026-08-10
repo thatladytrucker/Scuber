@@ -685,7 +685,7 @@ function showRideHistory(){
     });
 
 }
-
+console.log("SHOW RIDE HISTORY FUNCTION LOADED");
 function showRiderHome() {
 
 document.getElementById("driver-dashboard")
