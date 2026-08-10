@@ -879,7 +879,21 @@ await setDriverOnlineStatus(
 }
 
 
-function goOffline(){
+async function goOffline(){
+
+    const user = getCurrentFirebaseUser();
+
+    if(!user){
+
+        alert("Please sign in before going offline.");
+
+        return;
+    }
+
+    await setDriverOnlineStatus(
+        user.uid,
+        "OFFLINE"
+    );
 
     localStorage.setItem(
         "scuberDriverStatus",
