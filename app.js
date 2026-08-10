@@ -670,7 +670,22 @@ function showRideHistory(){
 
             <p><strong>Driver:</strong> ${ride.driver}</p>
 
-            <p><strong>Pickup:</strong> ${ride.pickup}</p>
+<p><strong>Date:</strong> ${
+    ride.completedAt
+        ? new Date(ride.completedAt).toLocaleDateString()
+        : "Not recorded"
+}</p>
+
+<p><strong>Time:</strong> ${
+    ride.completedAt
+        ? new Date(ride.completedAt).toLocaleTimeString([], {
+            hour: "numeric",
+            minute: "2-digit"
+        })
+        : "Not recorded"
+}</p>
+
+<p><strong>Pickup:</strong> ${ride.pickup}</p>
 
             <p><strong>Destination:</strong> ${ride.destination}</p>
 
