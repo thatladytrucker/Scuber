@@ -1527,6 +1527,38 @@ async function handleDriveSelection() {
     startDriverApplication();
 
 }
+async function showDriverProfile(){
+
+    document.getElementById("driver-dashboard")
+        .classList.add("hidden");
+
+    document.getElementById("driver-profile-screen")
+        .classList.remove("hidden");
+
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+        return;
+    }
+
+    const profile = await getUserProfile(user.uid);
+
+    if (!profile) {
+        return;
+    }
+
+    document.getElementById("driver-profile-name").textContent =
+        profile.name || "";
+
+    document.getElementById("driver-profile-email").textContent =
+        profile.email || "";
+
+    document.getElementById("driver-profile-status").textContent =
+        profile.driverStatus || "Not approved";
+
+    document.getElementById("driver-profile-online").textContent =
+        profile.onlineStatus || "OFFLINE";
+}
 window.startDriverApplication = startDriverApplication;
 window.handleDriveSelection =
     handleDriveSelection;
@@ -1537,6 +1569,7 @@ window.goOffline = goOffline;
 window.showRideHistory = showRideHistory;
 window.showTripScreen = showTripScreen;
 window.showDriverEarnings = showDriverEarnings;
+window.showDriverProfile = showDriverProfile;
 window.selectUser = selectUser;
 window.deleteCurrentUser = deleteCurrentUser;
 window.openSchedule = openSchedule;
