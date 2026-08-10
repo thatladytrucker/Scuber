@@ -240,6 +240,10 @@ async function findAvailableDriver(day, currentTime) {
         for (const docSnap of snapshot.docs) {
 
             const user = docSnap.data();
+            
+            if (user.onlineStatus !== "ONLINE") {
+    continue;
+}
 
             if (user.driverStatus !== "approved") {
                 continue;
