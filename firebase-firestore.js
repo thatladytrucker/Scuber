@@ -241,7 +241,7 @@ async function findAvailableDriver(day, currentTime) {
 
             const user = docSnap.data();
             
-            if (user.onlineStatus !== "ONLINE") {
+            if (user.onlineStatus !== "OFFLINE") {
     continue;
 }
 
