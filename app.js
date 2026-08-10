@@ -879,34 +879,21 @@ await setDriverOnlineStatus(
 }
 
 
-function goOffline(){
-
-    localStorage.setItem(
-        "scuberDriverStatus",
-        "OFFLINE"
-    );
-
-    document.getElementById("driver-status").textContent =
-    "Offline";
-
-    alert("You are now offline.");
-}
-async function startDriverApplication() {
+async function goOffline(){
 
     const user = getCurrentFirebaseUser();
 
-    if (!user) {
-        alert("Please sign in before applying to become a driver.");
-        return;
-    }
+if(!user){
 
-    await createDriverApplication(user);
+    alert("Please sign in before going offline.");
 
-    alert(
-        "Driver application submitted!\n\nYour account is now waiting for approval."
-    );
-
+    return;
 }
+
+await setDriverOnlineStatus(
+    user.uid,
+    "OFFLINE"
+);
 function showDriverDashboard() {
 
     document.getElementById("welcome-screen")
