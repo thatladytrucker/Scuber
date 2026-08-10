@@ -905,6 +905,22 @@ async function goOffline(){
 
     alert("You are now offline.");
 }
+async function startDriverApplication() {
+
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+        alert("Please sign in before applying to become a driver.");
+        return;
+    }
+
+    await createDriverApplication(user);
+
+    alert(
+        "Driver application submitted!\n\n" +
+        "Your account is now waiting for approval."
+    );
+}
 function showDriverDashboard() {
 
     document.getElementById("welcome-screen")
