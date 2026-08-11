@@ -1388,7 +1388,8 @@ function showRiderTripScreen(){
     
     document.getElementById("rider-status").textContent =
     currentRide.status;
-
+    
+    initializeLiveTripMap();
 }
 
 function startTrip(){
