@@ -917,3 +917,16 @@ History system
 One cleanup remains
 
 We added two temporary diagnostic messages while fixing the Ride History button:
+Mapping & Driver Verification Strategy
+
+Date: August 11, 2026
+
+Current Decision
+
+SCUBER is being developed with a free/low-cost-first strategy while the app is still in development and testing.
+
+Mapping Strategy
+
+Do not set up Google Maps Platform or Google Cloud billing yet.
+
+For the development/te
