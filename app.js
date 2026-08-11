@@ -1380,6 +1380,12 @@ function showRiderTripScreen(){
     document.getElementById("rider-driver").textContent =
     currentRide.driver;
 
+    document.getElementById("rider-pickup").textContent =
+    currentRide.pickup;
+
+    document.getElementById("rider-destination").textContent =
+    currentRide.destination;
+    
     document.getElementById("rider-status").textContent =
     currentRide.status;
 
