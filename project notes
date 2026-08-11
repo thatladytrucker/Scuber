@@ -919,6 +919,8 @@ One cleanup remains
 We added two temporary diagnostic messages while fixing the Ride History button:
 Mapping & Driver Verification Strategy
 
+Mapping & Driver Verification Strategy
+
 Date: August 11, 2026
 
 Current Decision
@@ -929,4 +931,90 @@ Mapping Strategy
 
 Do not set up Google Maps Platform or Google Cloud billing yet.
 
-For the development/te
+For the development/testing version of SCUBER:
+
+Use Leaflet as the open-source map interface.
+Use OpenStreetMap-based map data for development/testing.
+Do not add Google Maps API keys or Google billing at this stage.
+Do not add paid routing/navigation services yet.
+Map Development Order
+
+Build the mapping system in layers:
+
+Interactive map
+Replace the current Live Trip Map placeholder with an actual map.
+Pickup and destination
+Display the rider's pickup location.
+Display the destination.
+Driver GPS
+Have the driver's device provide the driver's current location.
+Live rider tracking
+Send the driver's location through SCUBER's backend.
+Display the driver's moving vehicle marker on the rider's map.
+Routing/navigation
+Add routing/navigation only after the basic live-location system works and SCUBER actually needs it.
+Important Cost Constraint
+
+SCUBER should avoid unnecessary paid services during development.
+
+Do not activate or pay for mapping, routing, navigation, or verification services until the specific feature requires them.
+
+OpenStreetMap's public tile servers should be treated as a development/testing option, not assumed to be the permanent production map infrastructure for a commercial rideshare application.
+
+Driver Verification Strategy
+
+Driver document verification will eventually be handled through a specialized third-party verification service, rather than building document verification ourselves.
+
+Potential future verification workflow:
+
+Driver Application
+→ Identity/document verification
+→ Driver's license verification
+→ Insurance/document verification
+→ Other legally required screening
+→ Approved Driver
+
+The verification provider has not been selected yet.
+
+Do not activate a verification service yet. First establish SCUBER's actual driver onboarding and compliance requirements.
+
+Current SCUBER Active-Ride Foundation
+
+The Rider Active Ride screen is already working and persists across refreshes when an active ride exists.
+
+Current screen includes:
+
+Driver
+Vehicle
+Pickup
+Destination
+Status
+ETA
+Live Trip Map placeholder
+
+Current development goal:
+
+Replace the Live Trip Map placeholder with an actual interactive map while preserving the existing ride-state system.
+
+Stable Checkpoint
+
+SCUBER_STABLE_CHECKPOINT — Rider Active Ride Persistence
+
+Verified behavior:
+
+Active ride exists
+→ Rider refreshes
+→ Rider selects Rider
+→ SCUBER automatically reopens Your SCUBER Ride
+
+Completed rides remove scuberCurrentRide, preventing completed rides from reopening as active rides.
+
+Do Not Change Yet
+Do not introduce Google Maps.
+Do not introduce Google Cloud billing.
+Do not add GPS yet.
+Do not add routing/navigation yet.
+Do not add driver-document verification yet.
+Do not replace the existing ride-state system.
+
+The next coding task is to replace the existing Live Trip Map placeholder with a development-stage Leaflet/OpenStreetMap map.
