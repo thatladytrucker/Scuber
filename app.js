@@ -1805,4 +1805,30 @@ function initializeLiveTripMap() {
         }
     ).addTo(map);
 
+
+    // TEST LOCATIONS ONLY
+    const testPickup = [36.8529, -75.9780];
+    const testDestination = [36.8500, -76.0200];
+
+
+    // Pickup marker
+    L.marker(testPickup)
+        .addTo(map)
+        .bindPopup("📍 Pickup: Home");
+
+
+    // Destination marker
+    L.marker(testDestination)
+        .addTo(map)
+        .bindPopup("🏁 Destination: Walmart");
+
+
+    // Show both locations
+    map.fitBounds([
+        testPickup,
+        testDestination
+    ], {
+        padding: [30, 30]
+    });
+
 }
