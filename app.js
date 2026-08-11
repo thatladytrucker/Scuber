@@ -1777,3 +1777,31 @@ currentRide = recurringRide;
 }
 
 window.checkRecurringRidesDue = checkRecurringRidesDue;
+
+function initializeLiveTripMap() {
+
+    const mapElement =
+        document.getElementById("live-trip-map");
+
+    if (!mapElement) {
+        return;
+    }
+
+    if (mapElement._leaflet_id) {
+        return;
+    }
+
+    const map = L.map("live-trip-map").setView(
+        [36.8529, -75.9780],
+        12
+    );
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution:
+                '&copy; OpenStreetMap contributors'
+        }
+    ).addTo(map);
+
+}
