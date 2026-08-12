@@ -739,12 +739,7 @@ let email =
 
 
 if (!name || !email) {
-
-    alert(
-        "Please enter your name and email."
-    );
-
-    return;
+    console.log("Rider name or email is missing.");
 }
 
 
