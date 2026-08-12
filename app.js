@@ -707,8 +707,6 @@ function showRideHistory(){
 
 }
 
-function showRiderHome() {
-    
 let savedRide = JSON.parse(
     localStorage.getItem("scuberCurrentRide")
 );
@@ -717,9 +715,6 @@ if (savedRide) {
 
     currentRide = savedRide;
 
-    showRiderTripScreen();
-
-    return;
 }
 document.getElementById("driver-dashboard")
 .classList.add("hidden");
