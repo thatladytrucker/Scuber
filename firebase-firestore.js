@@ -265,6 +265,15 @@ async function findAvailableDriver(day, currentTime) {
             const schedule =
                 user.availability[day];
 
+            console.log(
+    "Availability check:",
+    user.name,
+    "day:",
+    day,
+    "schedule:",
+    schedule
+);
+
             if (!schedule) {
                 continue;
             }
