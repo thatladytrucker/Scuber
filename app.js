@@ -786,10 +786,10 @@ document.getElementById("rider-user-name").textContent =
     .classList.remove("hidden");
 
     console.log("main-app classes:", document.getElementById("main-app").className);
-    
+  
 
 }
-window.showRiderHome = showRiderHome;
+// window.showRiderHome = showRiderHome;
 // ===========================================
 // DRIVER FUNCTIONS
 // ===========================================
