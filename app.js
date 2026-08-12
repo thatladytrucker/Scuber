@@ -1895,29 +1895,52 @@ function initializeLiveTripMap() {
     ).addTo(map);
 
 
-    // TEST LOCATIONS ONLY
-    const testPickup = [36.8529, -75.9780];
-    const testDestination = [36.8500, -76.0200];
+    
+Replace it with:
+
+```javascript
+// Use the rider's actual pickup and destination coordinates
+const pickupCoordinates =
+    currentRide.pickupCoordinates;
+
+const destinationCoordinates =
+    currentRide.destinationCoordinates;
 
 
-    // Pickup marker
-    L.marker(testPickup)
-        .addTo(map)
-        .bindPopup("📍 Pickup: Home");
+// Pickup marker
+L.marker([
+    pickupCoordinates.lat,
+    pickupCoordinates.lon
+])
+    .addTo(map)
+    .bindPopup(
+        "📍 Pickup: " +
+        currentRide.pickup
+    );
 
 
-    // Destination marker
-    L.marker(testDestination)
-        .addTo(map)
-        .bindPopup("🏁 Destination: Walmart");
+// Destination marker
+L.marker([
+    destinationCoordinates.lat,
+    destinationCoordinates.lon
+])
+    .addTo(map)
+    .bindPopup(
+        "🏁 Destination: " +
+        currentRide.destination
+    );
 
 
-    // Show both locations
-    map.fitBounds([
-        testPickup,
-        testDestination
-    ], {
-        padding: [30, 30]
-    });
-
-}
+// Show both locations
+map.fitBounds([
+    [
+        pickupCoordinates.lat,
+        pickupCoordinates.lon
+    ],
+    [
+        destinationCoordinates.lat,
+        destinationCoordinates.lon
+    ]
+], {
+    padding: [30, 30]
+});
