@@ -1310,7 +1310,7 @@ async function findDriver(){
 window.findDriver = findDriver;
 window.findDriver = findDriver;
 function showDriverRequest(){
-
+function showRiderHome() {
     let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
 
 if(savedRide){
