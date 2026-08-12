@@ -1892,10 +1892,7 @@ function initializeLiveTripMap() {
             attribution:
                 '&copy; OpenStreetMap contributors'
         }
-    ).addTo(map);
-
-
-    
+     
 ).addTo(map);
 
 // Use the rider's actual pickup and destination coordinates
