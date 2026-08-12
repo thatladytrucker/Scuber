@@ -1896,16 +1896,14 @@ function initializeLiveTripMap() {
 
 
     
-Replace it with:
+).addTo(map);
 
-```javascript
 // Use the rider's actual pickup and destination coordinates
 const pickupCoordinates =
     currentRide.pickupCoordinates;
 
 const destinationCoordinates =
     currentRide.destinationCoordinates;
-
 
 // Pickup marker
 L.marker([
