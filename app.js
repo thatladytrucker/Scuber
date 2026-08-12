@@ -1940,3 +1940,4 @@ map.fitBounds([
 ], {
     padding: [30, 30]
 });
+}
