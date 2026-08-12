@@ -1134,6 +1134,87 @@ async function findDriver(){
     }
 
 
+    // -----------------------------------------
+    // GEOCODE PICKUP AND DESTINATION
+    // -----------------------------------------
+
+    async function geocodeAddress(address){
+
+        const response =
+            await fetch(
+                "/.netlify/functions/geocode?address=" +
+                encodeURIComponent(address)
+            );
+
+        if(!response.ok){
+
+            throw new Error(
+                "Unable to geocode address."
+            );
+        }
+
+        const data =
+            await response.json();
+
+        if(
+            !data.features ||
+            !data.features.length
+        ){
+
+            throw new Error(
+                "Address not found: " + address
+            );
+        }
+
+        const coordinates =
+            data.features[0].geometry.coordinates;
+
+        return {
+            lon: coordinates[0],
+            lat: coordinates[1]
+        };
+    }
+
+
+    let pickupCoordinates;
+    let destinationCoordinates;
+
+
+    try {
+
+        pickupCoordinates =
+            await geocodeAddress(pickup);
+
+        destinationCoordinates =
+            await geocodeAddress(destination);
+
+    } catch(error){
+
+        console.error(
+            "Geocoding error:",
+            error
+        );
+
+        alert(
+            "We could not locate one of those addresses.\n\n" +
+            "Please check the pickup and destination and try again."
+        );
+
+        return;
+    }
+
+
+    console.log(
+        "Pickup coordinates:",
+        pickupCoordinates
+    );
+
+    console.log(
+        "Destination coordinates:",
+        destinationCoordinates
+    );
+
+
     const now = new Date();
 
     const dayNames = [
@@ -1194,6 +1275,12 @@ async function findDriver(){
     currentRide.destination =
         destination;
 
+    currentRide.pickupCoordinates =
+        pickupCoordinates;
+
+    currentRide.destinationCoordinates =
+        destinationCoordinates;
+
     currentRide.status =
         "WAITING_FOR_DRIVER_ACCEPTANCE";
 
@@ -1219,6 +1306,8 @@ async function findDriver(){
     showRiderTripScreen();
 
 }
+
+window.findDriver = findDriver;
 window.findDriver = findDriver;
 function showDriverRequest(){
 
