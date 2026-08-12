@@ -716,35 +716,40 @@ if (savedRide) {
     currentRide = savedRide;
 
 }
+
+
 document.getElementById("driver-dashboard")
-.classList.add("hidden");
+    .classList.add("hidden");
 
 document.getElementById("driver-screen")
-.classList.add("hidden");
+    .classList.add("hidden");
 
 document.getElementById("driver-request-screen")
-.classList.add("hidden");
+    .classList.add("hidden");
 
 document.getElementById("driver-trip-screen")
-.classList.add("hidden");
-    
-    let name = localStorage.getItem("scuberUserName");
-    let email = localStorage.getItem("scuberUserEmail");
+    .classList.add("hidden");
 
-    if(name === "" || email === ""){
 
-    name = localStorage.getItem("scuberUserName");
-    email = localStorage.getItem("scuberUserEmail");
+let name =
+    localStorage.getItem("scuberUserName");
 
-    if(name === null || email === null){
-        alert("Please enter your name and email.");
-        return;
-    }
+let email =
+    localStorage.getItem("scuberUserEmail");
 
+
+if (!name || !email) {
+
+    alert(
+        "Please enter your name and email."
+    );
+
+    return;
 }
-        
-   
-let activeName = localStorage.getItem("scuberUserName");
+
+
+let activeName =
+    localStorage.getItem("scuberUserName");
 
 document.getElementById("rider-user-name").textContent =
 "Welcome, " + activeName;
