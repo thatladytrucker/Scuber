@@ -1882,18 +1882,18 @@ function initializeLiveTripMap() {
     }
 
     const map = L.map("live-trip-map").setView(
-        [36.8529, -75.9780],
-        12
-    );
+    [36.8529, -75.9780],
+    12
+);
 
-    L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-            attribution:
-                '&copy; OpenStreetMap contributors'
-        }
-     
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution:
+            '&copy; OpenStreetMap contributors'
+    }
 ).addTo(map);
+
 
 // Use the rider's actual pickup and destination coordinates
 const pickupCoordinates =
@@ -1901,6 +1901,7 @@ const pickupCoordinates =
 
 const destinationCoordinates =
     currentRide.destinationCoordinates;
+
 
 // Pickup marker
 L.marker([
