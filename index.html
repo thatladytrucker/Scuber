@@ -97,9 +97,9 @@ Find Available Driver
         🚗 Ride
     </button>
 
-    <button class="schedule" onclick="startDriverApplication()">
-    🚘 Continue as Driver
-    </button>
+    <button class="schedule" onclick="handleDriveSelection()">
+    🚘 Drive
+</button>
 
 </div>
 <!-- ====================================================== -->
@@ -116,7 +116,7 @@ Find Available Driver
         🚗 Request Ride
     </button>
     
-    <button class="schedule" onclick="showRideHistory()">
+    <button class="schedule" id="ride-history-button">
         🧾 Ride History
 </button>
 
@@ -163,12 +163,41 @@ Find Available Driver
     📜 Trip History
     </button>
 
-    <button class="schedule">
-        👤 Driver Profile
+    <button class="schedule" onclick="showDriverProfile()">
+    👤 Driver Profile
+</button>
+
+</div>
+    
+<div id="driver-profile-screen" class="hidden">
+
+    <h2>👤 Driver Profile</h2>
+
+    <p>
+        <strong>Name:</strong>
+        <span id="driver-profile-name"></span>
+    </p>
+
+    <p>
+        <strong>Email:</strong>
+        <span id="driver-profile-email"></span>
+    </p>
+
+    <p>
+        <strong>Driver Status:</strong>
+        <span id="driver-profile-status"></span>
+    </p>
+
+    <p>
+        <strong>Online Status:</strong>
+        <span id="driver-profile-online"></span>
+    </p>
+
+    <button class="schedule" onclick="showDriverDashboard()">
+        ← Back to Driver Dashboard
     </button>
 
 </div>
-
 
 <div id="driver-earnings-screen" class="hidden">
 
@@ -194,7 +223,7 @@ Find Available Driver
     </div>
 
 
-    <button class="schedule" onclick="showDriverDashboard()">
+    <button class="schedule" onclick="handleDriveSelection()">
         ← Back to Driver Dashboard
     </button>
 
@@ -334,6 +363,10 @@ Find Available Driver
 
         <p><strong>Vehicle:</strong> Blue Toyota Camry</p>
 
+        <p><strong>Pickup:</strong> <span id="rider-pickup">Waiting...</span></p>
+
+        <p><strong>Destination:</strong> <span id="rider-destination">Waiting...</span></p>
+
         <p><strong>Status:</strong> <span id="rider-status">Waiting...</span></p>
 
         <p><strong>ETA:</strong> 8 minutes</p>
@@ -383,9 +416,12 @@ Find Available Driver
     </div>
 
 
-    <div class="search-box">
-        📍 Where are you going?
-    </div>
+    <input
+    id="destination-input"
+    class="search-box"
+    type="text"
+    placeholder="📍 Where are you going?"
+>
 <button class="ride" onclick="requestRide()">
     🚗 Request Ride
 </button>
@@ -555,9 +591,9 @@ Find Available Driver
         🚗 Ride
     </button>
 
-    <button class="schedule" onclick="showDriverDashboard()">
-        🚘 Drive
-    </button>
+    <button class="schedule" onclick="handleDriveSelection()">
+    🚘 Drive
+</button>
     
     <button class="schedule" onclick="showAccountScreen()">
     ➕ Add / Switch User
