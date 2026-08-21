@@ -97,9 +97,9 @@ Find Available Driver
         🚗 Ride
     </button>
 
-    <button class="schedule" onclick="handleDriveSelection()">
-    🚘 Drive
-</button>
+    <button class="schedule" onclick="startDriverApplication()">
+    🚘 Continue as Driver
+    </button>
 
 </div>
 <!-- ====================================================== -->
@@ -116,7 +116,7 @@ Find Available Driver
         🚗 Request Ride
     </button>
     
-    <button class="schedule" id="ride-history-button">
+    <button class="schedule" onclick="showRideHistory()">
         🧾 Ride History
 </button>
 
@@ -163,41 +163,12 @@ Find Available Driver
     📜 Trip History
     </button>
 
-    <button class="schedule" onclick="showDriverProfile()">
-    👤 Driver Profile
-</button>
-
-</div>
-    
-<div id="driver-profile-screen" class="hidden">
-
-    <h2>👤 Driver Profile</h2>
-
-    <p>
-        <strong>Name:</strong>
-        <span id="driver-profile-name"></span>
-    </p>
-
-    <p>
-        <strong>Email:</strong>
-        <span id="driver-profile-email"></span>
-    </p>
-
-    <p>
-        <strong>Driver Status:</strong>
-        <span id="driver-profile-status"></span>
-    </p>
-
-    <p>
-        <strong>Online Status:</strong>
-        <span id="driver-profile-online"></span>
-    </p>
-
-    <button class="schedule" onclick="showDriverDashboard()">
-        ← Back to Driver Dashboard
+    <button class="schedule">
+        👤 Driver Profile
     </button>
 
 </div>
+
 
 <div id="driver-earnings-screen" class="hidden">
 
@@ -223,7 +194,7 @@ Find Available Driver
     </div>
 
 
-    <button class="schedule" onclick="handleDriveSelection()">
+    <button class="schedule" onclick="showDriverDashboard()">
         ← Back to Driver Dashboard
     </button>
 
@@ -363,22 +334,16 @@ Find Available Driver
 
         <p><strong>Vehicle:</strong> Blue Toyota Camry</p>
 
-        <p><strong>Pickup:</strong> <span id="rider-pickup">Waiting...</span></p>
-
-        <p><strong>Destination:</strong> <span id="rider-destination">Waiting...</span></p>
-
         <p><strong>Status:</strong> <span id="rider-status">Waiting...</span></p>
 
         <p><strong>ETA:</strong> 8 minutes</p>
 
     </div>
 
- <div id="live-trip-map" style="height: 300px; width: 100%;"></div>
-    
-<button class="confirm" onclick="showRiderHome()">
-    ← Back to Rider Menu
-</button>
-    
+ <div class="map-placeholder">
+        🗺️ Live Trip Map
+ </div>
+
 </div>
 
 <div id="rider-complete-screen" class="hidden">
@@ -418,12 +383,9 @@ Find Available Driver
     </div>
 
 
-    <input
-    id="destination-input"
-    class="search-box"
-    type="text"
-    placeholder="📍 Where are you going?"
->
+    <div class="search-box">
+        📍 Where are you going?
+    </div>
 <button class="ride" onclick="requestRide()">
     🚗 Request Ride
 </button>
@@ -593,9 +555,9 @@ Find Available Driver
         🚗 Ride
     </button>
 
-    <button class="schedule" onclick="handleDriveSelection()">
-    🚘 Drive
-</button>
+    <button class="schedule" onclick="showDriverDashboard()">
+        🚘 Drive
+    </button>
     
     <button class="schedule" onclick="showAccountScreen()">
     ➕ Add / Switch User
@@ -613,10 +575,6 @@ Find Available Driver
 <script type="module" src="firebase-firestore.js"></script>
 
 <script type="module" src="app.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </body>
 </html>
