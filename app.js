@@ -1893,12 +1893,8 @@ function initializeLiveTripMap() {
                 '&copy; OpenStreetMap contributors'
         }
     ).addTo(map);
+   
 
-
-    
-Replace it with:
-
-```javascript
 // Use the rider's actual pickup and destination coordinates
 const pickupCoordinates =
     currentRide.pickupCoordinates;
