@@ -1,6 +1,5 @@
 import {
     createFirebaseUser,
-    signInFirebaseUser,
     getCurrentFirebaseUser,
     waitForFirebaseUser
 } from "./firebase-auth.js";
@@ -10,12 +9,8 @@ import {
     createDriverApplication,
     getUserProfile,
     createRecurringRide,
-    getRecurringRides,
-    saveDriverAvailability,
-    findAvailableDriver,
-    setDriverOnlineStatus
+    getRecurringRides
 } from "./firebase-firestore.js";
-
 
 // ===========================================
 // DRIVER FUNCTIONS
@@ -37,15 +32,9 @@ function showDriverEarnings(){
 
     rideHistory.forEach(function(ride){
 
-    const fare = Number(ride.fare);
+        totalEarnings += Number(ride.fare);
 
-    if (Number.isFinite(fare)) {
-
-        totalEarnings += fare;
-
-    }
-
-});
+    });
 
 
     let averageFare = 0;
@@ -676,22 +665,7 @@ function showRideHistory(){
 
             <p><strong>Driver:</strong> ${ride.driver}</p>
 
-<p><strong>Date:</strong> ${
-    ride.completedAt
-        ? new Date(ride.completedAt).toLocaleDateString()
-        : "Not recorded"
-}</p>
-
-<p><strong>Time:</strong> ${
-    ride.completedAt
-        ? new Date(ride.completedAt).toLocaleTimeString([], {
-            hour: "numeric",
-            minute: "2-digit"
-        })
-        : "Not recorded"
-}</p>
-
-<p><strong>Pickup:</strong> ${ride.pickup}</p>
+            <p><strong>Pickup:</strong> ${ride.pickup}</p>
 
             <p><strong>Destination:</strong> ${ride.destination}</p>
 
@@ -707,44 +681,37 @@ function showRideHistory(){
 
 }
 
-let savedRide = JSON.parse(
-    localStorage.getItem("scuberCurrentRide")
-);
-
-if (savedRide) {
-
-    currentRide = savedRide;
-
-}
-
+function showRiderHome() {
 
 document.getElementById("driver-dashboard")
-    .classList.add("hidden");
+.classList.add("hidden");
 
 document.getElementById("driver-screen")
-    .classList.add("hidden");
+.classList.add("hidden");
 
 document.getElementById("driver-request-screen")
-    .classList.add("hidden");
+.classList.add("hidden");
 
 document.getElementById("driver-trip-screen")
-    .classList.add("hidden");
+.classList.add("hidden");
+    
+    let name = localStorage.getItem("scuberUserName");
+    let email = localStorage.getItem("scuberUserEmail");
 
+    if(name === "" || email === ""){
 
-let name =
-    localStorage.getItem("scuberUserName");
+    name = localStorage.getItem("scuberUserName");
+    email = localStorage.getItem("scuberUserEmail");
 
-let email =
-    localStorage.getItem("scuberUserEmail");
+    if(name === null || email === null){
+        alert("Please enter your name and email.");
+        return;
+    }
 
-
-if (!name || !email) {
-    console.log("Rider name or email is missing.");
 }
-
-
-let activeName =
-    localStorage.getItem("scuberUserName");
+        
+   
+let activeName = localStorage.getItem("scuberUserName");
 
 document.getElementById("rider-user-name").textContent =
 "Welcome, " + activeName;
@@ -786,14 +753,14 @@ document.getElementById("rider-user-name").textContent =
     .classList.remove("hidden");
 
     console.log("main-app classes:", document.getElementById("main-app").className);
-  
+    
 
 }
-// window.showRiderHome = showRiderHome;
+window.showRiderHome = showRiderHome;
 // ===========================================
 // DRIVER FUNCTIONS
 // ===========================================
-async function showDriverScreen() {
+function showDriverScreen() {
 
     document.getElementById("mode-screen")
     .classList.add("hidden");
@@ -806,39 +773,6 @@ async function showDriverScreen() {
 
     document.getElementById("driver-screen")
     .classList.remove("hidden");
-
-
-    const user = getCurrentFirebaseUser();
-
-    if (!user) {
-        return;
-    }
-
-
-    const profile =
-        await getUserProfile(user.uid);
-
-    if (!profile || !profile.availability) {
-        return;
-    }
-
-
-    const day =
-        document.getElementById("driver-day").value;
-
-    const saved =
-        profile.availability[day];
-
-    if (!saved) {
-        return;
-    }
-
-
-    document.getElementById("driver-start").value =
-        saved.start || "";
-
-    document.getElementById("driver-end").value =
-        saved.end || "";
 
 }
 function assignAvailableDriver(){
@@ -881,20 +815,8 @@ function assignAvailableDriver(){
 
 window.assignAvailableDriver =
     assignAvailableDriver;
-async function goOnline(){
-const user = getCurrentFirebaseUser();
+function goOnline(){
 
-if(!user){
-
-    alert("Please sign in before going online.");
-
-    return;
-}
-
-await setDriverOnlineStatus(
-    user.uid,
-    "ONLINE"
-);
     localStorage.setItem(
         "scuberDriverStatus",
         "ONLINE"
@@ -903,25 +825,12 @@ await setDriverOnlineStatus(
     document.getElementById("driver-status").textContent =
     "Online";
 
-    alert("You are now online.");
+    alert("You are now available for rides.");
+
 }
 
 
-async function goOffline(){
-
-    const user = getCurrentFirebaseUser();
-
-    if(!user){
-
-        alert("Please sign in before going offline.");
-
-        return;
-    }
-
-    await setDriverOnlineStatus(
-        user.uid,
-        "OFFLINE"
-    );
+function goOffline(){
 
     localStorage.setItem(
         "scuberDriverStatus",
@@ -932,7 +841,9 @@ async function goOffline(){
     "Offline";
 
     alert("You are now offline.");
+
 }
+
 async function startDriverApplication() {
 
     const user = getCurrentFirebaseUser();
@@ -945,11 +856,10 @@ async function startDriverApplication() {
     await createDriverApplication(user);
 
     alert(
-        "Driver application submitted!\n\n" +
-        "Your account is now waiting for approval."
+        "Driver application submitted!\n\nYour account is now waiting for approval."
     );
+
 }
-console.log("START DRIVER FUNCTION LOADED");
 function showDriverDashboard() {
 
     document.getElementById("welcome-screen")
@@ -1008,56 +918,11 @@ saveUser(name, email);
     .classList.remove("hidden");
    
 }
-async function saveAvailability() {
+function saveAvailability() {
 
-    const user = getCurrentFirebaseUser();
-
-    if (!user) {
-
-        alert(
-            "Please sign in before saving your availability."
-        );
-
-        return;
-    }
-
-    let day =
-        document.getElementById("driver-day").value;
-
-    let start =
-        document.getElementById("driver-start").value;
-
-    let end =
-        document.getElementById("driver-end").value;
-
-
-    if (!start || !end) {
-
-        alert(
-            "Please select both a start time and an end time."
-        );
-
-        return;
-    }
-
-
-    const saved =
-        await saveDriverAvailability(
-            user.uid,
-            day,
-            start,
-            end
-        );
-
-
-    if (!saved) {
-
-        alert(
-            "There was a problem saving your availability."
-        );
-
-        return;
-    }
+    let day = document.getElementById("driver-day").value;
+    let start = document.getElementById("driver-start").value;
+    let end = document.getElementById("driver-end").value;
 
 
     alert(
@@ -1068,7 +933,6 @@ async function saveAvailability() {
     );
 
 }
-window.saveAvailability = saveAvailability;
 // ===========================================
 // SHARED RIDE FUNCTIONS
 // ===========================================
@@ -1108,204 +972,54 @@ function requestRide(){
 }
 window.requestRide = requestRide;
 
-async function findDriver(){
-
+function findDriver(){
+    
     console.log("findDriver clicked");
+    
+    let pickup = document.getElementById("now-pickup").value;
+    let destination = document.getElementById("now-destination").value;
 
-    let pickup =
-        document.getElementById("now-pickup").value;
+let driverStatus = localStorage.getItem("scuberDriverStatus");
 
-    let destination =
-        document.getElementById("now-destination").value;
-
-
-    if(!pickup || !destination){
-
-        alert(
-            "Please enter both your pickup location and destination."
-        );
-
-        return;
-    }
-
-
-    // -----------------------------------------
-    // GEOCODE PICKUP AND DESTINATION
-    // -----------------------------------------
-
-    async function geocodeAddress(address){
-
-        const response =
-            await fetch(
-                "/.netlify/functions/geocode?address=" +
-                encodeURIComponent(address)
-            );
-
-        if(!response.ok){
-
-            throw new Error(
-                "Unable to geocode address."
-            );
-        }
-
-        const data =
-            await response.json();
-
-        if(
-            !data.features ||
-            !data.features.length
-        ){
-
-            throw new Error(
-                "Address not found: " + address
-            );
-        }
-
-        const coordinates =
-            data.features[0].geometry.coordinates;
-
-        return {
-            lon: coordinates[0],
-            lat: coordinates[1]
-        };
-    }
-
-
-    let pickupCoordinates;
-    let destinationCoordinates;
-
-
-    try {
-
-        pickupCoordinates =
-            await geocodeAddress(pickup);
-
-        destinationCoordinates =
-            await geocodeAddress(destination);
-
-    } catch(error){
-
-        console.error(
-            "Geocoding error:",
-            error
-        );
-
-        alert(
-            "We could not locate one of those addresses.\n\n" +
-            "Please check the pickup and destination and try again."
-        );
-
-        return;
-    }
-
-
-    console.log(
-        "Pickup coordinates:",
-        pickupCoordinates
-    );
-
-    console.log(
-        "Destination coordinates:",
-        destinationCoordinates
-    );
-
-
-    const now = new Date();
-
-    const dayNames = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ];
-
-    const day =
-        dayNames[now.getDay()];
-
-
-    const currentTime =
-        now.toTimeString().slice(0,5);
-
-
-    console.log(
-        "Checking driver availability:",
-        day,
-        currentTime
-    );
-
-
-    const driverFound =
-        await findAvailableDriver(
-            day,
-            currentTime
-        );
-
-
-    if(!driverFound){
-
-        alert(
-            "No drivers are available right now.\n\n" +
-            "Please try again later."
-        );
-
-        return;
-    }
-
-
-    currentRide.rider =
-        localStorage.getItem("scuberUserName");
-
-    currentRide.driver =
-        driverFound.name;
-
-    currentRide.driverUid =
-        driverFound.uid;
-
-    currentRide.pickup =
-        pickup;
-
-    currentRide.destination =
-        destination;
-
-    currentRide.pickupCoordinates =
-        pickupCoordinates;
-
-    currentRide.destinationCoordinates =
-        destinationCoordinates;
-
-    currentRide.status =
-        "WAITING_FOR_DRIVER_ACCEPTANCE";
-
-    currentRide.eta = 8;
-
-    currentRide.fare = 18.00;
-
-
-    localStorage.setItem(
-        "scuberCurrentRide",
-        JSON.stringify(currentRide)
-    );
-
+if(driverStatus !== "ONLINE"){
 
     alert(
-        "Driver Found!\n\n" +
-        "Driver: " + driverFound.name +
-        "\nPickup: " + pickup +
-        "\nDestination: " + destination
+        "No drivers are available right now.\n\nPlease try again later."
     );
 
-
-    showRiderTripScreen();
+    return;
 
 }
 
+let driverFound = "Alex";
+
+currentRide.rider = localStorage.getItem("scuberUserName");
+currentRide.driver = driverFound;
+currentRide.pickup = pickup;
+currentRide.destination = destination;
+currentRide.status = "WAITING_FOR_DRIVER_ACCEPTANCE";
+currentRide.eta = 8;
+currentRide.fare = 18.00;
+    
+localStorage.setItem(
+    "scuberCurrentRide",
+    JSON.stringify(currentRide)
+);
+
+    alert(
+        "Driver Found!\n\n" +
+        "Driver: " + driverFound +
+        "\nPickup: " + pickup +
+        "\nDestination: " + destination
+    );
+    
+showRiderTripScreen();
+    
+}
 window.findDriver = findDriver;
-window.findDriver = findDriver;
+
 function showDriverRequest(){
-function showRiderHome() {
+
     let savedRide = JSON.parse(localStorage.getItem("scuberCurrentRide"));
 
 if(savedRide){
@@ -1464,16 +1178,9 @@ function showRiderTripScreen(){
     document.getElementById("rider-driver").textContent =
     currentRide.driver;
 
-    document.getElementById("rider-pickup").textContent =
-    currentRide.pickup;
-
-    document.getElementById("rider-destination").textContent =
-    currentRide.destination;
-    
     document.getElementById("rider-status").textContent =
     currentRide.status;
-    
-    initializeLiveTripMap();
+
 }
 
 function startTrip(){
@@ -1531,14 +1238,13 @@ function completeTrip(){
     console.log("Current Ride At Completion:", currentRide);
     console.log("Ride History Before Push:", rideHistory);
     rideHistory.push({
-    rider: currentRide.rider,
-    driver: currentRide.driver,
-    pickup: currentRide.pickup,
-    destination: currentRide.destination,
-    fare: currentRide.fare,
-    status: currentRide.status,
-    completedAt: new Date().toISOString()
-});
+        rider: currentRide.rider,
+        driver: currentRide.driver,
+        pickup: currentRide.pickup,
+        destination: currentRide.destination,
+        fare: currentRide.fare,
+        status: currentRide.status
+    });
 
     localStorage.setItem(
     "scuberRideHistory",
@@ -1564,115 +1270,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
     loadFirebaseWelcome();
 
-    const rideHistoryButton =
-        document.getElementById("ride-history-button");
-
-    if (rideHistoryButton) {
-
-        rideHistoryButton.addEventListener(
-            "click",
-            showRideHistory
-        );
-
-    }
-
 });
 
 window.showAccountScreen = showAccountScreen;
 window.createRiderAccount = createRiderAccount;
 window.showDriverDashboard = showDriverDashboard;
 window.requestRide = requestRide;
-async function handleDriveSelection() {
-
-    const user = getCurrentFirebaseUser();
-
-    if (!user) {
-
-        alert(
-            "Please sign in before choosing Drive."
-        );
-
-        return;
-    }
-
-    const profile = await getUserProfile(
-        user.uid
-    );
-
-    if (!profile) {
-
-        alert(
-            "We could not find your SCUBER profile."
-        );
-
-        return;
-    }
-
-    const driverStatus =
-        profile.driverStatus;
-
-    if (driverStatus === "approved") {
-
-        showDriverDashboard();
-
-        return;
-    }
-
-    if (driverStatus === "pending") {
-
-        alert(
-            "Your driver application is currently under review."
-        );
-
-        return;
-    }
-
-    startDriverApplication();
-
-}
-async function showDriverProfile(){
-
-    document.getElementById("driver-dashboard")
-        .classList.add("hidden");
-
-    document.getElementById("driver-profile-screen")
-        .classList.remove("hidden");
-
-    const user = getCurrentFirebaseUser();
-
-    if (!user) {
-        return;
-    }
-
-    const profile = await getUserProfile(user.uid);
-
-    if (!profile) {
-        return;
-    }
-
-    document.getElementById("driver-profile-name").textContent =
-        profile.name || "";
-
-    document.getElementById("driver-profile-email").textContent =
-        profile.email || "";
-
-    document.getElementById("driver-profile-status").textContent =
-        profile.driverStatus || "Not approved";
-
-    document.getElementById("driver-profile-online").textContent =
-        profile.onlineStatus || "OFFLINE";
-}
 window.startDriverApplication = startDriverApplication;
-window.handleDriveSelection =
-    handleDriveSelection;
 window.completeTrip = completeTrip;
 window.showDriverScreen = showDriverScreen;
 window.goOnline = goOnline;
 window.goOffline = goOffline;
-window.showRideHistory = showRideHistory;
-window.showTripScreen = showTripScreen;
 window.showDriverEarnings = showDriverEarnings;
-window.showDriverProfile = showDriverProfile;
 window.selectUser = selectUser;
 window.deleteCurrentUser = deleteCurrentUser;
 window.openSchedule = openSchedule;
@@ -1719,7 +1328,7 @@ async function checkRecurringRidesDue(){
 
     let today = new Date();
 
-let dayName = today.toLocaleDateString("en-US", {
+let dayName = today.toLocaleDaring("en-US", {
     weekday: "long"
 });
 
@@ -1862,77 +1471,3 @@ currentRide = recurringRide;
 }
 
 window.checkRecurringRidesDue = checkRecurringRidesDue;
-
-function initializeLiveTripMap() {
-
-    const mapElement =
-        document.getElementById("live-trip-map");
-
-    if (!mapElement) {
-        return;
-    }
-
-    if (mapElement._leaflet_id) {
-        return;
-    }
-
-    const map = L.map("live-trip-map").setView(
-    [36.8529, -75.9780],
-    12
-);
-
-L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-        attribution:
-            '&copy; OpenStreetMap contributors'
-    }
-).addTo(map);
-
-
-// Use the rider's actual pickup and destination coordinates
-const pickupCoordinates =
-    currentRide.pickupCoordinates;
-
-const destinationCoordinates =
-    currentRide.destinationCoordinates;
-
-
-// Pickup marker
-L.marker([
-    pickupCoordinates.lat,
-    pickupCoordinates.lon
-])
-    .addTo(map)
-    .bindPopup(
-        "📍 Pickup: " +
-        currentRide.pickup
-    );
-
-
-// Destination marker
-L.marker([
-    destinationCoordinates.lat,
-    destinationCoordinates.lon
-])
-    .addTo(map)
-    .bindPopup(
-        "🏁 Destination: " +
-        currentRide.destination
-    );
-
-
-// Show both locations
-map.fitBounds([
-    [
-        pickupCoordinates.lat,
-        pickupCoordinates.lon
-    ],
-    [
-        destinationCoordinates.lat,
-        destinationCoordinates.lon
-    ]
-], {
-    padding: [30, 30]
-});
-}
