@@ -615,7 +615,6 @@ function saveUser(name, email){
         JSON.stringify(users)
     );
 
-
     localStorage.setItem(
         "scuberActiveUser",
         email
