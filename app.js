@@ -593,37 +593,53 @@ function showModeScreen(){
 }
 function saveUser(name, email){
 
-    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+    let users =
+        JSON.parse(
+            localStorage.getItem("scuberUsers")
+        ) || [];
 
-    let existingUser = users.find(function(user){
 
-        return user.email === email;
+    let existingUser =
+        users.find(function(user){
 
-    });
+            return user.email === email;
 
-    if(!existingUser){
+        });
+
+
+    if(existingUser){
+
+        existingUser.name = name;
+
+    } else {
 
         users.push({
+
             name: name,
             email: email
+
         });
 
     }
+
 
     localStorage.setItem(
         "scuberUsers",
         JSON.stringify(users)
     );
 
+
     localStorage.setItem(
         "scuberActiveUser",
         email
     );
 
+
     localStorage.setItem(
         "scuberUserName",
         name
     );
+
 
     localStorage.setItem(
         "scuberUserEmail",
