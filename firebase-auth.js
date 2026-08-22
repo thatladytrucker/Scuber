@@ -116,9 +116,38 @@ function getCurrentFirebaseUser(){
 
 }
 
+
+async function signOutFirebaseUser(){
+
+    try {
+
+        await signOut(auth);
+
+        console.log(
+            "SCUBER Firebase User Signed Out"
+        );
+
+        return true;
+
+    } catch(error){
+
+        console.error(
+            "Firebase Sign Out Error:",
+            error.code,
+            error.message
+        );
+
+        return false;
+
+    }
+
+}
+
+
 export {
-createFirebaseUser,
-signInFirebaseUser,
-getCurrentFirebaseUser,
-waitForFirebaseUser
+    createFirebaseUser,
+    signInFirebaseUser,
+    getCurrentFirebaseUser,
+    waitForFirebaseUser,
+    signOutFirebaseUser
 };
