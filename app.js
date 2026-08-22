@@ -2,7 +2,8 @@ import {
     createFirebaseUser,
     signInFirebaseUser,
     getCurrentFirebaseUser,
-    waitForFirebaseUser
+    waitForFirebaseUser,
+    signOutFirebaseUser
 } from "./firebase-auth.js";
 
 import {
