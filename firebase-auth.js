@@ -1,3 +1,5 @@
+import { app } from "./firebase-config.js";
+
 import {
 getAuth,
 createUserWithEmailAndPassword,
