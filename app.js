@@ -644,7 +644,12 @@ await createUserProfile(
 );
 
 
-    saveUser(name, email);
+        saveUser(name, email);
+
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
 
 
     alert(
