@@ -459,44 +459,82 @@ if(activeUser){
     });
 
 }
-function selectUser(email){
+async function selectUser(email){
 
-    let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
+    let users =
+        JSON.parse(localStorage.getItem("scuberUsers")) || [];
 
-    let selectedUser = users.find(function(user){
+    let selectedUser =
+        users.find(function(user){
 
-        return user.email === email;
+            return user.email === email;
 
-    });
+        });
 
 
-    if(selectedUser){
+    if(!selectedUser){
 
-        localStorage.setItem(
-            "scuberActiveUser",
-            selectedUser.email
-        );
+        return;
 
-        localStorage.setItem(
-            "scuberUserName",
+    }
+
+
+    const password =
+        prompt(
+            "Enter your password for " +
             selectedUser.name
         );
 
-        localStorage.setItem(
-            "scuberUserEmail",
-            selectedUser.email
+
+    if(password === null){
+
+        return;
+
+    }
+
+
+    const firebaseUser =
+        await signInFirebaseUser(
+            selectedUser.email,
+            password
         );
 
 
-        alert(
-    "Welcome back, " + selectedUser.name + "!"
-);
+    if(!firebaseUser){
 
-loadUserList();
-
-showWelcomeScreen();
+        return;
 
     }
+
+
+    localStorage.setItem(
+        "scuberActiveUser",
+        selectedUser.email
+    );
+
+
+    localStorage.setItem(
+        "scuberUserName",
+        selectedUser.name
+    );
+
+
+    localStorage.setItem(
+        "scuberUserEmail",
+        selectedUser.email
+    );
+
+
+    alert(
+        "Welcome back, " +
+        selectedUser.name +
+        "!"
+    );
+
+
+    loadUserList();
+
+    showWelcomeScreen();
 
 }
 function deleteCurrentUser(){
