@@ -1342,7 +1342,17 @@ async function findDriver(){
     currentRide.eta = 8;
 
     currentRide.fare = 18.00;
+    
+const rideId =
+    "ride_" + Date.now();
 
+currentRide.id =
+    rideId;
+
+await createRide(
+    rideId,
+    currentRide
+);
 
     localStorage.setItem(
         "scuberCurrentRide",
