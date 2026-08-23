@@ -1426,7 +1426,7 @@ if(savedRide){
 }
 window.showDriverRequest = showDriverRequest;
 
-function acceptRide(){
+async function acceptRide(){
 
     if(currentRide){
 
