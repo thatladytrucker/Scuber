@@ -930,6 +930,17 @@ function assignAvailableDriver(){
         JSON.stringify(currentRide)
     );
 
+    const rideId =
+    "ride_" + Date.now();
+
+currentRide.id =
+    rideId;
+
+await createRide(
+    rideId,
+    currentRide
+);
+
     console.log(
         "Driver assigned:",
         driverFound
