@@ -331,6 +331,96 @@ async function setDriverOnlineStatus(uid, status){
         return false;
     }
 }
+async function createRide(rideId, rideData){
+
+    try {
+
+        await setDoc(
+            doc(db, "rides", rideId),
+            {
+                ...rideData,
+                createdAt: serverTimestamp()
+            }
+        );
+
+        console.log(
+            "Ride created in Firebase:",
+            rideId
+        );
+
+        return true;
+
+    } catch(error){
+
+        console.error(
+            "Create ride error:",
+            error
+        );
+
+        return false;
+    }
+}
+
+
+async function updateRide(rideId, updates){
+
+    try {
+
+        await updateDoc(
+            doc(db, "rides", rideId),
+            updates
+        );
+
+        console.log(
+            "Ride updated in Firebase:",
+            rideId,
+            updates
+        );
+
+        return true;
+
+    } catch(error){
+
+        console.error(
+            "Update ride error:",
+            error
+        );
+
+        return false;
+    }
+}
+
+
+async function getRide(rideId){
+
+    try {
+
+        const rideSnapshot =
+            await getDoc(
+                doc(db, "rides", rideId)
+            );
+
+        if(!rideSnapshot.exists()){
+
+            return null;
+
+        }
+
+        return {
+            id: rideSnapshot.id,
+            ...rideSnapshot.data()
+        };
+
+    } catch(error){
+
+        console.error(
+            "Get ride error:",
+            error
+        );
+
+        return null;
+    }
+}
 export {
     createUserProfile,
     createDriverApplication,
@@ -339,7 +429,10 @@ export {
     getRecurringRides,
     saveDriverAvailability,
     findAvailableDriver,
-    setDriverOnlineStatus
+    setDriverOnlineStatus,
+    createRide,
+    updateRide,
+    getRide
 };
 
 
