@@ -1431,7 +1431,15 @@ async function acceptRide(){
     if(currentRide){
 
         currentRide.status = "DRIVER_ACCEPTED";
-        currentRide.driver = "Alex";
+
+await updateRide(
+    currentRide.id,
+    {
+        status: "DRIVER_ACCEPTED"
+    }
+);
+
+currentRide.driver = "Alex";
 
         localStorage.setItem(
     "scuberCurrentRide",
