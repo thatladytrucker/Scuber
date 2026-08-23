@@ -15,7 +15,8 @@ import {
     saveDriverAvailability,
     findAvailableDriver,
     setDriverOnlineStatus,
-    createRide
+    createRide,
+    updateRide
 } from "./firebase-firestore.js";
 
 
