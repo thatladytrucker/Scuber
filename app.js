@@ -391,7 +391,8 @@ async function loadFirebaseWelcome(){
     let profile = await getUserProfile(
         user.uid
     );
-
+    
+    console.log("SCUBER PROFILE:", profile);
 
     if(profile){
 
