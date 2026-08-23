@@ -525,9 +525,11 @@ async function selectUser(email){
     );
 
 
-    loadUserList();
+    await loadFirebaseWelcome();
 
-    showWelcomeScreen();
+loadUserList();
+
+showWelcomeScreen();
 
 }
 function deleteCurrentUser(){
