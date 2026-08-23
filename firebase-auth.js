@@ -80,6 +80,8 @@ async function createFirebaseUser(email, password) {
 }
 async function signInFirebaseUser(email, password) {
 
+    console.log("SIGN-IN REQUEST FOR:", email);
+    
     try {
 
         const userCredential =
