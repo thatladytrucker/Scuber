@@ -395,24 +395,18 @@ async function loadFirebaseWelcome(){
 
     if(profile){
 
-document.getElementById("welcome-name").textContent =
-    "Welcome back, " + profile.name;
+        document.getElementById("welcome-name").textContent =
+            "Welcome back, " + profile.name;
 
-
-console.log(
-    "Active SCUBER user:",
-    profile.name
-);
 
         console.log(
-    "Active SCUBER user:",
-    activeName || profile.name
-);
+            "Active SCUBER user:",
+            profile.name
+        );
 
     }
 
-}
-function loadUserList(){
+}function loadUserList(){
 
     let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
 
