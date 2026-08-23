@@ -398,7 +398,11 @@ async function loadFirebaseWelcome(){
 
         document.getElementById("welcome-name").textContent =
             "Welcome back, " + profile.name;
-
+        
+console.log(
+    "WELCOME SET TO:",
+    document.getElementById("welcome-name").textContent
+);
 
         console.log(
             "Active SCUBER user:",
