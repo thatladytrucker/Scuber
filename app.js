@@ -1778,6 +1778,53 @@ async function showDriverProfile(){
     document.getElementById("driver-profile-online").textContent =
         profile.onlineStatus || "OFFLINE";
 }
+async function handleDriveSelection() {
+
+    const user = getCurrentFirebaseUser();
+
+    if (!user) {
+
+        alert(
+            "Please sign in before choosing Drive."
+        );
+
+        return;
+    }
+
+    const profile = await getUserProfile(
+        user.uid
+    );
+
+    if (!profile) {
+
+        alert(
+            "We could not find your SCUBER profile."
+        );
+
+        return;
+    }
+
+    const driverStatus =
+        profile.driverStatus;
+
+    if (driverStatus === "approved") {
+
+        showDriverDashboard();
+
+        return;
+    }
+
+    if (driverStatus === "pending") {
+
+        alert(
+            "Your driver application is currently under review."
+        );
+
+        return;
+    }
+
+    startDriverApplication();
+}
 window.startDriverApplication = startDriverApplication;
 window.handleDriveSelection =
     handleDriveSelection;
