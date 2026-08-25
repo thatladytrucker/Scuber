@@ -401,6 +401,8 @@ async function loadFirebaseWelcome(){
 
         document.getElementById("welcome-name").textContent =
             "Welcome back, " + profile.name;
+
+        showWelcomeScreen();
         
 console.log(
     "WELCOME SET TO:",
