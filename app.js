@@ -1663,111 +1663,76 @@ function showRiderCompleteScreen(){
     currentRide.fare.toFixed(2);
 
 }
-function completeTrip(){
+async function completeTrip(){
+
+    if(!currentRide || !currentRide.id){
+
+        console.error(
+            "Cannot complete trip: no active ride."
+        );
+
+        return;
+    }
 
     currentRide.status = "TRIP_COMPLETED";
-    console.log("Current Ride At Completion:", currentRide);
-    console.log("Ride History Before Push:", rideHistory);
+
+    console.log(
+        "Current Ride At Completion:",
+        currentRide
+    );
+
+    console.log(
+        "Ride History Before Push:",
+        rideHistory
+    );
+
     rideHistory.push({
-    rider: currentRide.rider,
-    driver: currentRide.driver,
-    pickup: currentRide.pickup,
-    destination: currentRide.destination,
-    fare: currentRide.fare,
-    status: currentRide.status,
-    completedAt: new Date().toISOString()
-});
+        rider: currentRide.rider,
+        driver: currentRide.driver,
+        pickup: currentRide.pickup,
+        destination: currentRide.destination,
+        fare: currentRide.fare,
+        status: currentRide.status,
+        completedAt: new Date().toISOString()
+    });
 
     localStorage.setItem(
-    "scuberRideHistory",
-    JSON.stringify(rideHistory)
-);
-    console.log("Ride History After Push:", rideHistory);
-    document.getElementById("driver-trip-status").textContent = currentRide.status;
+        "scuberRideHistory",
+        JSON.stringify(rideHistory)
+    );
+
+    console.log(
+        "Ride History After Push:",
+        rideHistory
+    );
+
+    await updateRide(
+        currentRide.id,
+        {
+            status: "TRIP_COMPLETED"
+        }
+    );
+
+    document.getElementById(
+        "driver-trip-status"
+    ).textContent =
+        currentRide.status;
 
     alert(
         "Trip Completed!\n\n" +
         "Thank you for driving with Scuber."
     );
-currentRide = null;
 
-localStorage.removeItem("scuberCurrentRide");
+    currentRide = null;
 
-showDriverDashboard();
-    
-}
-document.addEventListener("DOMContentLoaded", function(){
-
-    checkReturningUser();
-
-    loadFirebaseWelcome();
-
-    const rideHistoryButton =
-        document.getElementById("ride-history-button");
-
-    if (rideHistoryButton) {
-
-        rideHistoryButton.addEventListener(
-            "click",
-            showRideHistory
-        );
-
-    }
-
-});
-
-window.showAccountScreen = showAccountScreen;
-window.createRiderAccount = createRiderAccount;
-window.showDriverDashboard = showDriverDashboard;
-window.requestRide = requestRide;
-async function handleDriveSelection() {
-
-    const user = getCurrentFirebaseUser();
-
-    if (!user) {
-
-        alert(
-            "Please sign in before choosing Drive."
-        );
-
-        return;
-    }
-
-    const profile = await getUserProfile(
-        user.uid
+    localStorage.removeItem(
+        "scuberCurrentRide"
     );
 
-    if (!profile) {
-
-        alert(
-            "We could not find your SCUBER profile."
-        );
-
-        return;
-    }
-
-    const driverStatus =
-        profile.driverStatus;
-
-    if (driverStatus === "approved") {
-
-        showDriverDashboard();
-
-        return;
-    }
-
-    if (driverStatus === "pending") {
-
-        alert(
-            "Your driver application is currently under review."
-        );
-
-        return;
-    }
-
-    startDriverApplication();
-
+    showDriverDashboard();
 }
+
+window.completeTrip = completeTrip;
 async function showDriverProfile(){
 
     document.getElementById("driver-dashboard")
