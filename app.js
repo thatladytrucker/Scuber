@@ -1429,34 +1429,47 @@ window.showDriverRequest = showDriverRequest;
 
 async function acceptRide(){
 
-    if(currentRide){
+    if(!currentRide || !currentRide.id){
 
-        currentRide.status = "DRIVER_ACCEPTED";
+        console.error(
+            "Cannot accept ride: no active ride."
+        );
 
-await updateRide(
-    currentRide.id,
-    {
-        status: "DRIVER_ACCEPTED"
+        return;
     }
-);
 
-        localStorage.setItem(
-    "scuberCurrentRide",
-    JSON.stringify(currentRide)
-);
-        document.getElementById("rider-driver").textContent = currentRide.driver;
+    currentRide.status = "DRIVER_ACCEPTED";
 
-        document.getElementById("rider-status").textContent = currentRide.status;
+    await updateRide(
+        currentRide.id,
+        {
+            status: "DRIVER_ACCEPTED"
+        }
+    );
 
-    }
-showTripScreen();
+    localStorage.setItem(
+        "scuberCurrentRide",
+        JSON.stringify(currentRide)
+    );
+
+    document.getElementById(
+        "rider-driver"
+    ).textContent =
+        currentRide.driver || "";
+
+    document.getElementById(
+        "rider-status"
+    ).textContent =
+        currentRide.status;
+
+    showTripScreen();
 
     alert(
         "Ride Accepted!\n\n" +
         "Navigation started."
     );
-
 }
+
 window.acceptRide = acceptRide;
 
 function declineRide(){
