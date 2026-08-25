@@ -24,9 +24,7 @@ exports.handler = async function (event) {
             };
         }
 
-        const url =
-    "https://api.geoapify.com/v1/geocode/search" +
-    const searchAddress =
+        const searchAddress =
     /virginia/i.test(address)
         ? address + ", USA"
         : address + ", Virginia, USA";
@@ -36,8 +34,6 @@ const url =
     "?text=" + encodeURIComponent(searchAddress) +
     "&filter=countrycode:us" +
     "&apiKey=" + apiKey;
-"&filter=countrycode:us" +
-"&apiKey=" + apiKey;
 
         const response = await fetch(url);
 
