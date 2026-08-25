@@ -486,7 +486,8 @@ export {
     setDriverOnlineStatus,
     createRide,
     updateRide,
-    getRide
+    getRide,
+    listenToRide
 };
 
 
