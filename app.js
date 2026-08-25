@@ -1439,8 +1439,6 @@ await updateRide(
     }
 );
 
-currentRide.driver = "Alex";
-
         localStorage.setItem(
     "scuberCurrentRide",
     JSON.stringify(currentRide)
