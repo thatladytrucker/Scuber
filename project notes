@@ -1018,3 +1018,22 @@ Do not add driver-document verification yet.
 Do not replace the existing ride-state system.
 
 The next coding task is to replace the existing Live Trip Map placeholder with a development-stage Leaflet/OpenStreetMap map.
+08252026 - STABLE Checkpoint 115pm
+Known issues — do not work on these yet
+Switch User button isn't working.
+Back to Driver Dashboard from New Ride Request isn't working.
+
+Current stable checkpoint
+✅ Firebase authentication works.
+✅ Welcome screen loads automatically.
+✅ Welcome back, LaToya Cramsey appears correctly.
+✅ Account screen no longer takes over at startup.
+✅ Geocoding works.
+✅ Virginia-only geocoding is working for the addresses we've tested.
+✅ Pickup and destination coordinates are being saved.
+✅ Map displays the correct Virginia locations.
+✅ Rider can request a ride.
+✅ Driver can accept the ride.
+✅ Rider receives DRIVER_ACCEPTED without refreshing.
+✅ Rider receives TRIP_STARTED without refreshing.
+✅ Rider receives TRIP_COMPLETED without refreshing.
