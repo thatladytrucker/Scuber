@@ -416,7 +416,9 @@ console.log(
 
     }
 
-}function loadUserList(){
+}
+
+function loadUserList(){
 
     let users = JSON.parse(localStorage.getItem("scuberUsers")) || [];
 
