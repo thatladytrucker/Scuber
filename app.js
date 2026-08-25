@@ -1550,7 +1550,43 @@ function showRiderTripScreen(){
     
     document.getElementById("rider-status").textContent =
     currentRide.status;
-    
+ if(currentRide && currentRide.id){
+
+    listenToRide(
+        currentRide.id,
+        (updatedRide) => {
+
+            currentRide = updatedRide;
+
+            localStorage.setItem(
+                "scuberCurrentRide",
+                JSON.stringify(updatedRide)
+            );
+
+            document.getElementById(
+                "rider-driver"
+            ).textContent =
+                updatedRide.driver || "";
+
+            document.getElementById(
+                "rider-pickup"
+            ).textContent =
+                updatedRide.pickup || "";
+
+            document.getElementById(
+                "rider-destination"
+            ).textContent =
+                updatedRide.destination || "";
+
+            document.getElementById(
+                "rider-status"
+            ).textContent =
+                updatedRide.status || "";
+
+        }
+    );
+
+}   
     initializeLiveTripMap();
 }
 
