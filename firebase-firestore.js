@@ -422,6 +422,59 @@ async function getRide(rideId){
         return null;
     }
 }
+function listenToRide(rideId, callback){
+
+    try {
+
+        const rideRef =
+            doc(db, "rides", rideId);
+
+        return onSnapshot(
+            rideRef,
+            (snapshot) => {
+
+                if(!snapshot.exists()){
+
+                    console.log(
+                        "Ride no longer exists:",
+                        rideId
+                    );
+
+                    return;
+                }
+
+                const rideData = {
+                    id: snapshot.id,
+                    ...snapshot.data()
+                };
+
+                console.log(
+                    "Ride update received:",
+                    rideData
+                );
+
+                callback(rideData);
+            },
+            (error) => {
+
+                console.error(
+                    "Ride listener error:",
+                    error
+                );
+
+            }
+        );
+
+    } catch(error){
+
+        console.error(
+            "Listen to ride error:",
+            error
+        );
+
+        return null;
+    }
+}
 export {
     createUserProfile,
     createDriverApplication,
