@@ -1590,25 +1590,49 @@ function showRiderTripScreen(){
     initializeLiveTripMap();
 }
 
-function startTrip(){
+async function startTrip(){
+
     console.log("START TRIP CLICKED");
+
+    if(!currentRide || !currentRide.id){
+
+        console.error(
+            "Cannot start trip: no active ride."
+        );
+
+        return;
+    }
 
     currentRide.status = "TRIP_STARTED";
 
-    document.getElementById("driver-trip-status").textContent = currentRide.status;
+    await updateRide(
+        currentRide.id,
+        {
+            status: "TRIP_STARTED"
+        }
+    );
 
-    document.getElementById("rider-status").textContent =
-    "✅ Trip Complete — Thank you for riding with Scuber!";
+    localStorage.setItem(
+        "scuberCurrentRide",
+        JSON.stringify(currentRide)
+    );
 
-    document.getElementById("rider-status").textContent =
-    "✅ Trip Complete — Thank you for riding with Scuber!";
+    document.getElementById(
+        "driver-trip-status"
+    ).textContent =
+        currentRide.status;
+
+    document.getElementById(
+        "rider-status"
+    ).textContent =
+        currentRide.status;
 
     alert(
         "Trip Started!\n\n" +
         "Scuber navigation is active."
     );
-
 }
+
 window.startTrip = startTrip;
 
 function showRiderCompleteScreen(){
