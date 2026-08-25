@@ -2103,3 +2103,5 @@ map.fitBounds([
     padding: [30, 30]
 });
 }
+checkReturningUser();
+loadFirebaseWelcome();
