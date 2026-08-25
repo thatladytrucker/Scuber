@@ -26,9 +26,9 @@ exports.handler = async function (event) {
 
         const url =
     "https://api.geoapify.com/v1/geocode/search" +
-    "?text=" + encodeURIComponent(address) +
-    "&filter=statecode:US-VA" +
-    "&apiKey=" + apiKey;
+    "?text=" + encodeURIComponent(address + ", Virginia, USA") +
+"&filter=countrycode:us" +
+"&apiKey=" + apiKey;
 
         const response = await fetch(url);
 
