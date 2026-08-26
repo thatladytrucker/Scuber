@@ -477,6 +477,69 @@ function listenToRide(rideId, callback){
         return null;
     }
 }
+function listenForDriverRides(driverUid, callback){
+
+    try {
+
+        const ridesRef =
+            collection(db, "rides");
+
+        const ridesQuery =
+            query(
+                ridesRef,
+                where("driverUid", "==", driverUid)
+            );
+
+        return onSnapshot(
+            ridesQuery,
+            (snapshot) => {
+
+                snapshot.docChanges().forEach(
+                    (change) => {
+
+                        if(
+                            change.type === "added" ||
+                            change.type === "modified"
+                        ){
+
+                            const rideData = {
+                                id: change.doc.id,
+                                ...change.doc.data()
+                            };
+
+                            console.log(
+                                "Driver ride received:",
+                                rideData
+                            );
+
+                            callback(rideData);
+
+                        }
+
+                    }
+                );
+
+            },
+            (error) => {
+
+                console.error(
+                    "Driver ride listener error:",
+                    error
+                );
+
+            }
+        );
+
+    } catch(error){
+
+        console.error(
+            "Listen for driver rides error:",
+            error
+        );
+
+        return null;
+    }
+}
 export {
     createUserProfile,
     createDriverApplication,
