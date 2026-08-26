@@ -17,7 +17,8 @@ import {
     setDriverOnlineStatus,
     createRide,
     updateRide,
-    listenToRide
+    listenToRide,
+    listenForDriverRides
 } from "./firebase-firestore.js";
 
 let driverLocationWatcher = null;
