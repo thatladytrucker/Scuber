@@ -1966,12 +1966,14 @@ async function completeTrip(){
 
     currentRide = null;
 
-    localStorage.removeItem(
+        localStorage.removeItem(
         "scuberCurrentRide"
     );
 
-   
+}  
+
 window.completeTrip = completeTrip;
+
 async function showDriverProfile(){
 
     document.getElementById("driver-dashboard")
