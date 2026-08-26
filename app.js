@@ -2195,7 +2195,7 @@ function initializeLiveTripMap() {
         return;
     }
 
-    const map = L.map("live-trip-map").setView(
+    window.riderTripMap = L.map("live-trip-map").setView(
         [36.8529, -75.9780],
         12
     );
