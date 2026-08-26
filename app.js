@@ -2232,7 +2232,7 @@ function initializeLiveTripMap() {
             attribution:
                 '&copy; OpenStreetMap contributors'
         }
-    ).addTo(map);
+    ).addTo(window.riderTripMap);
    
 
 // Use the rider's actual pickup and destination coordinates
