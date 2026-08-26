@@ -1077,6 +1077,53 @@ saveUser(name, email);
 
     document.getElementById("driver-dashboard")
     .classList.remove("hidden");
+
+    const firebaseUser =
+    await getCurrentFirebaseUser();
+
+if (
+    firebaseUser &&
+    !driverRideListener
+) {
+
+    driverRideListener =
+        listenForDriverRides(
+            firebaseUser.uid,
+            (rideData) => {
+
+                if (
+                    rideData.status ===
+                    "WAITING_FOR_DRIVER_ACCEPTANCE"
+                ) {
+
+                    currentRide = rideData;
+
+                    localStorage.setItem(
+                        "scuberCurrentRide",
+                        JSON.stringify(rideData)
+                    );
+
+                    document.getElementById(
+                        "request-rider"
+                    ).textContent =
+                        rideData.rider || "";
+
+                    document.getElementById(
+                        "request-pickup"
+                    ).textContent =
+                        rideData.pickup || "";
+
+                    document.getElementById(
+                        "request-destination"
+                    ).textContent =
+                        rideData.destination || "";
+
+                    showDriverRequest();
+                }
+
+            }
+        );
+}
    
 }
 async function saveAvailability() {
@@ -1923,7 +1970,7 @@ async function completeTrip(){
         "scuberCurrentRide"
     );
 
-    showDriverDashboard();
+    async function showDriverDashboard() {
 }
 
 window.completeTrip = completeTrip;
