@@ -1602,6 +1602,10 @@ function showRiderTripScreen(){
             
     if (updatedRide.status === "TRIP_COMPLETED") {
 
+    localStorage.removeItem("scuberCurrentRide");
+
+    currentRide = null;
+
     showRiderHome();
 
 }
