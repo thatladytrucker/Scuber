@@ -1677,6 +1677,83 @@ function sendDriverLocation(){
     );
 }
 
+function startDriverLocationTracking(){
+
+    if(!currentRide || !currentRide.id){
+
+        console.error(
+            "Cannot start GPS tracking: no active ride."
+        );
+
+        return;
+    }
+
+    if(!navigator.geolocation){
+
+        console.error(
+            "Geolocation is not supported by this browser."
+        );
+
+        return;
+    }
+
+    if(driverLocationWatcher !== null){
+
+        console.log(
+            "Driver GPS tracking is already active."
+        );
+
+        return;
+    }
+
+    driverLocationWatcher =
+        navigator.geolocation.watchPosition(
+
+            async function(position){
+
+                const driverLocation = {
+
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude
+
+                };
+
+                console.log(
+                    "Live driver location:",
+                    driverLocation
+                );
+
+                await updateRide(
+                    currentRide.id,
+                    {
+                        driverLocation: driverLocation
+                    }
+                );
+
+            },
+
+            function(error){
+
+                console.error(
+                    "Driver GPS tracking error:",
+                    error.message
+                );
+
+            },
+
+            {
+                enableHighAccuracy: true,
+                maximumAge: 5000,
+                timeout: 10000
+            }
+
+        );
+
+    console.log(
+        "Driver GPS tracking started."
+    );
+}
+
 async function startTrip(){
 
     console.log("START TRIP CLICKED");
