@@ -552,7 +552,8 @@ export {
     createRide,
     updateRide,
     getRide,
-    listenToRide
+    listenToRide,
+    listenForDriverRides
 };
 
 
