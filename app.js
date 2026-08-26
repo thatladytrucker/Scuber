@@ -1599,7 +1599,12 @@ function showRiderTripScreen(){
                 "rider-status"
             ).textContent =
                 updatedRide.status || "";
+            
+    if (updatedRide.status === "TRIP_COMPLETED") {
 
+    showRiderHome();
+
+}
         }
     );
 
