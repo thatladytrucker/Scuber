@@ -1157,6 +1157,8 @@ let currentRide = {
     eta: 0,
     fare: 0
 };
+let driverRideListener = null;
+
 // ===========================================
 // RIDE HISTORY
 // ===========================================
