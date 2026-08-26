@@ -2244,7 +2244,7 @@ L.marker([
 
 
 // Show both locations
-map.fitBounds([
+window.riderTripMap.fitBounds([
     [
         pickupCoordinates.lat,
         pickupCoordinates.lon
