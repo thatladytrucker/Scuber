@@ -20,6 +20,7 @@ import {
     listenToRide
 } from "./firebase-firestore.js";
 
+let driverLocationWatcher = null;
 
 // ===========================================
 // DRIVER FUNCTIONS
