@@ -1776,7 +1776,7 @@ async function startTrip(){
         }
     );
     
-    sendDriverLocation();
+    startDriverLocationTracking();
     
     localStorage.setItem(
         "scuberCurrentRide",
