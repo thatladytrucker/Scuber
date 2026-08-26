@@ -302,6 +302,9 @@ function showAccountScreen(){
     document.getElementById("account-screen")
     .classList.remove("hidden");
 
+    document.getElementById("email").value = "";
+document.getElementById("password").value = "";
+
     loadUserList();
 
 }
