@@ -1619,6 +1619,62 @@ function showRiderTripScreen(){
 }   
     initializeLiveTripMap();
 }
+function sendDriverLocation(){
+
+    if(!currentRide || !currentRide.id){
+
+        console.error(
+            "Cannot send driver location: no active ride."
+        );
+
+        return;
+    }
+
+    if(!navigator.geolocation){
+
+        console.error(
+            "Geolocation is not supported by this browser."
+        );
+
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+
+        async function(position){
+
+            const driverLocation = {
+
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+
+            };
+
+            console.log(
+                "Driver location:",
+                driverLocation
+            );
+
+            await updateRide(
+                currentRide.id,
+                {
+                    driverLocation: driverLocation
+                }
+            );
+
+        },
+
+        function(error){
+
+            console.error(
+                "Driver GPS error:",
+                error.message
+            );
+
+        }
+
+    );
+}
 
 async function startTrip(){
 
