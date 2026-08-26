@@ -1021,7 +1021,7 @@ async function startDriverApplication() {
     );
 }
 console.log("START DRIVER FUNCTION LOADED");
-function showDriverDashboard() {
+async function showDriverDashboard() {
 
     document.getElementById("welcome-screen")
     .classList.add("hidden");
