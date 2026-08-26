@@ -1320,7 +1320,8 @@ async function findDriver(){
         return;
     }
 
-
+    currentRide = {};
+    
     currentRide.rider =
         localStorage.getItem("scuberUserName");
 
