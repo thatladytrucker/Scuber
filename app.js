@@ -1970,9 +1970,7 @@ async function completeTrip(){
         "scuberCurrentRide"
     );
 
-    async function showDriverDashboard() {
-}
-
+   
 window.completeTrip = completeTrip;
 async function showDriverProfile(){
 
