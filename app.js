@@ -1580,6 +1580,31 @@ function showRiderTripScreen(){
 
             currentRide = updatedRide;
 
+            if (updatedRide.driverLocation) {
+
+    const driverLocation =
+        updatedRide.driverLocation;
+
+    if (!window.driverMarker) {
+
+        window.driverMarker =
+            L.marker([
+                driverLocation.lat,
+                driverLocation.lon
+            ])
+            .addTo(window.riderTripMap)
+            .bindPopup("🚗 Driver");
+
+    } else {
+
+        window.driverMarker.setLatLng([
+            driverLocation.lat,
+            driverLocation.lon
+        ]);
+
+    }
+}
+
             localStorage.setItem(
                 "scuberCurrentRide",
                 JSON.stringify(updatedRide)
