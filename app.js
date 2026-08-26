@@ -1865,6 +1865,7 @@ window.showMyRecurringRides = showMyRecurringRides;
 window.toggleRecurringRide = toggleRecurringRide;
 window.deleteRecurringRide = deleteRecurringRide;
 window.showAccountScreen = showAccountScreen;
+window.showDriverDashboard = showDriverDashboard;
 async function RecurringFirebase(){
 
     let firebaseUser = getCurrentFirebaseUser();
