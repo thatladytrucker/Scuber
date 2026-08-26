@@ -9,6 +9,8 @@ import {
     collection,
     getDocs,
     onSnapshot,
+    query,
+    where,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
