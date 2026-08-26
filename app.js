@@ -1697,7 +1697,9 @@ async function startTrip(){
             status: "TRIP_STARTED"
         }
     );
-
+    
+    sendDriverLocation();
+    
     localStorage.setItem(
         "scuberCurrentRide",
         JSON.stringify(currentRide)
