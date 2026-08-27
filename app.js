@@ -2379,6 +2379,8 @@ async function drawRouteOnRiderMap() {
             data
         );
 
+        alert(JSON.stringify(data));
+
         const routeGeometry =
     data.features?.[0]?.geometry;
 
