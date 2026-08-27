@@ -1763,6 +1763,21 @@ function showRiderTripScreen(){
 }   
     initializeLiveTripMap();
 }
+if (
+    currentRide &&
+    currentRide.driverLocation &&
+    window.riderTripMap
+) {
+    const driverLocation = currentRide.driverLocation;
+
+    window.driverMarker =
+        L.marker([
+            driverLocation.lat,
+            driverLocation.lon
+        ])
+        .addTo(window.riderTripMap)
+        .bindPopup("🚗 Driver");
+}
 function sendDriverLocation(){
 
     if(!currentRide || !currentRide.id){
