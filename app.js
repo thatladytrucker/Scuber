@@ -2463,6 +2463,9 @@ window.riderTripMap.fitBounds([
 ], {
     padding: [30, 30]
 });
+
+    drawRouteOnRiderMap();
+    
 }
 checkReturningUser();
 loadFirebaseWelcome();
