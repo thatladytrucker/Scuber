@@ -2367,7 +2367,7 @@ L.marker([
     pickupCoordinates.lat,
     pickupCoordinates.lon
 ])
-    .addTo(map)
+    .addTo(window.riderTripMap)
     .bindPopup(
         "📍 Pickup: " +
         currentRide.pickup
@@ -2379,7 +2379,7 @@ L.marker([
     destinationCoordinates.lat,
     destinationCoordinates.lon
 ])
-    .addTo(map)
+    .addTo(window.riderTripMap)
     .bindPopup(
         "🏁 Destination: " +
         currentRide.destination
