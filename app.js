@@ -708,6 +708,74 @@ await createUserProfile(
     .classList.add("hidden");
 
 }
+async function createDriverAccount(){
+
+    let name =
+        document.getElementById("name").value;
+
+    let email =
+        document.getElementById("email").value;
+
+    let password =
+        document.getElementById("password").value;
+
+
+    if(!name || !email || !password){
+
+        alert(
+            "Please enter your name, email, and password."
+        );
+
+        return;
+    }
+
+
+    let user =
+        await createFirebaseUser(
+            email,
+            password
+        );
+
+
+    if(!user){
+
+        return;
+    }
+
+
+    await createUserProfile(
+        user,
+        name,
+        "driver"
+    );
+
+
+    saveUser(
+        name,
+        email
+    );
+
+
+    await createDriverApplication(
+        user
+    );
+
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+
+
+    alert(
+        "SCUBER driver account created!\n\n" +
+        "Your driver application has been submitted " +
+        "and is waiting for approval."
+    );
+
+
+    showWelcomeScreen();
+
+}
 // ===========================================
 // RIDER FUNCTIONS
 // ===========================================
