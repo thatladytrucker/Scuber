@@ -33,7 +33,7 @@ exports.handler = async function (event) {
 
 
         const waypoints =
-            `${pickupLon},${pickupLat}|${destinationLon},${destinationLat}`;
+    `${pickupLat},${pickupLon}|${destinationLat},${destinationLon}`;
         
 
 
