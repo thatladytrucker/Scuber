@@ -1688,7 +1688,8 @@ function showRiderTripScreen(){
     document.getElementById("rider-destination").textContent =
     currentRide.destination;
     
-    document.getElementById("rider-status").textContent =
+   
+ document.getElementById("rider-status").textContent =
     currentRide.status;
  if(currentRide && currentRide.id){
 
@@ -1697,7 +1698,6 @@ function showRiderTripScreen(){
         (updatedRide) => {
 
             currentRide = updatedRide;
-
             if (updatedRide.driverLocation && window.riderTripMap) {
 
     const driverLocation =
