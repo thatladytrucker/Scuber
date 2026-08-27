@@ -1892,9 +1892,7 @@ function startDriverLocationTracking(){
 
         );
 
-    console.log(
-        "Driver GPS tracking started."
-    );
+    alert("Driver GPS tracking started.");
 }
 
 async function startTrip(){
