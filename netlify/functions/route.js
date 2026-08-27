@@ -51,14 +51,26 @@ exports.handler = async function (event) {
 
         if (!response.ok) {
 
-            return {
-                statusCode: response.status,
-                body: JSON.stringify({
-                    error: "Geoapify routing request failed."
-                })
-            };
+    const errorData =
+        await response.text();
 
-        }
+    console.error(
+        "Geoapify routing error:",
+        errorData
+    );
+
+    return {
+        statusCode: response.status,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            error: "Geoapify routing request failed.",
+            geoapifyResponse: errorData
+        })
+    };
+
+}
 
 
         const data =
