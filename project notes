@@ -1106,3 +1106,44 @@ And today's checkpoint gives us a very important foundation:
 GPS + Firestore + live rider map are already proven.
 
 I would call the next checkpoint SCUBER Phase 2 — Road Routing & Navigation, rather than replacing the map we've built. We're adding the road intelligence to it.
+
+Our Phase 2 plan should be:
+
+Keep:
+
+Leaflet ✅
+OpenStreetMap tiles ✅
+Geoapify geocoding ✅
+Firebase/Firestore ✅
+Driver GPS ✅
+Moving driver marker ✅
+
+Add:
+
+Geoapify Routing API → actual road route
+
+That gives us:
+
+Pickup 📍
+     ↓
+Geoapify Routing
+     ↓
+Actual road route 🛣️
+     ↓
+Destination 🏁
+
+And eventually:
+
+Driver 🚗
+     ↓
+Live GPS
+     ↓
+Road route
+     ↓
+Rider sees driver moving along the route
+     ↓
+ETA
+
+Geoapify currently offers a free plan with 3,000 credits/day, and its routing API charges based on waypoint pairs and optional routing details.
+
+This is actually better for SCUBER's current architecture because we're already using Geoapify.
