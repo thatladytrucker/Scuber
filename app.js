@@ -2380,15 +2380,15 @@ async function drawRouteOnRiderMap() {
         );
 
        
-        const routeGeometry =
-    data.features?.[0]?.geometry;
+        const routeFeature =
+    data.features?.[0];
 
-if (!routeGeometry) {
-    console.error("No route geometry received.");
+if (!routeFeature) {
+    console.error("No route feature received.");
     return;
 }
 
-L.geoJSON(routeGeometry)
+L.geoJSON(routeFeature)
     .addTo(window.riderTripMap);
         
 
