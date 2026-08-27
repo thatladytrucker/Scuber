@@ -2340,6 +2340,55 @@ currentRide = recurringRide;
 
 window.checkRecurringRidesDue = checkRecurringRidesDue;
 
+async function drawRouteOnRiderMap() {
+
+    if (
+        !currentRide ||
+        !currentRide.pickupCoordinates ||
+        !currentRide.destinationCoordinates ||
+        !window.riderTripMap
+    ) {
+        return;
+    }
+
+    const pickup =
+        currentRide.pickupCoordinates;
+
+    const destination =
+        currentRide.destinationCoordinates;
+
+    try {
+
+        const response = await fetch(
+            `/.netlify/functions/route` +
+            `?pickupLat=${pickup.lat}` +
+            `&pickupLon=${pickup.lon}` +
+            `&destinationLat=${destination.lat}` +
+            `&destinationLon=${destination.lon}`
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error("Route error:", data);
+            return;
+        }
+
+        console.log(
+            "SCUBER route received:",
+            data
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Route request failed:",
+            error
+        );
+
+    }
+}
+
 function initializeLiveTripMap() {
 
     const mapElement =
