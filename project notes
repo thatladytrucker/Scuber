@@ -1037,3 +1037,24 @@ Current stable checkpoint
 ✅ Rider receives DRIVER_ACCEPTED without refreshing.
 ✅ Rider receives TRIP_STARTED without refreshing.
 ✅ Rider receives TRIP_COMPLETED without refreshing.
+
+SCUBER — STABLE CHECKPOINT
+
+Date: 08/27/2026   12:10 pm
+Checkpoint: GPS working for rider and driver
+
+VERIFIED WORKING
+Rider requests ride.
+Approved driver accepts ride.
+DRIVER_ACCEPTED syncs to rider.
+Driver starts trip.
+TRIP_STARTED syncs to rider.
+Driver GPS permission works.
+driverLocation is written to Firestore.
+Rider receives driverLocation.
+Active-trip map shows pickup and destination.
+Active-trip map shows the 🚗 Driver pin.
+Driver pin moves when driver moves.
+Driver completes trip.
+TRIP_COMPLETED syncs to rider.
+Rider automatically returns to Rider Menu.
