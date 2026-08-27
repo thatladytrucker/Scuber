@@ -1058,3 +1058,51 @@ Driver pin moves when driver moves.
 Driver completes trip.
 TRIP_COMPLETED syncs to rider.
 Rider automatically returns to Rider Menu.
+
+8/27/2026
+SCUBER Phase 2: Road Routing
+
+I would build it in this order:
+
+1. Road-based route 🛣️
+Draw an actual route along roads between pickup and destination instead of a straight line/bounds-only map.
+
+2. Driver's route 🚗
+The driver sees the route from their current location toward the pickup, then toward the destination.
+
+3. Rider sees progress
+The rider sees the driver's moving vehicle on the road route.
+
+4. Re-routing
+If the driver moves significantly off the planned route, SCUBER can eventually request a new route.
+
+5. ETA
+Once we have actual road distance and travel time, we can make the ETA much more meaningful.
+
+And I would still keep our cost strategy
+
+I wouldn't jump straight to Google Maps.
+
+We can investigate an open-source/low-cost routing service that works with the Leaflet map we're already using. That lets us prove the routing architecture before committing SCUBER to a paid mapping platform.
+
+So our architecture becomes:
+
+Leaflet
+↓
+OpenStreetMap map data
+↓
+Routing engine
+↓
+Road route
+↓
+Driver GPS
+↓
+Moving driver marker
+↓
+Rider sees live trip
+
+And today's checkpoint gives us a very important foundation:
+
+GPS + Firestore + live rider map are already proven.
+
+I would call the next checkpoint SCUBER Phase 2 — Road Routing & Navigation, rather than replacing the map we've built. We're adding the road intelligence to it.
