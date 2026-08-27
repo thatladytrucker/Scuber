@@ -1147,3 +1147,36 @@ ETA
 Geoapify currently offers a free plan with 3,000 credits/day, and its routing API charges based on waypoint pairs and optional routing details.
 
 This is actually better for SCUBER's current architecture because we're already using Geoapify.
+
+Phase 2 working.
+
+We now have the complete foundation:
+
+📍 Pickup pin — working
+🏁 Destination pin — working
+🛣️ Actual road route — working
+🚗 Driver GPS — working
+🚗 Driver pin moves on rider's map — working
+🔄 Ride state persists — working
+✅ Completed ride returns rider to menu
+🔐 Geoapify key remains server-side
+🗺️ Existing Leaflet/OpenStreetMap map stays in place
+
+And we proved the routing function with real SCUBER coordinates, not a fake test.
+
+I would make this our next Stable Checkpoint
+
+SCUBER — 08/27/2026 Stable Checkpoint
+
+Live GPS + Road Routing Working
+
+At this point, I would stop adding features for a moment and lock this version down before we move forward.
+
+The logical next Phase 2 work would be:
+
+Route information — distance + estimated drive time.
+Live route tracking — make the driver marker relate visually to the route.
+ETA — calculate/display the rider's current ETA.
+Map behavior — make sure zooming/panning doesn't fight the rider.
+Route recalculation — eventually update the route if the driver deviates.
+Turn-by-turn/navigation — much later, if SCUBER actually needs it.
