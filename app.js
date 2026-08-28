@@ -997,7 +997,7 @@ function assignAvailableDriver(){
 
     currentRide.driver = driverFound;
 
-    currentRide.eta = 8;
+    currentRide.eta = null;
 
     currentRide.fare = 18.00;
 
