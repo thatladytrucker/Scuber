@@ -2504,6 +2504,13 @@ loadFirebaseWelcome();
 
 async function updateDriverETA() {
 
+    const etaElement =
+        document.getElementById("rider-eta");
+
+    if (etaElement) {
+        etaElement.textContent = "TESTING";
+    }
+
     if (
         !currentRide ||
         !currentRide.driverLocation ||
