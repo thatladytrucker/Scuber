@@ -1699,7 +1699,7 @@ function showRiderTripScreen(){
 
             currentRide = updatedRide;
 
-    updateDriverETA(updatedRide);
+    updateDriverETA
             
             if (updatedRide.driverLocation && window.riderTripMap) {
 
@@ -2506,33 +2506,36 @@ loadFirebaseWelcome();
 
 async function updateDriverETA(ride) {
 
-    
+    console.log(
+        "SCUBER ETA CHECK:",
+        ride?.status,
+        ride?.status === "TRIP_STARTED"
+    );
+
     if (
-        !currentRide ||
-        !currentRide.driverLocation ||
-        !currentRide.pickupCoordinates ||
-        !currentRide.destinationCoordinates
+        !ride ||
+        !ride.driverLocation ||
+        !ride.pickupCoordinates ||
+        !ride.destinationCoordinates
     ) {
+        console.log(
+            "SCUBER ETA: Missing ride data",
+            ride
+        );
         return;
     }
 
     const driver =
-        currentRide.driverLocation;
+        ride.driverLocation;
 
     const pickup =
-        currentRide.pickupCoordinates;
+        ride.pickupCoordinates;
 
     const destination =
-        currentRide.destinationCoordinates;
+        ride.destinationCoordinates;
 
     const tripStarted =
-        currentRide.status === "TRIP_STARTED";
-
-    console.log(
-    "SCUBER ETA CHECK:",
-    currentRide.status,
-    tripStarted
-);
+        ride.status === "TRIP_STARTED";
 
     const url =
         `/.netlify/functions/route` +
@@ -2544,6 +2547,11 @@ async function updateDriverETA(ride) {
         `&destinationLon=${destination.lon}` +
         `&tripStarted=${tripStarted}`;
 
+    console.log(
+        "SCUBER ETA ROUTE REQUEST:",
+        url
+    );
+
     try {
 
         const response =
@@ -2552,14 +2560,21 @@ async function updateDriverETA(ride) {
         const routeData =
             await response.json();
 
+        console.log(
+            "SCUBER ETA ROUTE RESPONSE:",
+            routeData
+        );
+
         const routeFeature =
             routeData.features?.[0];
 
         if (!routeFeature) {
+
             console.error(
                 "No ETA route received:",
                 routeData
             );
+
             return;
         }
 
