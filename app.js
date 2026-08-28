@@ -1693,7 +1693,7 @@ function showRiderTripScreen(){
     currentRide.status;
  if(currentRide && currentRide.id){
 
-    listenToRide(
+   listenToRide(
         currentRide.id,
         (updatedRide) => {
 
@@ -1721,82 +1721,6 @@ function showRiderTripScreen(){
         ]);
 
     }
-}
-            
-  if (
-    updatedRide.driverLocation &&
-    currentRide.pickupCoordinates &&
-    currentRide.destinationCoordinates
-) {
-
-    const driverLocation =
-        updatedRide.driverLocation;
-
-    const pickup =
-        currentRide.pickupCoordinates;
-
-    fetch(
-    `/.netlify/functions/route` +
-    `?driverLat=${driverLocation.lat}` +
-    `&driverLon=${driverLocation.lon}` +
-    `&pickupLat=${pickup.lat}` +
-    `&pickupLon=${pickup.lon}` +
-    `&destinationLat=${currentRide.destinationCoordinates.lat}` +
-    `&destinationLon=${currentRide.destinationCoordinates.lon}` +
-    `&tripStarted=${updatedRide.status === "TRIP_STARTED"}`
-)
-    .then(response => response.json())
-    .then(routeData => {
-
-        if (!routeData.features?.[0]) {
-            console.error(
-                "No driver ETA route received:",
-                routeData
-            );
-            return;
-        }
-
-        const driverToPickupTime =
-            routeData.features[0].properties?.time;
-
-        if (driverToPickupTime != null) {
-
-            const driverEtaMinutes =
-                Math.ceil(
-                    driverToPickupTime / 60
-                );
-
-            const etaElement =
-                document.getElementById(
-                    "rider-eta"
-                );
-
-            console.log(
-    "SCUBER ETA UPDATE:",
-    updatedRide.status,
-    routeData.features[0].properties?.time
-);
-
-            if (etaElement) {
-
-                etaElement.textContent =
-                    "CALCULATED: " +
-                    driverEtaMinutes +
-                    " minutes";
-
-            }
-
-        }
-
-    })
-    .catch(error => {
-
-        console.error(
-            "Driver ETA request failed:",
-            error
-        );
-
-    });
 }
             
             localStorage.setItem(
@@ -1830,6 +1754,7 @@ function showRiderTripScreen(){
 
     currentRide = null;
 
+  
     showRiderHome();
 
 }
