@@ -1736,15 +1736,15 @@ function showRiderTripScreen(){
         currentRide.pickupCoordinates;
 
     fetch(
-        `/.netlify/functions/route` +
-        `?driverLat=${driverLocation.lat}` +
-        `&driverLon=${driverLocation.lon}` +
-        `&pickupLat=${pickup.lat}` +
-        `&pickupLon=${pickup.lon}` +
-        `&destinationLat=${currentRide.destinationCoordinates.lat}` +
-        `&destinationLon=${currentRide.destinationCoordinates.lon}` +
-`&tripStarted=${updatedRide.status === "TRIP_STARTED"}`
-    )
+    `/.netlify/functions/route` +
+    `?driverLat=${driverLocation.lat}` +
+    `&driverLon=${driverLocation.lon}` +
+    `&pickupLat=${pickup.lat}` +
+    `&pickupLon=${pickup.lon}` +
+    `&destinationLat=${currentRide.destinationCoordinates.lat}` +
+    `&destinationLon=${currentRide.destinationCoordinates.lon}` +
+    `&tripStarted=${updatedRide.status === "TRIP_STARTED"}`
+)
     .then(response => response.json())
     .then(routeData => {
 
