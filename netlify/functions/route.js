@@ -14,6 +14,12 @@ exports.handler = async function (event) {
         const destinationLon =
             event.queryStringParameters.destinationLon;
 
+        const driverLat =
+            event.queryStringParameters.driverLat;
+
+        const driverLon =
+            event.queryStringParameters.driverLon;
+
 
         if (
             !pickupLat ||
