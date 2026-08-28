@@ -39,7 +39,15 @@ exports.handler = async function (event) {
             };
 
         }
-
+console.log("SCUBER ETA ROUTE:", {
+    driverLat,
+    driverLon,
+    pickupLat,
+    pickupLon,
+    destinationLat,
+    destinationLon,
+    tripStarted
+});
 
         const waypoints =
     driverLat && driverLon
