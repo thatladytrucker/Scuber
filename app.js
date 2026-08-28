@@ -1699,7 +1699,7 @@ function showRiderTripScreen(){
 
             currentRide = updatedRide;
 
-    updateDriverETA
+    updateDriverETA(updatedRide);
             
             if (updatedRide.driverLocation && window.riderTripMap) {
 
