@@ -1723,8 +1723,10 @@ function showRiderTripScreen(){
     }
 }
             if (
+  if (
     updatedRide.driverLocation &&
-    currentRide.pickupCoordinates
+    currentRide.pickupCoordinates &&
+    currentRide.destinationCoordinates
 ) {
 
     const driverLocation =
@@ -1733,64 +1735,61 @@ function showRiderTripScreen(){
     const pickup =
         currentRide.pickupCoordinates;
 
-    try {
+    fetch(
+        `/.netlify/functions/route` +
+        `?driverLat=${driverLocation.lat}` +
+        `&driverLon=${driverLocation.lon}` +
+        `&pickupLat=${pickup.lat}` +
+        `&pickupLon=${pickup.lon}` +
+        `&destinationLat=${currentRide.destinationCoordinates.lat}` +
+        `&destinationLon=${currentRide.destinationCoordinates.lon}`
+    )
+    .then(response => response.json())
+    .then(routeData => {
 
-        const response =
-            await fetch(
-                `/.netlify/functions/route` +
-                `?driverLat=${driverLocation.lat}` +
-                `&driverLon=${driverLocation.lon}` +
-                `&pickupLat=${pickup.lat}` +
-                `&pickupLon=${pickup.lon}` +
-                `&destinationLat=${currentRide.destinationCoordinates.lat}` +
-                `&destinationLon=${currentRide.destinationCoordinates.lon}`
+        if (!routeData.features?.[0]) {
+            console.error(
+                "No driver ETA route received:",
+                routeData
             );
+            return;
+        }
 
-        const routeData =
-            await response.json();
+        const driverToPickupTime =
+            routeData.features[0].properties?.time;
 
-        if (response.ok) {
+        if (driverToPickupTime != null) {
 
-            const routeFeature =
-                routeData.features?.[0];
+            const driverEtaMinutes =
+                Math.ceil(
+                    driverToPickupTime / 60
+                );
 
-            const driverToPickupTime =
-                routeFeature?.properties?.time;
+            const etaElement =
+                document.getElementById(
+                    "rider-eta"
+                );
 
-            if (driverToPickupTime != null) {
+            if (etaElement) {
 
-                const driverEtaMinutes =
-                    Math.ceil(
-                        driverToPickupTime / 60
-                    );
-
-                const etaElement =
-                    document.getElementById(
-                        "rider-eta"
-                    );
-
-                if (etaElement) {
-
-                    etaElement.textContent =
-                        driverEtaMinutes +
-                        " minutes";
-
-                }
+                etaElement.textContent =
+                    driverEtaMinutes +
+                    " minutes";
 
             }
 
         }
 
-    } catch (error) {
+    })
+    .catch(error => {
 
         console.error(
             "Driver ETA request failed:",
             error
         );
 
-    }
+    });
 }
-
             
             localStorage.setItem(
                 "scuberCurrentRide",
