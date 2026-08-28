@@ -1722,7 +1722,7 @@ function showRiderTripScreen(){
 
     }
 }
-            if (
+            
   if (
     updatedRide.driverLocation &&
     currentRide.pickupCoordinates &&
