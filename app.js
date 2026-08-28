@@ -1743,6 +1743,7 @@ function showRiderTripScreen(){
         `&pickupLon=${pickup.lon}` +
         `&destinationLat=${currentRide.destinationCoordinates.lat}` +
         `&destinationLon=${currentRide.destinationCoordinates.lon}`
+        `&tripStarted=${updatedRide.status === "TRIP_STARTED"}`
     )
     .then(response => response.json())
     .then(routeData => {
