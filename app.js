@@ -1780,6 +1780,7 @@ function showRiderTripScreen(){
             if (etaElement) {
 
                 etaElement.textContent =
+                    "CALCULATED: " +
                     driverEtaMinutes +
                     " minutes";
 
