@@ -1693,7 +1693,7 @@ function showRiderTripScreen(){
     currentRide.status;
  if(currentRide && currentRide.id){
 
-   listenToRide(
+    listenToRide(
         currentRide.id,
         (updatedRide) => {
 
@@ -1754,7 +1754,6 @@ function showRiderTripScreen(){
 
     currentRide = null;
 
-  
     showRiderHome();
 
 }
@@ -2398,25 +2397,17 @@ const routeDistance =
 const routeTime =
     routeFeature.properties?.time;
 
-const routeMiles =
-    routeDistance * 0.000621371;
+console.log(
+    "SCUBER route distance:",
+    routeDistance,
+    "meters"
+);
 
-const routeMinutes =
-    routeTime / 60;
-
-const routeInfo =
-    document.getElementById("rider-route-info");
-
-if (routeInfo) {
-
-    routeInfo.textContent =
-        "🛣️ " +
-        routeMiles.toFixed(1) +
-        " mi • ⏱️ " +
-        Math.ceil(routeMinutes) +
-        " min";
-
-}
+console.log(
+    "SCUBER route time:",
+    routeTime,
+    "seconds"
+);
         
 
     } catch (error) {
