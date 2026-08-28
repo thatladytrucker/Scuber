@@ -39,7 +39,9 @@ exports.handler = async function (event) {
 
 
         const waypoints =
-    `${pickupLat},${pickupLon}|${destinationLat},${destinationLon}`;
+    driverLat && driverLon
+        ? `${driverLat},${driverLon}|${pickupLat},${pickupLon}`
+        : `${pickupLat},${pickupLon}|${destinationLat},${destinationLon}`;
         
 
 
