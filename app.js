@@ -2391,6 +2391,24 @@ if (!routeFeature) {
 L.geoJSON(routeFeature)
     .addTo(window.riderTripMap);
         
+const routeDistance =
+    routeFeature.properties?.distance;
+
+const routeTime =
+    routeFeature.properties?.time;
+
+console.log(
+    "SCUBER route distance:",
+    routeDistance,
+    "meters"
+);
+
+console.log(
+    "SCUBER route time:",
+    routeTime,
+    "seconds"
+);
+        
 
     } catch (error) {
 
