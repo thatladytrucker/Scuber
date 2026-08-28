@@ -1722,6 +1722,75 @@ function showRiderTripScreen(){
 
     }
 }
+            if (
+    updatedRide.driverLocation &&
+    currentRide.pickupCoordinates
+) {
+
+    const driverLocation =
+        updatedRide.driverLocation;
+
+    const pickup =
+        currentRide.pickupCoordinates;
+
+    try {
+
+        const response =
+            await fetch(
+                `/.netlify/functions/route` +
+                `?driverLat=${driverLocation.lat}` +
+                `&driverLon=${driverLocation.lon}` +
+                `&pickupLat=${pickup.lat}` +
+                `&pickupLon=${pickup.lon}` +
+                `&destinationLat=${currentRide.destinationCoordinates.lat}` +
+                `&destinationLon=${currentRide.destinationCoordinates.lon}`
+            );
+
+        const routeData =
+            await response.json();
+
+        if (response.ok) {
+
+            const routeFeature =
+                routeData.features?.[0];
+
+            const driverToPickupTime =
+                routeFeature?.properties?.time;
+
+            if (driverToPickupTime != null) {
+
+                const driverEtaMinutes =
+                    Math.ceil(
+                        driverToPickupTime / 60
+                    );
+
+                const etaElement =
+                    document.getElementById(
+                        "rider-eta"
+                    );
+
+                if (etaElement) {
+
+                    etaElement.textContent =
+                        driverEtaMinutes +
+                        " minutes";
+
+                }
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Driver ETA request failed:",
+            error
+        );
+
+    }
+}
+
             
             localStorage.setItem(
                 "scuberCurrentRide",
