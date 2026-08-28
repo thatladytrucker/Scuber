@@ -1468,7 +1468,7 @@ async function findDriver(){
     currentRide.status =
         "WAITING_FOR_DRIVER_ACCEPTANCE";
 
-    currentRide.eta = 8;
+    currentRide.eta = null;
 
     currentRide.fare = 18.00;
     
