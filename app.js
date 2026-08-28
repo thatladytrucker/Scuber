@@ -1771,6 +1771,12 @@ function showRiderTripScreen(){
                     "rider-eta"
                 );
 
+            console.log(
+    "SCUBER ETA UPDATE:",
+    updatedRide.status,
+    routeData.features[0].properties?.time
+);
+
             if (etaElement) {
 
                 etaElement.textContent =
