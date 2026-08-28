@@ -1742,8 +1742,8 @@ function showRiderTripScreen(){
         `&pickupLat=${pickup.lat}` +
         `&pickupLon=${pickup.lon}` +
         `&destinationLat=${currentRide.destinationCoordinates.lat}` +
-        `&destinationLon=${currentRide.destinationCoordinates.lon}`
-        `&tripStarted=${updatedRide.status === "TRIP_STARTED"}`
+        `&destinationLon=${currentRide.destinationCoordinates.lon}` +
+`&tripStarted=${updatedRide.status === "TRIP_STARTED"}`
     )
     .then(response => response.json())
     .then(routeData => {
