@@ -1698,6 +1698,7 @@ function showRiderTripScreen(){
         (updatedRide) => {
 
             currentRide = updatedRide;
+            updateDriverETA();
             if (updatedRide.driverLocation && window.riderTripMap) {
 
     const driverLocation =
