@@ -1698,7 +1698,9 @@ function showRiderTripScreen(){
         (updatedRide) => {
 
             currentRide = updatedRide;
-            updateDriverETA();
+
+    updateDriverETA(updatedRide);
+            
             if (updatedRide.driverLocation && window.riderTripMap) {
 
     const driverLocation =
@@ -2502,7 +2504,7 @@ window.riderTripMap.fitBounds([
 checkReturningUser();
 loadFirebaseWelcome();
 
-async function updateDriverETA() {
+async function updateDriverETA(ride) {
 
     
     if (
