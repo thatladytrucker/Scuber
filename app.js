@@ -2500,3 +2500,88 @@ window.riderTripMap.fitBounds([
 }
 checkReturningUser();
 loadFirebaseWelcome();
+
+async function updateDriverETA() {
+
+    if (
+        !currentRide ||
+        !currentRide.driverLocation ||
+        !currentRide.pickupCoordinates ||
+        !currentRide.destinationCoordinates
+    ) {
+        return;
+    }
+
+    const driver =
+        currentRide.driverLocation;
+
+    const pickup =
+        currentRide.pickupCoordinates;
+
+    const destination =
+        currentRide.destinationCoordinates;
+
+    const tripStarted =
+        currentRide.status === "TRIP_STARTED";
+
+    const url =
+        `/.netlify/functions/route` +
+        `?driverLat=${driver.lat}` +
+        `&driverLon=${driver.lon}` +
+        `&pickupLat=${pickup.lat}` +
+        `&pickupLon=${pickup.lon}` +
+        `&destinationLat=${destination.lat}` +
+        `&destinationLon=${destination.lon}` +
+        `&tripStarted=${tripStarted}`;
+
+    try {
+
+        const response =
+            await fetch(url);
+
+        const routeData =
+            await response.json();
+
+        const routeFeature =
+            routeData.features?.[0];
+
+        if (!routeFeature) {
+            console.error(
+                "No ETA route received:",
+                routeData
+            );
+            return;
+        }
+
+        const routeTime =
+            routeFeature.properties?.time;
+
+        if (routeTime == null) {
+            return;
+        }
+
+        const etaMinutes =
+            Math.ceil(routeTime / 60);
+
+        const etaElement =
+            document.getElementById(
+                "rider-eta"
+            );
+
+        if (etaElement) {
+
+            etaElement.textContent =
+                etaMinutes +
+                " minutes";
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Driver ETA request failed:",
+            error
+        );
+
+    }
+}
