@@ -544,7 +544,7 @@ loadUserList();
 showWelcomeScreen();
 
 }
-```javascript
+
 async function signInExistingAccount(){
 
     const email =
