@@ -544,6 +544,82 @@ loadUserList();
 showWelcomeScreen();
 
 }
+```javascript
+async function signInExistingAccount(){
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    if(!email || !password){
+
+        alert(
+            "Please enter your email and password."
+        );
+
+        return;
+    }
+
+    const firebaseUser =
+        await signInFirebaseUser(
+            email,
+            password
+        );
+
+    if(!firebaseUser){
+
+        return;
+    }
+
+    const profile =
+        await getUserProfile(
+            firebaseUser.uid
+        );
+
+    if(!profile){
+
+        alert(
+            "Your SCUBER account was found, " +
+            "but your profile could not be found."
+        );
+
+        return;
+    }
+
+    localStorage.setItem(
+        "scuberActiveUser",
+        email
+    );
+
+    localStorage.setItem(
+        "scuberUserName",
+        profile.name
+    );
+
+    localStorage.setItem(
+        "scuberUserEmail",
+        email
+    );
+
+    saveUser(
+        profile.name,
+        email
+    );
+
+    alert(
+        "Welcome back, " +
+        profile.name +
+        "!"
+    );
+
+    showWelcomeScreen();
+
+}
+
+window.signInExistingAccount = signInExistingAccount;
+
 function deleteCurrentUser(){
 
     let activeEmail = localStorage.getItem("scuberActiveUser");
