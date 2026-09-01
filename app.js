@@ -1780,6 +1780,16 @@ function showRiderTripScreen(){
 
             currentRide = updatedRide;
 
+        if (updatedRide.status === "TRIP_COMPLETED") {
+
+    localStorage.removeItem("scuberCurrentRide");
+
+    currentRide = null;
+
+    showRiderHome();
+
+}
+
     await updateDriverETA(updatedRide);
             
             if (updatedRide.driverLocation && window.riderTripMap) {
@@ -1832,15 +1842,7 @@ function showRiderTripScreen(){
             ).textContent =
                 updatedRide.status || "";
             
-    if (updatedRide.status === "TRIP_COMPLETED") {
-
-    localStorage.removeItem("scuberCurrentRide");
-
-    currentRide = null;
-
-    showRiderHome();
-
-}
+    
         }
     );
 
