@@ -1780,7 +1780,7 @@ function showRiderTripScreen(){
 
             currentRide = updatedRide;
 
-    updateDriverETA(updatedRide);
+    await updateDriverETA(updatedRide);
             
             if (updatedRide.driverLocation && window.riderTripMap) {
 
