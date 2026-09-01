@@ -1775,8 +1775,8 @@ function showRiderTripScreen(){
  if(currentRide && currentRide.id){
 
     listenToRide(
-        currentRide.id,
-        (updatedRide) => {
+    currentRide.id,
+    async (updatedRide) => {
 
             currentRide = updatedRide;
 
