@@ -2620,6 +2620,13 @@ async function updateDriverETA(ride) {
     const tripStarted =
         ride.status === "TRIP_STARTED";
 
+    console.log(
+    "SCUBER ETA TRIP STATE:",
+    ride.status,
+    "tripStarted =",
+    tripStarted
+);
+
     const url =
         `/.netlify/functions/route` +
         `?driverLat=${driver.lat}` +
