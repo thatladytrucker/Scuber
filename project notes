@@ -1180,3 +1180,16 @@ ETA — calculate/display the rider's current ETA.
 Map behavior — make sure zooming/panning doesn't fight the rider.
 Route recalculation — eventually update the route if the driver deviates.
 Turn-by-turn/navigation — much later, if SCUBER actually needs it.
+
+9/1/2026
+Step 1 — What do you want to work on next?
+
+We can pick up SCUBER with one of these:
+
+🚗 Rider experience — improve what the rider sees during an active trip.
+🚘 Driver experience — improve the driver's active-trip screen.
+📍 Maps/GPS — continue testing movement and map behavior.
+💳 Payments/pricing — start working toward the money side of SCUBER.
+👤 Accounts — continue strengthening sign-in/account recovery.
+🧪 Testing — run through the master ride test and mark what is actually passing.
+🚀 Release readiness — identify what still needs to be completed before calling SCUBER a usable MVP.
