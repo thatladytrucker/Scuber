@@ -609,12 +609,17 @@ async function signInExistingAccount(){
     );
 
     alert(
-        "Welcome back, " +
-        profile.name +
-        "!"
-    );
+    "Welcome back, " +
+    profile.name +
+    "!"
+);
 
-    showWelcomeScreen();
+document.getElementById("welcome-name").textContent =
+    "Welcome back, " + profile.name;
+
+loadUserList();
+
+showWelcomeScreen();
 
 }
 
