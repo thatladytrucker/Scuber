@@ -1788,6 +1788,8 @@ function showRiderTripScreen(){
 
     showRiderHome();
 
+    return;
+
 }
 
     await updateDriverETA(updatedRide);
