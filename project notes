@@ -1193,3 +1193,230 @@ We can pick up SCUBER with one of these:
 👤 Accounts — continue strengthening sign-in/account recovery.
 🧪 Testing — run through the master ride test and mark what is actually passing.
 🚀 Release readiness — identify what still needs to be completed before calling SCUBER a usable MVP.
+
+# SCUBER — IMPORTANT PRICING & STARTUP COST NOTES
+
+**Reference Date: September 2, 2026**
+
+## 1. TNC FINANCIAL SECURITY — $25,000 REQUIREMENT
+
+**Important:** The $25,000 figure represents the required financial security amount, **not necessarily $25,000 that SCUBER must pay in cash.**
+
+Depending on the applicable Virginia/TNC requirements and how SCUBER structures its compliance, the financial security may potentially be satisfied through a **surety bond, letter of credit, or another approved financial instrument**.
+
+### Key distinction
+
+* **Required security amount:** $25,000
+* **Potential actual cash cost:** Less than $25,000 if an approved bond or other financial instrument is used.
+* **Actual premium/fees:** Must be determined from the provider and SCUBER's specific application.
+* **Do NOT budget $25,000 as an operating expense until the exact requirement and acceptable instrument are confirmed.**
+
+**Project note:** The $25,000 requirement needs to be verified against the current Virginia regulatory requirements before SCUBER launches commercially.
+
+---
+
+# 2. SCUBER DEVELOPMENT TECHNOLOGY COSTS
+
+## Firebase
+
+SCUBER is currently using Firebase for:
+
+* User authentication
+* User accounts
+* Driver/rider information
+* Ride data
+* Real-time ride updates
+* Driver location updates
+
+**Current development cost:** $0 while usage remains within the applicable Firebase free allowances.
+
+**Important:** Firebase costs can increase as SCUBER gains users and generates more database reads/writes, authentication activity, storage, and network traffic.
+
+**Project note:** Monitor Firebase usage before and after launch rather than assuming the development cost will remain $0 permanently.
+
+---
+
+# 3. MAPS & ROUTING
+
+SCUBER's development/testing strategy currently uses:
+
+* Leaflet
+* OpenStreetMap
+* Geoapify routing through a Netlify serverless function
+
+### Development strategy
+
+The goal is to avoid unnecessary Google Maps Platform/Google Cloud billing during development and testing.
+
+**Current development approach:** Use lower-cost/free-tier mapping and routing services until SCUBER's core ride and GPS system is stable.
+
+**Project note:** Paid mapping/navigation services should be evaluated based on actual production usage rather than added prematurely.
+
+---
+
+# 4. NETLIFY
+
+SCUBER currently uses Netlify for:
+
+* Web hosting
+* Deployment
+* Serverless functions
+* Backend routing function
+
+### Current development cost
+
+**Target development cost:** $0 while usage remains within the applicable free allowances.
+
+### Important
+
+Production usage may create costs depending on:
+
+* Function invocations
+* Bandwidth
+* Build usage
+* Serverless function usage
+* Other Netlify services
+
+**Project note:** Review actual usage before selecting a paid Netlify plan.
+
+---
+
+# 5. PAYMENT PROCESSING
+
+SCUBER will eventually need a payment processor for rider payments and potentially driver payouts.
+
+**Important:** Payment processing fees should be treated as a **per-transaction operating expense**, not as a one-time startup cost.
+
+The exact processor and fee structure have not yet been finalized.
+
+**Project note:** Do not put a final payment-processing number into the startup budget until the payment provider and SCUBER's transaction model are selected.
+
+---
+
+# 6. INSURANCE
+
+Insurance is expected to be one of SCUBER's significant launch expenses.
+
+Potential insurance requirements may include:
+
+* Commercial/general liability
+* Transportation network company coverage
+* Automobile liability
+* Other coverage required by Virginia law or the applicable jurisdiction
+
+**Exact cost:** NOT YET ESTABLISHED.
+
+Insurance pricing will depend on factors including:
+
+* Number of drivers
+* Vehicle structure
+* Coverage limits
+* Geographic service area
+* Whether drivers use their own vehicles
+* Claims history
+* Insurance carrier
+* SCUBER's operating model
+
+**Project note:** Obtain actual insurance quotes before establishing the final launch budget.
+
+---
+
+# 7. BUSINESS / CORPORATE COSTS
+
+Potential startup expenses include:
+
+* Business formation
+* State registration
+* Local business licenses
+* TNC licensing/permits
+* Registered agent, if applicable
+* Legal review
+* Accounting/bookkeeping setup
+* Contracts and policies
+
+**Exact amounts:** NOT YET ESTABLISHED.
+
+These should be separated into:
+
+**One-time startup costs**
+
+and
+
+**Recurring annual/operating costs.**
+
+---
+
+# 8. LEGAL & COMPLIANCE
+
+SCUBER should budget for professional review of:
+
+* TNC regulations
+* Driver agreements
+* Rider terms of service
+* Privacy policy
+* Insurance requirements
+* Driver screening requirements
+* Vehicle requirements
+* Accessibility requirements
+* Payment policies
+* Data/privacy compliance
+
+**Exact legal cost:** NOT YET ESTABLISHED.
+
+**Project note:** Legal/compliance costs should be treated as a legitimate startup expense rather than something to add after launch.
+
+---
+
+# 9. SCUBER STARTUP BUDGET — CURRENT STATUS
+
+| Expense                     |                   Current Amount | Status                  |
+| --------------------------- | -------------------------------: | ----------------------- |
+| TNC financial security      | $25,000 required security amount | VERIFY STRUCTURE        |
+| Actual bond/LOC cash cost   |                              TBD | NEED QUOTE/VERIFICATION |
+| Firebase development        |                        $0 target | CURRENT                 |
+| Netlify development         |                        $0 target | CURRENT                 |
+| Mapping/routing development |                        $0 target | CURRENT                 |
+| Payment processing          |                              TBD | NEED PROVIDER           |
+| Insurance                   |                              TBD | NEED QUOTES             |
+| Business registration       |                              TBD | NEED VERIFICATION       |
+| TNC licensing/permits       |                              TBD | NEED VERIFICATION       |
+| Legal/compliance            |                              TBD | NEED ESTIMATE           |
+| Accounting/bookkeeping      |                              TBD | NEED ESTIMATE           |
+| Marketing/launch            |                              TBD | FUTURE BUDGET           |
+| Driver recruitment          |                              TBD | FUTURE BUDGET           |
+
+---
+
+# 10. MOST IMPORTANT BUDGETING RULE
+
+**Do not treat the $25,000 financial-security requirement as automatically meaning SCUBER needs $25,000 in cash.**
+
+The project needs to determine:
+
+1. What exact financial security Virginia requires.
+2. Whether SCUBER can use a surety bond.
+3. Whether SCUBER can use a letter of credit.
+4. Whether collateral is required.
+5. What percentage/premium a bonding company would charge.
+6. Whether the financial institution requires cash to secure the instrument.
+7. Whether there are annual renewal fees.
+8. Whether the requirement changes based on SCUBER's business structure or operating model.
+
+### Budgeting principle
+
+**Required financial security ≠ necessarily startup cash expense.**
+
+The final SCUBER launch budget should show these separately:
+
+**A. Required Financial Security:** $25,000
+
+**B. Actual Cash/Capital Required to Obtain Security:** TBD
+
+**C. Other One-Time Startup Costs:** TBD
+
+**D. Monthly Operating Costs:** TBD
+
+**E. Per-Ride/Per-Transaction Costs:** TBD
+
+This separation will give us a much more accurate picture of how much money SCUBER actually needs to launch.
+
