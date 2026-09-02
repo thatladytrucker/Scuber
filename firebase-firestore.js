@@ -1,7 +1,7 @@
 import { app } from "./firebase-config.js";
 
 import {
-    getFirestore
+    getFirestore,
     doc,
     setDoc,
     updateDoc,
