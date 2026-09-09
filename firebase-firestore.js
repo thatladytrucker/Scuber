@@ -540,12 +540,59 @@ function listenForDriverRides(driverUid, callback){
         return null;
     }
 }
+async function getCompletedRiderRides(riderUid){
+
+    try {
+
+        const ridesRef =
+            collection(db, "rides");
+
+        const ridesQuery =
+            query(
+                ridesRef,
+                where("riderUid", "==", riderUid),
+                where("status", "==", "TRIP_COMPLETED")
+            );
+
+        const snapshot =
+            await getDocs(ridesQuery);
+
+        let rides = [];
+
+        snapshot.forEach(function(docSnap){
+
+            rides.push({
+                id: docSnap.id,
+                ...docSnap.data()
+            });
+
+        });
+
+        console.log(
+            "Completed rider rides loaded:",
+            rides
+        );
+
+        return rides;
+
+    } catch(error){
+
+        console.error(
+            "Get completed rider rides error:",
+            error
+        );
+
+        return [];
+    }
+}
+
 export {
     createUserProfile,
     createDriverApplication,
     getUserProfile,
     createRecurringRide,
     getRecurringRides,
+    getCompletedRiderRides,
     saveDriverAvailability,
     findAvailableDriver,
     setDriverOnlineStatus,
