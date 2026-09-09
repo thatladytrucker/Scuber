@@ -1680,11 +1680,12 @@ async function acceptRide(){
     currentRide.status = "DRIVER_ACCEPTED";
 
     await updateRide(
-        currentRide.id,
-        {
-            status: "DRIVER_ACCEPTED"
-        }
-    );
+    currentRide.id,
+    {
+        status: "TRIP_COMPLETED",
+        completedAt: new Date().toISOString()
+    }
+);
 
     localStorage.setItem(
         "scuberCurrentRide",
