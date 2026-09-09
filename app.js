@@ -1528,6 +1528,20 @@ async function findDriver(){
     currentRide.rider =
         localStorage.getItem("scuberUserName");
 
+    const firebaseUser = getCurrentFirebaseUser();
+
+if (!firebaseUser) {
+
+    alert(
+        "Please sign in before requesting a ride."
+    );
+
+    return;
+}
+
+currentRide.riderUid =
+    firebaseUser.uid;
+
     currentRide.driver =
         driverFound.name;
 
