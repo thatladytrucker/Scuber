@@ -861,7 +861,7 @@ async function createDriverAccount(){
 // ===========================================
 // RIDER FUNCTIONS
 // ===========================================
-function showRideHistory(){
+async function showRideHistory(){
 
     document.getElementById("old-rider-dashboard")
     .classList.add("hidden");
@@ -869,50 +869,67 @@ function showRideHistory(){
     document.getElementById("ride-history-screen")
     .classList.remove("hidden");
 
+    const historyList =
+        document.getElementById("ride-history-list");
 
-    let historyList = document.getElementById("ride-history-list");
+    const firebaseUser =
+        getCurrentFirebaseUser();
 
-    if(rideHistory.length === 0){
+    if(!firebaseUser){
 
-        historyList.innerHTML = "<p>No completed rides yet.</p>";
+        historyList.innerHTML =
+            "<p>Please sign in to view your ride history.</p>";
 
         return;
     }
 
+    historyList.innerHTML =
+        "<p>Loading ride history...</p>";
+
+    const firebaseRides =
+        await getCompletedRiderRides(
+            firebaseUser.uid
+        );
+
+    if(firebaseRides.length === 0){
+
+        historyList.innerHTML =
+            "<p>No completed rides yet.</p>";
+
+        return;
+    }
 
     historyList.innerHTML = "";
 
-
-    rideHistory.forEach(function(ride){
+    firebaseRides.forEach(function(ride){
 
         historyList.innerHTML += `
 
         <div class="ride-card">
 
-            <p><strong>Driver:</strong> ${ride.driver}</p>
+            <p><strong>Driver:</strong> ${ride.driver || "Not recorded"}</p>
 
-<p><strong>Date:</strong> ${
-    ride.completedAt
-        ? new Date(ride.completedAt).toLocaleDateString()
-        : "Not recorded"
-}</p>
+            <p><strong>Date:</strong> ${
+                ride.completedAt
+                    ? new Date(
+                        ride.completedAt
+                    ).toLocaleDateString()
+                    : "Not recorded"
+            }</p>
 
-<p><strong>Time:</strong> ${
-    ride.completedAt
-        ? new Date(ride.completedAt).toLocaleTimeString([], {
-            hour: "numeric",
-            minute: "2-digit"
-        })
-        : "Not recorded"
-}</p>
+            <p><strong>Pickup:</strong> ${
+                ride.pickup || "Not recorded"
+            }</p>
 
-<p><strong>Pickup:</strong> ${ride.pickup}</p>
+            <p><strong>Destination:</strong> ${
+                ride.destination || "Not recorded"
+            }</p>
 
-            <p><strong>Destination:</strong> ${ride.destination}</p>
+            <p><strong>Fare:</strong> $${ride.fare || "0.00"}</p>
 
-            <p><strong>Fare:</strong> $${ride.fare}</p>
-
-            <p><strong>Status:</strong> ${ride.status}</p>
+            <p><strong>Status:</strong> ${
+                ride.status || "TRIP_COMPLETED"
+            }</p>
 
         </div>
 
@@ -921,7 +938,6 @@ function showRideHistory(){
     });
 
 }
-
 function showRiderHome() {
     
 let savedRide = JSON.parse(
