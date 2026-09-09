@@ -2133,6 +2133,18 @@ async function completeTrip(){
         "Thank you for driving with Scuber."
     );
 
+if(driverLocationWatcher !== null){
+
+    navigator.geolocation.clearWatch(
+        driverLocationWatcher
+    );
+
+    driverLocationWatcher = null;
+
+    console.log(
+        "Driver GPS tracking stopped."
+    );
+}    
     currentRide = null;
 
         localStorage.removeItem(
