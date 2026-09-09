@@ -12,6 +12,7 @@ import {
     getUserProfile,
     createRecurringRide,
     getRecurringRides,
+    getCompletedRiderRides,
     saveDriverAvailability,
     findAvailableDriver,
     setDriverOnlineStatus,
