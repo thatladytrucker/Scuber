@@ -170,6 +170,21 @@ function showMyRecurringRides(){
     document.getElementById("main-app")
     .classList.add("hidden");
 
+    document.getElementById("schedule-screen")
+    .classList.add("hidden");
+
+    document.getElementById("recurring-screen")
+    .classList.add("hidden");
+
+    document.getElementById("ride-history-screen")
+    .classList.add("hidden");
+
+    document.getElementById("ride-request-screen")
+    .classList.add("hidden");
+
+    document.getElementById("rider-trip-screen")
+    .classList.add("hidden");
+
     let recurringRides = JSON.parse(
         localStorage.getItem("scuberRecurringRides")
     ) || [];
