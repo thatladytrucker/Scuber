@@ -1443,4 +1443,148 @@ Status: 🟡 Waiting for responses
 4. SCUBER name
 We discovered another transportation-related "Scuber," so we're keeping SCUBER as the working name while we investigate clearance before spending money on branding/legal work.
 Status: 🟡 Investigate later
+9/11/2026
+🟢 SCUBER VERIFIED AUDIT — RIDER SIDE
+1. 🚗 Request Ride — 🟡 PARTIAL / NEEDS FIX
 
+The ride itself works, but the rider's active-trip screen is not staying visible.
+
+Current behavior:
+
+Driver: Accept → Start Trip
+Rider: Active Ride screen → automatically returns to Rider Menu
+
+That's wrong for the intended experience.
+
+The rider should remain on:
+
+🚗 Your Scuber Ride
+
+while the trip is active and continue seeing:
+
+Driver
+Pickup
+Destination
+Status
+ETA
+Route
+Moving GPS pin
+
+The rider should return to the Rider Menu only after TRIP_COMPLETED.
+
+So this is a real item to fix.
+
+2. 🧾 Ride History — 🟢 WORKING
+
+Verified.
+
+Driver ✅
+Date ✅
+Pickup ✅
+Destination ✅
+Fare ✅
+Status ✅
+
+No changes needed.
+
+3. 📅 Schedule a Ride — 🟡 PARTIAL
+
+The schedule can be saved, but there is a usability problem:
+
+The rider is told it was saved, but isn't given a clear place to find/manage the scheduled ride.
+
+Also, the screen-management problem is affecting this feature.
+
+We'll need to determine whether the scheduled ride is already being saved to Firebase/local storage correctly before changing the storage system.
+
+Don't rebuild it yet.
+
+4. 🔁 Recurring Rides — 🟡 PARTIAL
+
+The recurring ride is actually doing quite a bit already.
+
+You verified that it:
+
+accepts pickup ✅
+accepts destination ✅
+allows multiple days ✅
+accepts pickup time ✅
+saves the recurring ride ✅
+displays the saved recurring ride ✅
+shows status Active ✅
+shows Pause ✅
+shows Delete ✅
+shows Back to Rider Home ✅
+
+So we absolutely should NOT rebuild recurring rides.
+
+The problems are primarily screen navigation/display management.
+
+5. 📋 My Recurring Rides — 🟡 PARTIAL / NAVIGATION BUG
+
+You found an important bug.
+
+When selecting My Recurring Rides, the old screens remain visible underneath it.
+
+Instead of:
+
+Rider Home
+→ My Recurring Rides
+
+you're getting something more like:
+
+Rider Home
+Schedule Your Ride
+Recurring Ride setup
+My Recurring Rides
+
+That means our screen-showing functions aren't consistently hiding all other screens before displaying the requested screen.
+
+The Back button at the top also doesn't work.
+
+But:
+
+Back to Rider Home = WORKS ✅
+
+So again, we're fixing navigation—not rebuilding the recurring-ride feature.
+
+6. 👤 Profile — 🔴 NOT WORKING
+
+The button currently does nothing.
+
+This is a genuine unfinished feature.
+
+We will eventually fix it, but it does not need to be our first coding task.
+
+🎯 What We Actually Need To Do
+
+Based on today's testing, our real list is much smaller:
+
+Feature	Status	Action
+Request Ride	🟡 Partial	Fix active rider screen
+Ride History	🟢 Working	Leave alone
+Schedule Ride	🟡 Partial	Verify saved-rides location/display
+Recurring Rides	🟡 Partial	Fix navigation/display
+My Recurring Rides	🟡 Partial	Fix navigation/display
+Profile	🔴 Not working	Build/fix later
+🔧 FIRST TASK: Fix Screen Navigation
+
+I think this should come before we touch Schedule, Recurring Rides, or Profile.
+
+Why?
+
+Because you've now demonstrated that multiple rider screens are stacking on top of each other. If we fix that underlying navigation problem first, it may automatically correct several of the problems you just found.
+
+And importantly:
+
+We won't touch the working GPS code.
+We won't touch Ride History.
+We won't rebuild Recurring Rides.
+
+We'll make one navigation fix, deploy it, and retest.
+
+Our new rule
+
+From this point forward, when we discover something already works, I'll mark it DONE and leave it alone unless another feature genuinely requires it.
+
+That should save you a lot of unnecessary work.
