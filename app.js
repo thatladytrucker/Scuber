@@ -1730,8 +1730,7 @@ async function acceptRide(){
     await updateRide(
     currentRide.id,
     {
-        status: "TRIP_COMPLETED",
-        completedAt: new Date().toISOString()
+        status: "DRIVER_ACCEPTED"
     }
 );
 
